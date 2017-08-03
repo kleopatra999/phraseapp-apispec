@@ -1,0 +1,4218 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PhraseApp",
+    "description": "PhraseApp API for the interaction with the PhraseApp localization platform",
+    "termsOfService": "https://phraseapp.com/terms",
+    "contact": {
+      "name": "PhraseApp Support",
+      "url": "https://phraseapp.com/contact",
+      "email": "support@phraseapp.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    },
+    "version": "2.0"
+  },
+  "host": "api.phraseapp.com",
+  "basePath": "/api/v2",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/x-www-form-urlencoded"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/accounts": {
+      "get": {
+        "description": "List all accounts the current user has access to.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/accounts/{Id}": {
+      "get": {
+        "description": "Get details on a single account.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Account"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/authorizations": {
+      "get": {
+        "description": "List all your authorizations.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Authorization"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ],
+        "security": [
+          {
+            "basicAuth": [
+
+            ]
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new authorization.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AuthorizationWithToken"
+            }
+          }
+        },
+        "parameters": [
+
+        ],
+        "security": [
+          {
+            "basicAuth": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/authorizations/{Id}": {
+      "get": {
+        "description": "Get details on a single authorization.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Authorization"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "security": [
+          {
+            "basicAuth": [
+
+            ]
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing authorization.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Authorization"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "security": [
+          {
+            "basicAuth": [
+
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing authorization. API calls using that token will stop working.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "security": [
+          {
+            "basicAuth": [
+
+            ]
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/blacklisted_keys": {
+      "get": {
+        "description": "List all rules for blacklisting keys for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/BlacklistedKey"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new rule for blacklisting keys.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlacklistedKey"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/blacklisted_keys/{Id}": {
+      "get": {
+        "description": "Get details on a single rule for blacklisting keys for a given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlacklistedKey"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing rule for blacklisting keys.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/BlacklistedKey"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing rule for blacklisting keys.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/{KeyId}/comments": {
+      "get": {
+        "description": "List all comments for a key.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Comment"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new comment for a key.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/{KeyId}/comments/{Id}": {
+      "get": {
+        "description": "Get details on a single comment.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing comment.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Comment"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing comment.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/{KeyId}/comments/{Id}/read": {
+      "patch": {
+        "description": "Mark a comment as read.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Mark a comment as unread.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "description": "Check if comment was marked as read. Returns 204 if read, 404 if unread.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/formats": {
+      "get": {
+        "description": "Get a handy list of all localization file formats supported in PhraseApp.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Format"
+              }
+            }
+          }
+        },
+        "parameters": [
+
+        ]
+      }
+    },
+    "/accounts/{AccountId}/glossaries": {
+      "get": {
+        "description": "List all glossaries the current user has access to.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Glossary"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new glossary.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Glossary"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/glossaries/{Id}": {
+      "get": {
+        "description": "Get details on a single glossary.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Glossary"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing glossary.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Glossary"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing glossary.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/glossaries/{GlossaryId}/terms/{TermId}/translations": {
+      "post": {
+        "description": "Create a new glossary term translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GlossaryTermTranslation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TermId",
+            "in": "path",
+            "description": "TermId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/glossaries/{GlossaryId}/terms/{TermId}/translations/{Id}": {
+      "patch": {
+        "description": "Update an existing glossary term translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GlossaryTermTranslation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TermId",
+            "in": "path",
+            "description": "TermId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing glossary term translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TermId",
+            "in": "path",
+            "description": "TermId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/glossaries/{GlossaryId}/terms": {
+      "get": {
+        "description": "List all glossary terms the current user has access to.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/GlossaryTerm"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new glossary term.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GlossaryTerm"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/glossaries/{GlossaryId}/terms/{Id}": {
+      "get": {
+        "description": "Get details on a single glossary term.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GlossaryTerm"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing glossary term.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/GlossaryTerm"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing glossary term.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "GlossaryId",
+            "in": "path",
+            "description": "GlossaryId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/invitations": {
+      "get": {
+        "description": "List invitations for an account. It will also list the accessible resources like projects and locales the invited user has access to. In case nothing is shown the default access from the role is used. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Invitation"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Invite a person to an account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Invitation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/invitations/{Id}": {
+      "get": {
+        "description": "Get details on a single invitation. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Invitation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing invitation (must not be accepted yet). The <code>email</code> cannot be updated. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Invitation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing invitation (must not be accepted yet). Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/invitations/{Id}/resend": {
+      "post": {
+        "description": "Resend the invitation email (must not be accepted yet). Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Invitation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys": {
+      "get": {
+        "description": "List all keys for the given project. Alternatively you can POST requests to /search.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TranslationKey"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new key.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationKeyDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete all keys matching query. Same constraints as list. Please limit the number of affected keys to about 1,000 as you might experience timeouts otherwise.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedResources"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/search": {
+      "post": {
+        "description": "Search keys for the given project matching query.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TranslationKey"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/{Id}": {
+      "get": {
+        "description": "Get details on a single key for a given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationKey"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing key.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationKeyDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing key.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/tag": {
+      "patch": {
+        "description": "Tags all keys matching query. Same constraints as list.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedResources"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/untag": {
+      "patch": {
+        "description": "Removes specified tags from keys matching query.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedResources"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/locales": {
+      "get": {
+        "description": "List all locales for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Locale"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new locale.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LocaleDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/locales/{Id}": {
+      "get": {
+        "description": "Get details on a single locale for a given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Locale"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing locale.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/LocaleDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing locale.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/locales/{Id}/download": {
+      "get": {
+        "description": "Download a locale in a specific file format.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/members": {
+      "get": {
+        "description": "Get all users active in the account. It also lists resources like projects and locales the member has access to. In case nothing is shown the default access from the role is used. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Member"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/accounts/{AccountId}/members/{Id}": {
+      "get": {
+        "description": "Get details on a single user in the account. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update user permissions in the account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Member"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Remove a user from the account. The user will be removed from the account but not deleted from PhraseApp. Access token scope must include <code>team.manage</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "AccountId",
+            "in": "path",
+            "description": "AccountId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/orders": {
+      "get": {
+        "description": "List all orders for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TranslationOrder"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new order. Access token scope must include <code>orders.create</code>.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationOrder"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/orders/{Id}": {
+      "get": {
+        "description": "Get details on a single order.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationOrder"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Cancel an existing order. Must not yet be confirmed.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/orders/{Id}/confirm": {
+      "patch": {
+        "description": "Confirm an existing order and send it to the provider for translation. Same constraints as for create.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationOrder"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects": {
+      "get": {
+        "description": "List all projects the current user has access to.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Project"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ProjectDetails"
+            }
+          }
+        },
+        "parameters": [
+
+        ]
+      }
+    },
+    "/projects/{Id}": {
+      "get": {
+        "description": "Get details on a single project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Project"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/ProjectDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/styleguides": {
+      "get": {
+        "description": "List all styleguides for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Styleguide"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new style guide.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StyleguideDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/styleguides/{Id}": {
+      "get": {
+        "description": "Get details on a single style guide.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Styleguide"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing style guide.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/StyleguideDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing style guide.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/tags": {
+      "get": {
+        "description": "List all tags for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Tag"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new tag.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TagWithStats"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/tags/{Name}": {
+      "get": {
+        "description": "Get details and progress information on a single tag for a given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Tag"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Name",
+            "in": "path",
+            "description": "Name",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing tag.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Name",
+            "in": "path",
+            "description": "Name",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations": {
+      "get": {
+        "description": "List translations for the given project. If you want to download all translations for one locale we recommend to use the <code>locales#download</code> endpoint.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Translation"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/locales/{LocaleId}/translations": {
+      "get": {
+        "description": "List translations for a specific locale. If you want to download all translations for one locale we recommend to use the <code>locales#download</code> endpoint.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Translation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "LocaleId",
+            "in": "path",
+            "description": "LocaleId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/keys/{KeyId}/translations": {
+      "get": {
+        "description": "List translations for a specific key.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Translation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "KeyId",
+            "in": "path",
+            "description": "KeyId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/search": {
+      "post": {
+        "description": "List translations for the given project if you exceed GET request limitations on translations list. If you want to download all translations for one locale we recommend to use the <code>locales#download</code> endpoint.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Translation"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/{Id}": {
+      "get": {
+        "description": "Get details on a single translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Translation"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationDetails"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/verify": {
+      "patch": {
+        "description": "<div class=\"alert alert-info\">Only available in the <a href=\"https://phraseapp.com/pricing\" target=\"_blank\">Control Package</a>.</div>Verify translations matching query.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedCount"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/unverify": {
+      "patch": {
+        "description": "<div class=\"alert alert-info\">Only available in the <a href=\"https://phraseapp.com/pricing\" target=\"_blank\">Control Package</a>.</div>Mark translations matching query as unverified.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedCount"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/exclude": {
+      "patch": {
+        "description": "Exclude translations matching query from locale export.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedCount"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/include": {
+      "patch": {
+        "description": "Include translations matching query in locale export.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/AffectedCount"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/uploads": {
+      "post": {
+        "description": "Upload a new language file. Creates necessary resources in your project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Upload"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "get": {
+        "description": "List all uploads for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Upload"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/uploads/{Id}": {
+      "get": {
+        "description": "View details and summary for a single upload.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Upload"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/user": {
+      "get": {
+        "description": "Show details for current User.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        },
+        "parameters": [
+
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/{TranslationId}/versions": {
+      "get": {
+        "description": "List all versions for the given translation.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/TranslationVersion"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TranslationId",
+            "in": "path",
+            "description": "TranslationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/translations/{TranslationId}/versions/{Id}": {
+      "get": {
+        "description": "Get details on a single version.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/TranslationVersion"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "TranslationId",
+            "in": "path",
+            "description": "TranslationId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/webhooks": {
+      "get": {
+        "description": "List all webhooks for the given project.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Webhook"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Per Page",
+            "required": false,
+            "type": "integer",
+            "default": 25
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page",
+            "required": false,
+            "type": "integer",
+            "default": 1
+          }
+        ]
+      },
+      "post": {
+        "description": "Create a new webhook.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/webhooks/{Id}": {
+      "get": {
+        "description": "Get details on a single webhook.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "patch": {
+        "description": "Update an existing webhook.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Webhook"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "description": "Delete an existing webhook.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    },
+    "/projects/{ProjectId}/webhooks/{Id}/test": {
+      "post": {
+        "description": "Perform a test request for a webhook.",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "parameters": [
+          {
+            "name": "ProjectId",
+            "in": "path",
+            "description": "ProjectId",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Id",
+            "in": "path",
+            "description": "Id",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "Authorization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        },
+        "token_last_eight": {
+          "type": "string"
+        },
+        "hashed_token": {
+          "type": "string"
+        },
+        "scopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "AuthorizationWithToken": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "BlacklistedKey": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Comment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/UserPreview"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "KeyPreview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "plural": {
+          "type": "boolean"
+        }
+      }
+    },
+    "AffectedCount": {
+      "type": "object",
+      "properties": {
+        "records_affected": {
+          "type": "integer"
+        }
+      }
+    },
+    "Account": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Member": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProjectLocale"
+          }
+        }
+      }
+    },
+    "Invitation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProjectShort"
+          }
+        },
+        "locales": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocalePreview"
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accepted_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Glossary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "projects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProjectShort"
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "GlossaryTerm": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "term": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "translatable": {
+          "type": "boolean"
+        },
+        "case_sensitive": {
+          "type": "boolean"
+        },
+        "translations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/GlossaryTermTranslation"
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "GlossaryTermTranslation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "locale_code": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ProjectShort": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "main_format": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ProjectLocales": {
+      "type": "object",
+      "properties": {
+        "locales": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocalePreview"
+          }
+        }
+      }
+    },
+    "LocalePreview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "Locale": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "code": {
+          "type": "string"
+        },
+        "default": {
+          "type": "boolean"
+        },
+        "main": {
+          "type": "boolean"
+        },
+        "rtl": {
+          "type": "boolean"
+        },
+        "plural_forms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source_locale": {
+          "$ref": "#/definitions/LocalePreview"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "LocaleStatistics": {
+      "type": "object",
+      "properties": {
+        "keys_total_count": {
+          "type": "integer"
+        },
+        "keys_untranslated_count": {
+          "type": "integer"
+        },
+        "words_total_count": {
+          "type": "integer"
+        },
+        "translations_completed_count": {
+          "type": "integer"
+        },
+        "translations_unverified_count": {
+          "type": "integer"
+        },
+        "unverified_words_count": {
+          "type": "integer"
+        },
+        "missing_words_count": {
+          "type": "integer"
+        }
+      }
+    },
+    "LocaleDetails": {
+      "type": "object",
+      "properties": {
+        "statistics": {
+          "$ref": "#/definitions/LocaleStatistics"
+        }
+      }
+    },
+    "Upload": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "format": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Format": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "api_name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "string"
+        },
+        "default_encoding": {
+          "type": "string"
+        },
+        "importable": {
+          "type": "boolean"
+        },
+        "exportable": {
+          "type": "boolean"
+        },
+        "default_file": {
+          "type": "string"
+        },
+        "renders_default_locale": {
+          "type": "boolean"
+        },
+        "includes_locale_information": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Project": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "main_format": {
+          "type": "string"
+        },
+        "account": {
+          "$ref": "#/definitions/Account"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "ProjectDetails": {
+      "type": "object",
+      "properties": {
+        "shares_translation_memory": {
+          "type": "boolean"
+        }
+      }
+    },
+    "Styleguide": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "StyleguidePreview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "StyleguideDetails": {
+      "type": "object",
+      "properties": {
+        "public_url": {
+          "type": "string"
+        },
+        "audience": {
+          "type": "string"
+        },
+        "target_audience": {
+          "type": "string"
+        },
+        "grammatical_person": {
+          "type": "string"
+        },
+        "vocabulary_type": {
+          "type": "string"
+        },
+        "business": {
+          "type": "string"
+        },
+        "company_branding": {
+          "type": "string"
+        },
+        "formatting": {
+          "type": "string"
+        },
+        "glossary_terms": {
+          "type": "string"
+        },
+        "grammar_consistency": {
+          "type": "string"
+        },
+        "literal_translation": {
+          "type": "string"
+        },
+        "overall_tone": {
+          "type": "string"
+        },
+        "samples": {
+          "type": "string"
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "keys_count": {
+          "type": "integer"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "TagWithStats": {
+      "type": "object",
+      "properties": {
+      }
+    },
+    "Translation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "unverified": {
+          "type": "boolean"
+        },
+        "excluded": {
+          "type": "boolean"
+        },
+        "plural_suffix": {
+          "type": "string"
+        },
+        "key": {
+          "$ref": "#/definitions/KeyPreview"
+        },
+        "locale": {
+          "$ref": "#/definitions/LocalePreview"
+        },
+        "placeholders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "TranslationDetails": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/UserPreview"
+        },
+        "word_count": {
+          "type": "integer"
+        }
+      }
+    },
+    "TranslationKey": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "name_hash": {
+          "type": "string"
+        },
+        "plural": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "data_type": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "TranslationKeyDetails": {
+      "type": "object",
+      "properties": {
+        "name_plural": {
+          "type": "string"
+        },
+        "comments_count": {
+          "type": "integer"
+        },
+        "max_characters_allowed": {
+          "type": "integer"
+        },
+        "screenshot_url": {
+          "type": "string"
+        },
+        "unformatted": {
+          "type": "boolean"
+        },
+        "xml_space_preserve": {
+          "type": "boolean"
+        },
+        "original_file": {
+          "type": "string"
+        },
+        "format_value_type": {
+          "type": "string"
+        }
+      }
+    },
+    "AffectedResources": {
+      "type": "object",
+      "properties": {
+        "records_affected": {
+          "type": "integer"
+        }
+      }
+    },
+    "TranslationOrder": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "lsp": {
+          "type": "string"
+        },
+        "amount_in_cents": {
+          "type": "integer"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "state": {
+          "type": "string"
+        },
+        "translation_type": {
+          "type": "string"
+        },
+        "progress_percent": {
+          "type": "integer"
+        },
+        "source_locale": {
+          "$ref": "#/definitions/LocalePreview"
+        },
+        "target_locales": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/LocalePreview"
+          }
+        },
+        "tag": {
+          "type": "string"
+        },
+        "styleguide": {
+          "$ref": "#/definitions/StyleguidePreview"
+        },
+        "unverify_translations_upon_delivery": {
+          "type": "boolean"
+        },
+        "quality": {
+          "type": "boolean"
+        },
+        "priority": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "TranslationVersion": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "plural_suffix": {
+          "type": "string"
+        },
+        "key": {
+          "$ref": "#/definitions/KeyPreview"
+        },
+        "locale": {
+          "$ref": "#/definitions/LocalePreview"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "changed_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "TranslationVersionWithUser": {
+      "type": "object",
+      "properties": {
+        "user": {
+          "$ref": "#/definitions/UserPreview"
+        }
+      }
+    },
+    "UserPreview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "position": {
+          "type": "string"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "Webhook": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "callback_url": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "active": {
+          "type": "boolean"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  },
+  "parameters": {
+  },
+  "responses": {
+  },
+  "securityDefinitions": {
+    "headerToken": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    },
+    "basicAuth": {
+      "type": "basic"
+    }
+  },
+  "security": [
+    {
+      "headerToken": [
+
+      ]
+    },
+    {
+      "queryToken": [
+
+      ]
+    }
+  ],
+  "tags": [
+
+  ],
+  "externalDocs": {
+    "description": "PhraseApp API Specification",
+    "url": "https://phraseapp.com/docs/api/v2/"
+  }
+}
