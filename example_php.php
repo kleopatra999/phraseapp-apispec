@@ -11,6 +11,9 @@ try {
   $projects = $api_instance->projectsGet();
   foreach ($projects as $project) {
     printf("%s: %s\n", $project->getId(), $project->getName());
+    foreach ($api_instance->projectsProjectIdLocalesGet($project->getId()) as $locale) {
+      printf("  %s %s %s\n", $locale->getId(), $locale->getName(), $locale->getCode());
+    }
   }
 
 } catch (Exception $e) {
