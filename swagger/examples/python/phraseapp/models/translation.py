@@ -38,7 +38,6 @@ class Translation(object):
         'plural_suffix': 'str',
         'key': 'KeyPreview',
         'locale': 'LocalePreview',
-        'placeholders': 'list[str]',
         'created_at': 'datetime',
         'updated_at': 'datetime'
     }
@@ -51,12 +50,11 @@ class Translation(object):
         'plural_suffix': 'plural_suffix',
         'key': 'key',
         'locale': 'locale',
-        'placeholders': 'placeholders',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, content=None, unverified=None, excluded=None, plural_suffix=None, key=None, locale=None, placeholders=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, content=None, unverified=None, excluded=None, plural_suffix=None, key=None, locale=None, created_at=None, updated_at=None):
         """
         Translation - a model defined in Swagger
         """
@@ -68,7 +66,6 @@ class Translation(object):
         self._plural_suffix = None
         self._key = None
         self._locale = None
-        self._placeholders = None
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
@@ -87,8 +84,6 @@ class Translation(object):
           self.key = key
         if locale is not None:
           self.locale = locale
-        if placeholders is not None:
-          self.placeholders = placeholders
         if created_at is not None:
           self.created_at = created_at
         if updated_at is not None:
@@ -240,27 +235,6 @@ class Translation(object):
         """
 
         self._locale = locale
-
-    @property
-    def placeholders(self):
-        """
-        Gets the placeholders of this Translation.
-
-        :return: The placeholders of this Translation.
-        :rtype: list[str]
-        """
-        return self._placeholders
-
-    @placeholders.setter
-    def placeholders(self, placeholders):
-        """
-        Sets the placeholders of this Translation.
-
-        :param placeholders: The placeholders of this Translation.
-        :type: list[str]
-        """
-
-        self._placeholders = placeholders
 
     @property
     def created_at(self):

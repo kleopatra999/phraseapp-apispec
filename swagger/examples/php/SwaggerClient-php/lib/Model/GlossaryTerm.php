@@ -59,7 +59,6 @@ class GlossaryTerm implements ArrayAccess
         'description' => 'string',
         'translatable' => 'bool',
         'case_sensitive' => 'bool',
-        'translations' => '\Swagger\Client\Model\GlossaryTermTranslation[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -74,7 +73,6 @@ class GlossaryTerm implements ArrayAccess
         'description' => null,
         'translatable' => null,
         'case_sensitive' => null,
-        'translations' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -99,7 +97,6 @@ class GlossaryTerm implements ArrayAccess
         'description' => 'description',
         'translatable' => 'translatable',
         'case_sensitive' => 'case_sensitive',
-        'translations' => 'translations',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -115,7 +112,6 @@ class GlossaryTerm implements ArrayAccess
         'description' => 'setDescription',
         'translatable' => 'setTranslatable',
         'case_sensitive' => 'setCaseSensitive',
-        'translations' => 'setTranslations',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -131,7 +127,6 @@ class GlossaryTerm implements ArrayAccess
         'description' => 'getDescription',
         'translatable' => 'getTranslatable',
         'case_sensitive' => 'getCaseSensitive',
-        'translations' => 'getTranslations',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -172,7 +167,6 @@ class GlossaryTerm implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['translatable'] = isset($data['translatable']) ? $data['translatable'] : null;
         $this->container['case_sensitive'] = isset($data['case_sensitive']) ? $data['case_sensitive'] : null;
-        $this->container['translations'] = isset($data['translations']) ? $data['translations'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -303,27 +297,6 @@ class GlossaryTerm implements ArrayAccess
     public function setCaseSensitive($case_sensitive)
     {
         $this->container['case_sensitive'] = $case_sensitive;
-
-        return $this;
-    }
-
-    /**
-     * Gets translations
-     * @return \Swagger\Client\Model\GlossaryTermTranslation[]
-     */
-    public function getTranslations()
-    {
-        return $this->container['translations'];
-    }
-
-    /**
-     * Sets translations
-     * @param \Swagger\Client\Model\GlossaryTermTranslation[] $translations
-     * @return $this
-     */
-    public function setTranslations($translations)
-    {
-        $this->container['translations'] = $translations;
 
         return $this;
     }

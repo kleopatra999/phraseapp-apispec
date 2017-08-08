@@ -1052,33 +1052,41 @@ class DefaultApi
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsIdPatch
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\GlossaryTerm
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatch($account_id, $glossary_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatch($term, $account_id, $glossary_id, $id, $description = null, $translatable = null, $case_sensitive = null)
     {
-        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchWithHttpInfo($account_id, $glossary_id, $id);
+        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchWithHttpInfo($term, $account_id, $glossary_id, $id, $description, $translatable, $case_sensitive);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsIdPatchWithHttpInfo
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatchWithHttpInfo($account_id, $glossary_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatchWithHttpInfo($term, $account_id, $glossary_id, $id, $description = null, $translatable = null, $case_sensitive = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTerm';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchRequest($account_id, $glossary_id, $id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchRequest($term, $account_id, $glossary_id, $id, $description, $translatable, $case_sensitive);
 
         try {
 
@@ -1135,15 +1143,19 @@ class DefaultApi
      *
      * 
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatchAsync($account_id, $glossary_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatchAsync($term, $account_id, $glossary_id, $id, $description = null, $translatable = null, $case_sensitive = null)
     {
-        return $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchAsyncWithHttpInfo($account_id, $glossary_id, $id)->then(function ($response) {
+        return $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchAsyncWithHttpInfo($term, $account_id, $glossary_id, $id, $description, $translatable, $case_sensitive)->then(function ($response) {
             return $response[0];
         });
     }
@@ -1153,16 +1165,20 @@ class DefaultApi
      *
      * 
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatchAsyncWithHttpInfo($account_id, $glossary_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsIdPatchAsyncWithHttpInfo($term, $account_id, $glossary_id, $id, $description = null, $translatable = null, $case_sensitive = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTerm';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchRequest($account_id, $glossary_id, $id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsIdPatchRequest($term, $account_id, $glossary_id, $id, $description, $translatable, $case_sensitive);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -1195,14 +1211,22 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdGlossariesGlossaryIdTermsIdPatch'
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdGlossariesGlossaryIdTermsIdPatchRequest($account_id, $glossary_id, $id)
+    protected function accountsAccountIdGlossariesGlossaryIdTermsIdPatchRequest($term, $account_id, $glossary_id, $id, $description = null, $translatable = null, $case_sensitive = null)
     {
+        // verify the required parameter 'term' is set
+        if ($term === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $term when calling accountsAccountIdGlossariesGlossaryIdTermsIdPatch');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdGlossariesGlossaryIdTermsIdPatch');
@@ -1223,6 +1247,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($term !== null) {
+            $queryParams['term'] = ObjectSerializer::toQueryValue($term);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($translatable !== null) {
+            $queryParams['translatable'] = ObjectSerializer::toQueryValue($translatable);
+        }
+        // query params
+        if ($case_sensitive !== null) {
+            $queryParams['case_sensitive'] = ObjectSerializer::toQueryValue($case_sensitive);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -1303,31 +1343,39 @@ class DefaultApi
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsPost
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\GlossaryTerm
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsPost($account_id, $glossary_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsPost($term, $account_id, $glossary_id, $description = null, $translatable = null, $case_sensitive = null)
     {
-        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsPostWithHttpInfo($account_id, $glossary_id);
+        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsPostWithHttpInfo($term, $account_id, $glossary_id, $description, $translatable, $case_sensitive);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsPostWithHttpInfo
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\GlossaryTerm, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsPostWithHttpInfo($account_id, $glossary_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsPostWithHttpInfo($term, $account_id, $glossary_id, $description = null, $translatable = null, $case_sensitive = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTerm';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsPostRequest($account_id, $glossary_id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsPostRequest($term, $account_id, $glossary_id, $description, $translatable, $case_sensitive);
 
         try {
 
@@ -1384,14 +1432,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsPostAsync($account_id, $glossary_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsPostAsync($term, $account_id, $glossary_id, $description = null, $translatable = null, $case_sensitive = null)
     {
-        return $this->accountsAccountIdGlossariesGlossaryIdTermsPostAsyncWithHttpInfo($account_id, $glossary_id)->then(function ($response) {
+        return $this->accountsAccountIdGlossariesGlossaryIdTermsPostAsyncWithHttpInfo($term, $account_id, $glossary_id, $description, $translatable, $case_sensitive)->then(function ($response) {
             return $response[0];
         });
     }
@@ -1401,15 +1453,19 @@ class DefaultApi
      *
      * 
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsPostAsyncWithHttpInfo($account_id, $glossary_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsPostAsyncWithHttpInfo($term, $account_id, $glossary_id, $description = null, $translatable = null, $case_sensitive = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTerm';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsPostRequest($account_id, $glossary_id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsPostRequest($term, $account_id, $glossary_id, $description, $translatable, $case_sensitive);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -1442,13 +1498,21 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdGlossariesGlossaryIdTermsPost'
      *
+     * @param string $term  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
+     * @param string $description  (optional)
+     * @param bool $translatable  (optional)
+     * @param bool $case_sensitive  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdGlossariesGlossaryIdTermsPostRequest($account_id, $glossary_id)
+    protected function accountsAccountIdGlossariesGlossaryIdTermsPostRequest($term, $account_id, $glossary_id, $description = null, $translatable = null, $case_sensitive = null)
     {
+        // verify the required parameter 'term' is set
+        if ($term === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $term when calling accountsAccountIdGlossariesGlossaryIdTermsPost');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdGlossariesGlossaryIdTermsPost');
@@ -1465,6 +1529,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($term !== null) {
+            $queryParams['term'] = ObjectSerializer::toQueryValue($term);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($translatable !== null) {
+            $queryParams['translatable'] = ObjectSerializer::toQueryValue($translatable);
+        }
+        // query params
+        if ($case_sensitive !== null) {
+            $queryParams['case_sensitive'] = ObjectSerializer::toQueryValue($case_sensitive);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -1772,35 +1852,39 @@ class DefaultApi
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
      * @param string $id Id (required)
+     * @param string $content  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\GlossaryTermTranslation
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch($account_id, $glossary_id, $term_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch($locale_code, $account_id, $glossary_id, $term_id, $id, $content = null)
     {
-        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchWithHttpInfo($account_id, $glossary_id, $term_id, $id);
+        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $id, $content);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchWithHttpInfo
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
      * @param string $id Id (required)
+     * @param string $content  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\GlossaryTermTranslation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchWithHttpInfo($account_id, $glossary_id, $term_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $id, $content = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTermTranslation';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchRequest($account_id, $glossary_id, $term_id, $id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchRequest($locale_code, $account_id, $glossary_id, $term_id, $id, $content);
 
         try {
 
@@ -1857,16 +1941,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
      * @param string $id Id (required)
+     * @param string $content  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchAsync($account_id, $glossary_id, $term_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchAsync($locale_code, $account_id, $glossary_id, $term_id, $id, $content = null)
     {
-        return $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchAsyncWithHttpInfo($account_id, $glossary_id, $term_id, $id)->then(function ($response) {
+        return $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchAsyncWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $id, $content)->then(function ($response) {
             return $response[0];
         });
     }
@@ -1876,17 +1962,19 @@ class DefaultApi
      *
      * 
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
      * @param string $id Id (required)
+     * @param string $content  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchAsyncWithHttpInfo($account_id, $glossary_id, $term_id, $id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchAsyncWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $id, $content = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTermTranslation';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchRequest($account_id, $glossary_id, $term_id, $id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchRequest($locale_code, $account_id, $glossary_id, $term_id, $id, $content);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -1919,15 +2007,21 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch'
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
      * @param string $id Id (required)
+     * @param string $content  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchRequest($account_id, $glossary_id, $term_id, $id)
+    protected function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatchRequest($locale_code, $account_id, $glossary_id, $term_id, $id, $content = null)
     {
+        // verify the required parameter 'locale_code' is set
+        if ($locale_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $locale_code when calling accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch');
@@ -1952,6 +2046,14 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($locale_code !== null) {
+            $queryParams['locale_code'] = ObjectSerializer::toQueryValue($locale_code);
+        }
+        // query params
+        if ($content !== null) {
+            $queryParams['content'] = ObjectSerializer::toQueryValue($content);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -2036,33 +2138,37 @@ class DefaultApi
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
+     * @param string $content  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\GlossaryTermTranslation
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost($account_id, $glossary_id, $term_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost($locale_code, $account_id, $glossary_id, $term_id, $content = null)
     {
-        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostWithHttpInfo($account_id, $glossary_id, $term_id);
+        list($response) = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $content);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostWithHttpInfo
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
+     * @param string $content  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\GlossaryTermTranslation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostWithHttpInfo($account_id, $glossary_id, $term_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $content = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTermTranslation';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostRequest($account_id, $glossary_id, $term_id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostRequest($locale_code, $account_id, $glossary_id, $term_id, $content);
 
         try {
 
@@ -2119,15 +2225,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
+     * @param string $content  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostAsync($account_id, $glossary_id, $term_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostAsync($locale_code, $account_id, $glossary_id, $term_id, $content = null)
     {
-        return $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostAsyncWithHttpInfo($account_id, $glossary_id, $term_id)->then(function ($response) {
+        return $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostAsyncWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $content)->then(function ($response) {
             return $response[0];
         });
     }
@@ -2137,16 +2245,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
+     * @param string $content  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostAsyncWithHttpInfo($account_id, $glossary_id, $term_id)
+    public function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostAsyncWithHttpInfo($locale_code, $account_id, $glossary_id, $term_id, $content = null)
     {
         $returnType = '\Swagger\Client\Model\GlossaryTermTranslation';
-        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostRequest($account_id, $glossary_id, $term_id);
+        $request = $this->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostRequest($locale_code, $account_id, $glossary_id, $term_id, $content);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -2179,14 +2289,20 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost'
      *
+     * @param string $locale_code  (required)
      * @param string $account_id AccountId (required)
      * @param string $glossary_id GlossaryId (required)
      * @param string $term_id TermId (required)
+     * @param string $content  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostRequest($account_id, $glossary_id, $term_id)
+    protected function accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPostRequest($locale_code, $account_id, $glossary_id, $term_id, $content = null)
     {
+        // verify the required parameter 'locale_code' is set
+        if ($locale_code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $locale_code when calling accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost');
@@ -2207,6 +2323,14 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($locale_code !== null) {
+            $queryParams['locale_code'] = ObjectSerializer::toQueryValue($locale_code);
+        }
+        // query params
+        if ($content !== null) {
+            $queryParams['content'] = ObjectSerializer::toQueryValue($content);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -2730,31 +2854,35 @@ class DefaultApi
     /**
      * Operation accountsAccountIdGlossariesIdPatch
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Glossary
      */
-    public function accountsAccountIdGlossariesIdPatch($account_id, $id)
+    public function accountsAccountIdGlossariesIdPatch($name, $account_id, $id, $project_ids = null)
     {
-        list($response) = $this->accountsAccountIdGlossariesIdPatchWithHttpInfo($account_id, $id);
+        list($response) = $this->accountsAccountIdGlossariesIdPatchWithHttpInfo($name, $account_id, $id, $project_ids);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdGlossariesIdPatchWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Glossary, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdGlossariesIdPatchWithHttpInfo($account_id, $id)
+    public function accountsAccountIdGlossariesIdPatchWithHttpInfo($name, $account_id, $id, $project_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Glossary';
-        $request = $this->accountsAccountIdGlossariesIdPatchRequest($account_id, $id);
+        $request = $this->accountsAccountIdGlossariesIdPatchRequest($name, $account_id, $id, $project_ids);
 
         try {
 
@@ -2811,14 +2939,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesIdPatchAsync($account_id, $id)
+    public function accountsAccountIdGlossariesIdPatchAsync($name, $account_id, $id, $project_ids = null)
     {
-        return $this->accountsAccountIdGlossariesIdPatchAsyncWithHttpInfo($account_id, $id)->then(function ($response) {
+        return $this->accountsAccountIdGlossariesIdPatchAsyncWithHttpInfo($name, $account_id, $id, $project_ids)->then(function ($response) {
             return $response[0];
         });
     }
@@ -2828,15 +2958,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesIdPatchAsyncWithHttpInfo($account_id, $id)
+    public function accountsAccountIdGlossariesIdPatchAsyncWithHttpInfo($name, $account_id, $id, $project_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Glossary';
-        $request = $this->accountsAccountIdGlossariesIdPatchRequest($account_id, $id);
+        $request = $this->accountsAccountIdGlossariesIdPatchRequest($name, $account_id, $id, $project_ids);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -2869,13 +3001,19 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdGlossariesIdPatch'
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdGlossariesIdPatchRequest($account_id, $id)
+    protected function accountsAccountIdGlossariesIdPatchRequest($name, $account_id, $id, $project_ids = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling accountsAccountIdGlossariesIdPatch');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdGlossariesIdPatch');
@@ -2892,6 +3030,14 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($project_ids !== null) {
+            $queryParams['project_ids'] = ObjectSerializer::toQueryValue($project_ids);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -2968,29 +3114,33 @@ class DefaultApi
     /**
      * Operation accountsAccountIdGlossariesPost
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Glossary
      */
-    public function accountsAccountIdGlossariesPost($account_id)
+    public function accountsAccountIdGlossariesPost($name, $account_id, $project_ids = null)
     {
-        list($response) = $this->accountsAccountIdGlossariesPostWithHttpInfo($account_id);
+        list($response) = $this->accountsAccountIdGlossariesPostWithHttpInfo($name, $account_id, $project_ids);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdGlossariesPostWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Glossary, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdGlossariesPostWithHttpInfo($account_id)
+    public function accountsAccountIdGlossariesPostWithHttpInfo($name, $account_id, $project_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Glossary';
-        $request = $this->accountsAccountIdGlossariesPostRequest($account_id);
+        $request = $this->accountsAccountIdGlossariesPostRequest($name, $account_id, $project_ids);
 
         try {
 
@@ -3047,13 +3197,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesPostAsync($account_id)
+    public function accountsAccountIdGlossariesPostAsync($name, $account_id, $project_ids = null)
     {
-        return $this->accountsAccountIdGlossariesPostAsyncWithHttpInfo($account_id)->then(function ($response) {
+        return $this->accountsAccountIdGlossariesPostAsyncWithHttpInfo($name, $account_id, $project_ids)->then(function ($response) {
             return $response[0];
         });
     }
@@ -3063,14 +3215,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdGlossariesPostAsyncWithHttpInfo($account_id)
+    public function accountsAccountIdGlossariesPostAsyncWithHttpInfo($name, $account_id, $project_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Glossary';
-        $request = $this->accountsAccountIdGlossariesPostRequest($account_id);
+        $request = $this->accountsAccountIdGlossariesPostRequest($name, $account_id, $project_ids);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -3103,12 +3257,18 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdGlossariesPost'
      *
+     * @param string $name  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdGlossariesPostRequest($account_id)
+    protected function accountsAccountIdGlossariesPostRequest($name, $account_id, $project_ids = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling accountsAccountIdGlossariesPost');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdGlossariesPost');
@@ -3121,6 +3281,14 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($project_ids !== null) {
+            $queryParams['project_ids'] = ObjectSerializer::toQueryValue($project_ids);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -3879,31 +4047,37 @@ class DefaultApi
     /**
      * Operation accountsAccountIdInvitationsIdPatch
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Invitation
      */
-    public function accountsAccountIdInvitationsIdPatch($account_id, $id)
+    public function accountsAccountIdInvitationsIdPatch($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
-        list($response) = $this->accountsAccountIdInvitationsIdPatchWithHttpInfo($account_id, $id);
+        list($response) = $this->accountsAccountIdInvitationsIdPatchWithHttpInfo($role, $account_id, $id, $project_ids, $locale_ids);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdInvitationsIdPatchWithHttpInfo
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdInvitationsIdPatchWithHttpInfo($account_id, $id)
+    public function accountsAccountIdInvitationsIdPatchWithHttpInfo($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Invitation';
-        $request = $this->accountsAccountIdInvitationsIdPatchRequest($account_id, $id);
+        $request = $this->accountsAccountIdInvitationsIdPatchRequest($role, $account_id, $id, $project_ids, $locale_ids);
 
         try {
 
@@ -3960,14 +4134,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdInvitationsIdPatchAsync($account_id, $id)
+    public function accountsAccountIdInvitationsIdPatchAsync($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
-        return $this->accountsAccountIdInvitationsIdPatchAsyncWithHttpInfo($account_id, $id)->then(function ($response) {
+        return $this->accountsAccountIdInvitationsIdPatchAsyncWithHttpInfo($role, $account_id, $id, $project_ids, $locale_ids)->then(function ($response) {
             return $response[0];
         });
     }
@@ -3977,15 +4154,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdInvitationsIdPatchAsyncWithHttpInfo($account_id, $id)
+    public function accountsAccountIdInvitationsIdPatchAsyncWithHttpInfo($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Invitation';
-        $request = $this->accountsAccountIdInvitationsIdPatchRequest($account_id, $id);
+        $request = $this->accountsAccountIdInvitationsIdPatchRequest($role, $account_id, $id, $project_ids, $locale_ids);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -4018,13 +4198,20 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdInvitationsIdPatch'
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdInvitationsIdPatchRequest($account_id, $id)
+    protected function accountsAccountIdInvitationsIdPatchRequest($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
+        // verify the required parameter 'role' is set
+        if ($role === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $role when calling accountsAccountIdInvitationsIdPatch');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdInvitationsIdPatch');
@@ -4041,6 +4228,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($role !== null) {
+            $queryParams['role'] = ObjectSerializer::toQueryValue($role);
+        }
+        // query params
+        if ($project_ids !== null) {
+            $queryParams['project_ids'] = ObjectSerializer::toQueryValue($project_ids);
+        }
+        // query params
+        if ($locale_ids !== null) {
+            $queryParams['locale_ids'] = ObjectSerializer::toQueryValue($locale_ids);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -4355,29 +4554,37 @@ class DefaultApi
     /**
      * Operation accountsAccountIdInvitationsPost
      *
+     * @param string $email  (required)
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Invitation
      */
-    public function accountsAccountIdInvitationsPost($account_id)
+    public function accountsAccountIdInvitationsPost($email, $role, $account_id, $project_ids = null, $locale_ids = null)
     {
-        list($response) = $this->accountsAccountIdInvitationsPostWithHttpInfo($account_id);
+        list($response) = $this->accountsAccountIdInvitationsPostWithHttpInfo($email, $role, $account_id, $project_ids, $locale_ids);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdInvitationsPostWithHttpInfo
      *
+     * @param string $email  (required)
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Invitation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdInvitationsPostWithHttpInfo($account_id)
+    public function accountsAccountIdInvitationsPostWithHttpInfo($email, $role, $account_id, $project_ids = null, $locale_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Invitation';
-        $request = $this->accountsAccountIdInvitationsPostRequest($account_id);
+        $request = $this->accountsAccountIdInvitationsPostRequest($email, $role, $account_id, $project_ids, $locale_ids);
 
         try {
 
@@ -4434,13 +4641,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $email  (required)
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdInvitationsPostAsync($account_id)
+    public function accountsAccountIdInvitationsPostAsync($email, $role, $account_id, $project_ids = null, $locale_ids = null)
     {
-        return $this->accountsAccountIdInvitationsPostAsyncWithHttpInfo($account_id)->then(function ($response) {
+        return $this->accountsAccountIdInvitationsPostAsyncWithHttpInfo($email, $role, $account_id, $project_ids, $locale_ids)->then(function ($response) {
             return $response[0];
         });
     }
@@ -4450,14 +4661,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $email  (required)
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdInvitationsPostAsyncWithHttpInfo($account_id)
+    public function accountsAccountIdInvitationsPostAsyncWithHttpInfo($email, $role, $account_id, $project_ids = null, $locale_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Invitation';
-        $request = $this->accountsAccountIdInvitationsPostRequest($account_id);
+        $request = $this->accountsAccountIdInvitationsPostRequest($email, $role, $account_id, $project_ids, $locale_ids);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -4490,12 +4705,24 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdInvitationsPost'
      *
+     * @param string $email  (required)
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdInvitationsPostRequest($account_id)
+    protected function accountsAccountIdInvitationsPostRequest($email, $role, $account_id, $project_ids = null, $locale_ids = null)
     {
+        // verify the required parameter 'email' is set
+        if ($email === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $email when calling accountsAccountIdInvitationsPost');
+        }
+        // verify the required parameter 'role' is set
+        if ($role === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $role when calling accountsAccountIdInvitationsPost');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdInvitationsPost');
@@ -4508,6 +4735,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($email !== null) {
+            $queryParams['email'] = ObjectSerializer::toQueryValue($email);
+        }
+        // query params
+        if ($role !== null) {
+            $queryParams['role'] = ObjectSerializer::toQueryValue($role);
+        }
+        // query params
+        if ($project_ids !== null) {
+            $queryParams['project_ids'] = ObjectSerializer::toQueryValue($project_ids);
+        }
+        // query params
+        if ($locale_ids !== null) {
+            $queryParams['locale_ids'] = ObjectSerializer::toQueryValue($locale_ids);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -5266,31 +5509,37 @@ class DefaultApi
     /**
      * Operation accountsAccountIdMembersIdPatch
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Member
      */
-    public function accountsAccountIdMembersIdPatch($account_id, $id)
+    public function accountsAccountIdMembersIdPatch($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
-        list($response) = $this->accountsAccountIdMembersIdPatchWithHttpInfo($account_id, $id);
+        list($response) = $this->accountsAccountIdMembersIdPatchWithHttpInfo($role, $account_id, $id, $project_ids, $locale_ids);
         return $response;
     }
 
     /**
      * Operation accountsAccountIdMembersIdPatchWithHttpInfo
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Member, HTTP status code, HTTP response headers (array of strings)
      */
-    public function accountsAccountIdMembersIdPatchWithHttpInfo($account_id, $id)
+    public function accountsAccountIdMembersIdPatchWithHttpInfo($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Member';
-        $request = $this->accountsAccountIdMembersIdPatchRequest($account_id, $id);
+        $request = $this->accountsAccountIdMembersIdPatchRequest($role, $account_id, $id, $project_ids, $locale_ids);
 
         try {
 
@@ -5347,14 +5596,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdMembersIdPatchAsync($account_id, $id)
+    public function accountsAccountIdMembersIdPatchAsync($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
-        return $this->accountsAccountIdMembersIdPatchAsyncWithHttpInfo($account_id, $id)->then(function ($response) {
+        return $this->accountsAccountIdMembersIdPatchAsyncWithHttpInfo($role, $account_id, $id, $project_ids, $locale_ids)->then(function ($response) {
             return $response[0];
         });
     }
@@ -5364,15 +5616,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function accountsAccountIdMembersIdPatchAsyncWithHttpInfo($account_id, $id)
+    public function accountsAccountIdMembersIdPatchAsyncWithHttpInfo($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
         $returnType = '\Swagger\Client\Model\Member';
-        $request = $this->accountsAccountIdMembersIdPatchRequest($account_id, $id);
+        $request = $this->accountsAccountIdMembersIdPatchRequest($role, $account_id, $id, $project_ids, $locale_ids);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -5405,13 +5660,20 @@ class DefaultApi
     /**
      * Create request for operation 'accountsAccountIdMembersIdPatch'
      *
+     * @param string $role  (required)
      * @param string $account_id AccountId (required)
      * @param string $id Id (required)
+     * @param string $project_ids  (optional)
+     * @param string $locale_ids  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function accountsAccountIdMembersIdPatchRequest($account_id, $id)
+    protected function accountsAccountIdMembersIdPatchRequest($role, $account_id, $id, $project_ids = null, $locale_ids = null)
     {
+        // verify the required parameter 'role' is set
+        if ($role === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $role when calling accountsAccountIdMembersIdPatch');
+        }
         // verify the required parameter 'account_id' is set
         if ($account_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $account_id when calling accountsAccountIdMembersIdPatch');
@@ -5428,6 +5690,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($role !== null) {
+            $queryParams['role'] = ObjectSerializer::toQueryValue($role);
+        }
+        // query params
+        if ($project_ids !== null) {
+            $queryParams['project_ids'] = ObjectSerializer::toQueryValue($project_ids);
+        }
+        // query params
+        if ($locale_ids !== null) {
+            $queryParams['locale_ids'] = ObjectSerializer::toQueryValue($locale_ids);
+        }
 
         // path params
         if ($account_id !== null) {
@@ -6603,29 +6877,35 @@ class DefaultApi
     /**
      * Operation authorizationsIdPatch
      *
+     * @param string $note  (required)
      * @param string $id Id (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Authorization
      */
-    public function authorizationsIdPatch($id)
+    public function authorizationsIdPatch($note, $id, $scopes = null, $expires_at = null)
     {
-        list($response) = $this->authorizationsIdPatchWithHttpInfo($id);
+        list($response) = $this->authorizationsIdPatchWithHttpInfo($note, $id, $scopes, $expires_at);
         return $response;
     }
 
     /**
      * Operation authorizationsIdPatchWithHttpInfo
      *
+     * @param string $note  (required)
      * @param string $id Id (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Authorization, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authorizationsIdPatchWithHttpInfo($id)
+    public function authorizationsIdPatchWithHttpInfo($note, $id, $scopes = null, $expires_at = null)
     {
         $returnType = '\Swagger\Client\Model\Authorization';
-        $request = $this->authorizationsIdPatchRequest($id);
+        $request = $this->authorizationsIdPatchRequest($note, $id, $scopes, $expires_at);
 
         try {
 
@@ -6682,13 +6962,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $note  (required)
      * @param string $id Id (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authorizationsIdPatchAsync($id)
+    public function authorizationsIdPatchAsync($note, $id, $scopes = null, $expires_at = null)
     {
-        return $this->authorizationsIdPatchAsyncWithHttpInfo($id)->then(function ($response) {
+        return $this->authorizationsIdPatchAsyncWithHttpInfo($note, $id, $scopes, $expires_at)->then(function ($response) {
             return $response[0];
         });
     }
@@ -6698,14 +6981,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $note  (required)
      * @param string $id Id (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authorizationsIdPatchAsyncWithHttpInfo($id)
+    public function authorizationsIdPatchAsyncWithHttpInfo($note, $id, $scopes = null, $expires_at = null)
     {
         $returnType = '\Swagger\Client\Model\Authorization';
-        $request = $this->authorizationsIdPatchRequest($id);
+        $request = $this->authorizationsIdPatchRequest($note, $id, $scopes, $expires_at);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -6738,12 +7024,19 @@ class DefaultApi
     /**
      * Create request for operation 'authorizationsIdPatch'
      *
+     * @param string $note  (required)
      * @param string $id Id (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function authorizationsIdPatchRequest($id)
+    protected function authorizationsIdPatchRequest($note, $id, $scopes = null, $expires_at = null)
     {
+        // verify the required parameter 'note' is set
+        if ($note === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $note when calling authorizationsIdPatch');
+        }
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $id when calling authorizationsIdPatch');
@@ -6756,6 +7049,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($note !== null) {
+            $queryParams['note'] = ObjectSerializer::toQueryValue($note);
+        }
+        // query params
+        if ($scopes !== null) {
+            $queryParams['scopes'] = ObjectSerializer::toQueryValue($scopes);
+        }
+        // query params
+        if ($expires_at !== null) {
+            $queryParams['expires_at'] = ObjectSerializer::toQueryValue($expires_at);
+        }
 
         // path params
         if ($id !== null) {
@@ -6827,27 +7132,33 @@ class DefaultApi
     /**
      * Operation authorizationsPost
      *
+     * @param string $note  (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AuthorizationWithToken
      */
-    public function authorizationsPost()
+    public function authorizationsPost($note, $scopes = null, $expires_at = null)
     {
-        list($response) = $this->authorizationsPostWithHttpInfo();
+        list($response) = $this->authorizationsPostWithHttpInfo($note, $scopes, $expires_at);
         return $response;
     }
 
     /**
      * Operation authorizationsPostWithHttpInfo
      *
+     * @param string $note  (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AuthorizationWithToken, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authorizationsPostWithHttpInfo()
+    public function authorizationsPostWithHttpInfo($note, $scopes = null, $expires_at = null)
     {
         $returnType = '\Swagger\Client\Model\AuthorizationWithToken';
-        $request = $this->authorizationsPostRequest();
+        $request = $this->authorizationsPostRequest($note, $scopes, $expires_at);
 
         try {
 
@@ -6904,12 +7215,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $note  (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authorizationsPostAsync()
+    public function authorizationsPostAsync($note, $scopes = null, $expires_at = null)
     {
-        return $this->authorizationsPostAsyncWithHttpInfo()->then(function ($response) {
+        return $this->authorizationsPostAsyncWithHttpInfo($note, $scopes, $expires_at)->then(function ($response) {
             return $response[0];
         });
     }
@@ -6919,13 +7233,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $note  (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function authorizationsPostAsyncWithHttpInfo()
+    public function authorizationsPostAsyncWithHttpInfo($note, $scopes = null, $expires_at = null)
     {
         $returnType = '\Swagger\Client\Model\AuthorizationWithToken';
-        $request = $this->authorizationsPostRequest();
+        $request = $this->authorizationsPostRequest($note, $scopes, $expires_at);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -6958,11 +7275,18 @@ class DefaultApi
     /**
      * Create request for operation 'authorizationsPost'
      *
+     * @param string $note  (required)
+     * @param string $scopes  (optional)
+     * @param \DateTime $expires_at  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function authorizationsPostRequest()
+    protected function authorizationsPostRequest($note, $scopes = null, $expires_at = null)
     {
+        // verify the required parameter 'note' is set
+        if ($note === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $note when calling authorizationsPost');
+        }
 
         $resourcePath = '/authorizations';
         $formParams = [];
@@ -6971,6 +7295,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($note !== null) {
+            $queryParams['note'] = ObjectSerializer::toQueryValue($note);
+        }
+        // query params
+        if ($scopes !== null) {
+            $queryParams['scopes'] = ObjectSerializer::toQueryValue($scopes);
+        }
+        // query params
+        if ($expires_at !== null) {
+            $queryParams['expires_at'] = ObjectSerializer::toQueryValue($expires_at);
+        }
 
 
 
@@ -7897,29 +8233,37 @@ class DefaultApi
     /**
      * Operation projectsIdPatch
      *
+     * @param string $name  (required)
      * @param string $id Id (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\ProjectDetails
      */
-    public function projectsIdPatch($id)
+    public function projectsIdPatch($name, $id, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
-        list($response) = $this->projectsIdPatchWithHttpInfo($id);
+        list($response) = $this->projectsIdPatchWithHttpInfo($name, $id, $main_format, $shares_translation_memory, $account_id);
         return $response;
     }
 
     /**
      * Operation projectsIdPatchWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $id Id (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ProjectDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsIdPatchWithHttpInfo($id)
+    public function projectsIdPatchWithHttpInfo($name, $id, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
         $returnType = '\Swagger\Client\Model\ProjectDetails';
-        $request = $this->projectsIdPatchRequest($id);
+        $request = $this->projectsIdPatchRequest($name, $id, $main_format, $shares_translation_memory, $account_id);
 
         try {
 
@@ -7976,13 +8320,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $id Id (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsIdPatchAsync($id)
+    public function projectsIdPatchAsync($name, $id, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
-        return $this->projectsIdPatchAsyncWithHttpInfo($id)->then(function ($response) {
+        return $this->projectsIdPatchAsyncWithHttpInfo($name, $id, $main_format, $shares_translation_memory, $account_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -7992,14 +8340,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $id Id (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsIdPatchAsyncWithHttpInfo($id)
+    public function projectsIdPatchAsyncWithHttpInfo($name, $id, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
         $returnType = '\Swagger\Client\Model\ProjectDetails';
-        $request = $this->projectsIdPatchRequest($id);
+        $request = $this->projectsIdPatchRequest($name, $id, $main_format, $shares_translation_memory, $account_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -8032,12 +8384,20 @@ class DefaultApi
     /**
      * Create request for operation 'projectsIdPatch'
      *
+     * @param string $name  (required)
      * @param string $id Id (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsIdPatchRequest($id)
+    protected function projectsIdPatchRequest($name, $id, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsIdPatch');
+        }
         // verify the required parameter 'id' is set
         if ($id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $id when calling projectsIdPatch');
@@ -8050,6 +8410,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($main_format !== null) {
+            $queryParams['main_format'] = ObjectSerializer::toQueryValue($main_format);
+        }
+        // query params
+        if ($shares_translation_memory !== null) {
+            $queryParams['shares_translation_memory'] = ObjectSerializer::toQueryValue($shares_translation_memory);
+        }
+        // query params
+        if ($account_id !== null) {
+            $queryParams['account_id'] = ObjectSerializer::toQueryValue($account_id);
+        }
 
         // path params
         if ($id !== null) {
@@ -8122,27 +8498,35 @@ class DefaultApi
     /**
      * Operation projectsPost
      *
+     * @param string $name  (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\ProjectDetails
      */
-    public function projectsPost()
+    public function projectsPost($name, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
-        list($response) = $this->projectsPostWithHttpInfo();
+        list($response) = $this->projectsPostWithHttpInfo($name, $main_format, $shares_translation_memory, $account_id);
         return $response;
     }
 
     /**
      * Operation projectsPostWithHttpInfo
      *
+     * @param string $name  (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\ProjectDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsPostWithHttpInfo()
+    public function projectsPostWithHttpInfo($name, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
         $returnType = '\Swagger\Client\Model\ProjectDetails';
-        $request = $this->projectsPostRequest();
+        $request = $this->projectsPostRequest($name, $main_format, $shares_translation_memory, $account_id);
 
         try {
 
@@ -8199,12 +8583,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPostAsync()
+    public function projectsPostAsync($name, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
-        return $this->projectsPostAsyncWithHttpInfo()->then(function ($response) {
+        return $this->projectsPostAsyncWithHttpInfo($name, $main_format, $shares_translation_memory, $account_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -8214,13 +8602,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsPostAsyncWithHttpInfo()
+    public function projectsPostAsyncWithHttpInfo($name, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
         $returnType = '\Swagger\Client\Model\ProjectDetails';
-        $request = $this->projectsPostRequest();
+        $request = $this->projectsPostRequest($name, $main_format, $shares_translation_memory, $account_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -8253,11 +8645,19 @@ class DefaultApi
     /**
      * Create request for operation 'projectsPost'
      *
+     * @param string $name  (required)
+     * @param string $main_format  (optional)
+     * @param bool $shares_translation_memory  (optional)
+     * @param string $account_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsPostRequest()
+    protected function projectsPostRequest($name, $main_format = null, $shares_translation_memory = null, $account_id = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsPost');
+        }
 
         $resourcePath = '/projects';
         $formParams = [];
@@ -8266,6 +8666,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($main_format !== null) {
+            $queryParams['main_format'] = ObjectSerializer::toQueryValue($main_format);
+        }
+        // query params
+        if ($shares_translation_memory !== null) {
+            $queryParams['shares_translation_memory'] = ObjectSerializer::toQueryValue($shares_translation_memory);
+        }
+        // query params
+        if ($account_id !== null) {
+            $queryParams['account_id'] = ObjectSerializer::toQueryValue($account_id);
+        }
 
 
 
@@ -9020,31 +9436,33 @@ class DefaultApi
     /**
      * Operation projectsProjectIdBlacklistedKeysIdPatch
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\BlacklistedKey
      */
-    public function projectsProjectIdBlacklistedKeysIdPatch($project_id, $id)
+    public function projectsProjectIdBlacklistedKeysIdPatch($name, $project_id, $id)
     {
-        list($response) = $this->projectsProjectIdBlacklistedKeysIdPatchWithHttpInfo($project_id, $id);
+        list($response) = $this->projectsProjectIdBlacklistedKeysIdPatchWithHttpInfo($name, $project_id, $id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdBlacklistedKeysIdPatchWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdBlacklistedKeysIdPatchWithHttpInfo($project_id, $id)
+    public function projectsProjectIdBlacklistedKeysIdPatchWithHttpInfo($name, $project_id, $id)
     {
         $returnType = '\Swagger\Client\Model\BlacklistedKey';
-        $request = $this->projectsProjectIdBlacklistedKeysIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdBlacklistedKeysIdPatchRequest($name, $project_id, $id);
 
         try {
 
@@ -9101,14 +9519,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdBlacklistedKeysIdPatchAsync($project_id, $id)
+    public function projectsProjectIdBlacklistedKeysIdPatchAsync($name, $project_id, $id)
     {
-        return $this->projectsProjectIdBlacklistedKeysIdPatchAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdBlacklistedKeysIdPatchAsyncWithHttpInfo($name, $project_id, $id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -9118,15 +9537,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdBlacklistedKeysIdPatchAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdBlacklistedKeysIdPatchAsyncWithHttpInfo($name, $project_id, $id)
     {
         $returnType = '\Swagger\Client\Model\BlacklistedKey';
-        $request = $this->projectsProjectIdBlacklistedKeysIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdBlacklistedKeysIdPatchRequest($name, $project_id, $id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -9159,13 +9579,18 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdBlacklistedKeysIdPatch'
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdBlacklistedKeysIdPatchRequest($project_id, $id)
+    protected function projectsProjectIdBlacklistedKeysIdPatchRequest($name, $project_id, $id)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdBlacklistedKeysIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdBlacklistedKeysIdPatch');
@@ -9182,6 +9607,10 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -9258,29 +9687,31 @@ class DefaultApi
     /**
      * Operation projectsProjectIdBlacklistedKeysPost
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\BlacklistedKey
      */
-    public function projectsProjectIdBlacklistedKeysPost($project_id)
+    public function projectsProjectIdBlacklistedKeysPost($name, $project_id)
     {
-        list($response) = $this->projectsProjectIdBlacklistedKeysPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdBlacklistedKeysPostWithHttpInfo($name, $project_id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdBlacklistedKeysPostWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\BlacklistedKey, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdBlacklistedKeysPostWithHttpInfo($project_id)
+    public function projectsProjectIdBlacklistedKeysPostWithHttpInfo($name, $project_id)
     {
         $returnType = '\Swagger\Client\Model\BlacklistedKey';
-        $request = $this->projectsProjectIdBlacklistedKeysPostRequest($project_id);
+        $request = $this->projectsProjectIdBlacklistedKeysPostRequest($name, $project_id);
 
         try {
 
@@ -9337,13 +9768,14 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdBlacklistedKeysPostAsync($project_id)
+    public function projectsProjectIdBlacklistedKeysPostAsync($name, $project_id)
     {
-        return $this->projectsProjectIdBlacklistedKeysPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdBlacklistedKeysPostAsyncWithHttpInfo($name, $project_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -9353,14 +9785,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdBlacklistedKeysPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdBlacklistedKeysPostAsyncWithHttpInfo($name, $project_id)
     {
         $returnType = '\Swagger\Client\Model\BlacklistedKey';
-        $request = $this->projectsProjectIdBlacklistedKeysPostRequest($project_id);
+        $request = $this->projectsProjectIdBlacklistedKeysPostRequest($name, $project_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -9393,12 +9826,17 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdBlacklistedKeysPost'
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdBlacklistedKeysPostRequest($project_id)
+    protected function projectsProjectIdBlacklistedKeysPostRequest($name, $project_id)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdBlacklistedKeysPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdBlacklistedKeysPost');
@@ -9411,6 +9849,10 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -9484,13 +9926,15 @@ class DefaultApi
      * Operation projectsProjectIdKeysDelete
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedResources
      */
-    public function projectsProjectIdKeysDelete($project_id)
+    public function projectsProjectIdKeysDelete($project_id, $q = null, $locale_id = null)
     {
-        list($response) = $this->projectsProjectIdKeysDeleteWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdKeysDeleteWithHttpInfo($project_id, $q, $locale_id);
         return $response;
     }
 
@@ -9498,14 +9942,16 @@ class DefaultApi
      * Operation projectsProjectIdKeysDeleteWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedResources, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysDeleteWithHttpInfo($project_id)
+    public function projectsProjectIdKeysDeleteWithHttpInfo($project_id, $q = null, $locale_id = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedResources';
-        $request = $this->projectsProjectIdKeysDeleteRequest($project_id);
+        $request = $this->projectsProjectIdKeysDeleteRequest($project_id, $q, $locale_id);
 
         try {
 
@@ -9563,12 +10009,14 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysDeleteAsync($project_id)
+    public function projectsProjectIdKeysDeleteAsync($project_id, $q = null, $locale_id = null)
     {
-        return $this->projectsProjectIdKeysDeleteAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdKeysDeleteAsyncWithHttpInfo($project_id, $q, $locale_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -9579,13 +10027,15 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysDeleteAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdKeysDeleteAsyncWithHttpInfo($project_id, $q = null, $locale_id = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedResources';
-        $request = $this->projectsProjectIdKeysDeleteRequest($project_id);
+        $request = $this->projectsProjectIdKeysDeleteRequest($project_id, $q, $locale_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -9619,10 +10069,12 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdKeysDelete'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysDeleteRequest($project_id)
+    protected function projectsProjectIdKeysDeleteRequest($project_id, $q = null, $locale_id = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -9636,6 +10088,14 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -9709,15 +10169,19 @@ class DefaultApi
      * Operation projectsProjectIdKeysGet
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationKey[]
      */
-    public function projectsProjectIdKeysGet($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysGet($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
-        list($response) = $this->projectsProjectIdKeysGetWithHttpInfo($project_id, $per_page, $page);
+        list($response) = $this->projectsProjectIdKeysGetWithHttpInfo($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
         return $response;
     }
 
@@ -9725,16 +10189,20 @@ class DefaultApi
      * Operation projectsProjectIdKeysGetWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationKey[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysGetWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysGetWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\TranslationKey[]';
-        $request = $this->projectsProjectIdKeysGetRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdKeysGetRequest($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
 
         try {
 
@@ -9792,14 +10260,18 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysGetAsync($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysGetAsync($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
-        return $this->projectsProjectIdKeysGetAsyncWithHttpInfo($project_id, $per_page, $page)->then(function ($response) {
+        return $this->projectsProjectIdKeysGetAsyncWithHttpInfo($project_id, $sort, $order, $q, $locale_id, $per_page, $page)->then(function ($response) {
             return $response[0];
         });
     }
@@ -9810,15 +10282,19 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysGetAsyncWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysGetAsyncWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\TranslationKey[]';
-        $request = $this->projectsProjectIdKeysGetRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdKeysGetRequest($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -9852,12 +10328,16 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdKeysGet'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysGetRequest($project_id, $per_page = '25', $page = '1')
+    protected function projectsProjectIdKeysGetRequest($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -9871,6 +10351,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
         // query params
         if ($per_page !== null) {
             $queryParams['per_page'] = ObjectSerializer::toQueryValue($per_page);
@@ -10394,31 +10890,59 @@ class DefaultApi
     /**
      * Operation projectsProjectIdKeysIdPatch
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationKeyDetails
      */
-    public function projectsProjectIdKeysIdPatch($project_id, $id)
+    public function projectsProjectIdKeysIdPatch($name, $project_id, $id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
-        list($response) = $this->projectsProjectIdKeysIdPatchWithHttpInfo($project_id, $id);
+        list($response) = $this->projectsProjectIdKeysIdPatchWithHttpInfo($name, $project_id, $id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdKeysIdPatchWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationKeyDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysIdPatchWithHttpInfo($project_id, $id)
+    public function projectsProjectIdKeysIdPatchWithHttpInfo($name, $project_id, $id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationKeyDetails';
-        $request = $this->projectsProjectIdKeysIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdKeysIdPatchRequest($name, $project_id, $id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
 
         try {
 
@@ -10475,14 +10999,28 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysIdPatchAsync($project_id, $id)
+    public function projectsProjectIdKeysIdPatchAsync($name, $project_id, $id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
-        return $this->projectsProjectIdKeysIdPatchAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdKeysIdPatchAsyncWithHttpInfo($name, $project_id, $id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key)->then(function ($response) {
             return $response[0];
         });
     }
@@ -10492,15 +11030,29 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysIdPatchAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdKeysIdPatchAsyncWithHttpInfo($name, $project_id, $id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationKeyDetails';
-        $request = $this->projectsProjectIdKeysIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdKeysIdPatchRequest($name, $project_id, $id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -10533,13 +11085,31 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdKeysIdPatch'
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysIdPatchRequest($project_id, $id)
+    protected function projectsProjectIdKeysIdPatchRequest($name, $project_id, $id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdKeysIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdKeysIdPatch');
@@ -10556,6 +11126,62 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($plural !== null) {
+            $queryParams['plural'] = ObjectSerializer::toQueryValue($plural);
+        }
+        // query params
+        if ($name_plural !== null) {
+            $queryParams['name_plural'] = ObjectSerializer::toQueryValue($name_plural);
+        }
+        // query params
+        if ($data_type !== null) {
+            $queryParams['data_type'] = ObjectSerializer::toQueryValue($data_type);
+        }
+        // query params
+        if ($tags !== null) {
+            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
+        // query params
+        if ($max_characters_allowed !== null) {
+            $queryParams['max_characters_allowed'] = ObjectSerializer::toQueryValue($max_characters_allowed);
+        }
+        // query params
+        if ($screenshot !== null) {
+            $queryParams['screenshot'] = ObjectSerializer::toQueryValue($screenshot);
+        }
+        // query params
+        if ($remove_screenshot !== null) {
+            $queryParams['remove_screenshot'] = ObjectSerializer::toQueryValue($remove_screenshot);
+        }
+        // query params
+        if ($unformatted !== null) {
+            $queryParams['unformatted'] = ObjectSerializer::toQueryValue($unformatted);
+        }
+        // query params
+        if ($xml_space_preserve !== null) {
+            $queryParams['xml_space_preserve'] = ObjectSerializer::toQueryValue($xml_space_preserve);
+        }
+        // query params
+        if ($original_file !== null) {
+            $queryParams['original_file'] = ObjectSerializer::toQueryValue($original_file);
+        }
+        // query params
+        if ($localized_format_string !== null) {
+            $queryParams['localized_format_string'] = ObjectSerializer::toQueryValue($localized_format_string);
+        }
+        // query params
+        if ($localized_format_key !== null) {
+            $queryParams['localized_format_key'] = ObjectSerializer::toQueryValue($localized_format_key);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -11357,6 +11983,7 @@ class DefaultApi
     /**
      * Operation projectsProjectIdKeysKeyIdCommentsIdPatch
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @param string $id Id (required)
@@ -11364,15 +11991,16 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Comment
      */
-    public function projectsProjectIdKeysKeyIdCommentsIdPatch($project_id, $key_id, $id)
+    public function projectsProjectIdKeysKeyIdCommentsIdPatch($message, $project_id, $key_id, $id)
     {
-        list($response) = $this->projectsProjectIdKeysKeyIdCommentsIdPatchWithHttpInfo($project_id, $key_id, $id);
+        list($response) = $this->projectsProjectIdKeysKeyIdCommentsIdPatchWithHttpInfo($message, $project_id, $key_id, $id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdKeysKeyIdCommentsIdPatchWithHttpInfo
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @param string $id Id (required)
@@ -11380,10 +12008,10 @@ class DefaultApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Comment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysKeyIdCommentsIdPatchWithHttpInfo($project_id, $key_id, $id)
+    public function projectsProjectIdKeysKeyIdCommentsIdPatchWithHttpInfo($message, $project_id, $key_id, $id)
     {
         $returnType = '\Swagger\Client\Model\Comment';
-        $request = $this->projectsProjectIdKeysKeyIdCommentsIdPatchRequest($project_id, $key_id, $id);
+        $request = $this->projectsProjectIdKeysKeyIdCommentsIdPatchRequest($message, $project_id, $key_id, $id);
 
         try {
 
@@ -11440,15 +12068,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @param string $id Id (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysKeyIdCommentsIdPatchAsync($project_id, $key_id, $id)
+    public function projectsProjectIdKeysKeyIdCommentsIdPatchAsync($message, $project_id, $key_id, $id)
     {
-        return $this->projectsProjectIdKeysKeyIdCommentsIdPatchAsyncWithHttpInfo($project_id, $key_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdKeysKeyIdCommentsIdPatchAsyncWithHttpInfo($message, $project_id, $key_id, $id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -11458,16 +12087,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @param string $id Id (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysKeyIdCommentsIdPatchAsyncWithHttpInfo($project_id, $key_id, $id)
+    public function projectsProjectIdKeysKeyIdCommentsIdPatchAsyncWithHttpInfo($message, $project_id, $key_id, $id)
     {
         $returnType = '\Swagger\Client\Model\Comment';
-        $request = $this->projectsProjectIdKeysKeyIdCommentsIdPatchRequest($project_id, $key_id, $id);
+        $request = $this->projectsProjectIdKeysKeyIdCommentsIdPatchRequest($message, $project_id, $key_id, $id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -11500,14 +12130,19 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdKeysKeyIdCommentsIdPatch'
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @param string $id Id (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysKeyIdCommentsIdPatchRequest($project_id, $key_id, $id)
+    protected function projectsProjectIdKeysKeyIdCommentsIdPatchRequest($message, $project_id, $key_id, $id)
     {
+        // verify the required parameter 'message' is set
+        if ($message === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $message when calling projectsProjectIdKeysKeyIdCommentsIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdKeysKeyIdCommentsIdPatch');
@@ -11528,6 +12163,10 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($message !== null) {
+            $queryParams['message'] = ObjectSerializer::toQueryValue($message);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -12262,31 +12901,33 @@ class DefaultApi
     /**
      * Operation projectsProjectIdKeysKeyIdCommentsPost
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Comment
      */
-    public function projectsProjectIdKeysKeyIdCommentsPost($project_id, $key_id)
+    public function projectsProjectIdKeysKeyIdCommentsPost($message, $project_id, $key_id)
     {
-        list($response) = $this->projectsProjectIdKeysKeyIdCommentsPostWithHttpInfo($project_id, $key_id);
+        list($response) = $this->projectsProjectIdKeysKeyIdCommentsPostWithHttpInfo($message, $project_id, $key_id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdKeysKeyIdCommentsPostWithHttpInfo
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Comment, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysKeyIdCommentsPostWithHttpInfo($project_id, $key_id)
+    public function projectsProjectIdKeysKeyIdCommentsPostWithHttpInfo($message, $project_id, $key_id)
     {
         $returnType = '\Swagger\Client\Model\Comment';
-        $request = $this->projectsProjectIdKeysKeyIdCommentsPostRequest($project_id, $key_id);
+        $request = $this->projectsProjectIdKeysKeyIdCommentsPostRequest($message, $project_id, $key_id);
 
         try {
 
@@ -12343,14 +12984,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysKeyIdCommentsPostAsync($project_id, $key_id)
+    public function projectsProjectIdKeysKeyIdCommentsPostAsync($message, $project_id, $key_id)
     {
-        return $this->projectsProjectIdKeysKeyIdCommentsPostAsyncWithHttpInfo($project_id, $key_id)->then(function ($response) {
+        return $this->projectsProjectIdKeysKeyIdCommentsPostAsyncWithHttpInfo($message, $project_id, $key_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -12360,15 +13002,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysKeyIdCommentsPostAsyncWithHttpInfo($project_id, $key_id)
+    public function projectsProjectIdKeysKeyIdCommentsPostAsyncWithHttpInfo($message, $project_id, $key_id)
     {
         $returnType = '\Swagger\Client\Model\Comment';
-        $request = $this->projectsProjectIdKeysKeyIdCommentsPostRequest($project_id, $key_id);
+        $request = $this->projectsProjectIdKeysKeyIdCommentsPostRequest($message, $project_id, $key_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -12401,13 +13044,18 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdKeysKeyIdCommentsPost'
      *
+     * @param string $message  (required)
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysKeyIdCommentsPostRequest($project_id, $key_id)
+    protected function projectsProjectIdKeysKeyIdCommentsPostRequest($message, $project_id, $key_id)
     {
+        // verify the required parameter 'message' is set
+        if ($message === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $message when calling projectsProjectIdKeysKeyIdCommentsPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdKeysKeyIdCommentsPost');
@@ -12424,6 +13072,10 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($message !== null) {
+            $queryParams['message'] = ObjectSerializer::toQueryValue($message);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -12502,15 +13154,18 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Translation
      */
-    public function projectsProjectIdKeysKeyIdTranslationsGet($project_id, $key_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysKeyIdTranslationsGet($project_id, $key_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        list($response) = $this->projectsProjectIdKeysKeyIdTranslationsGetWithHttpInfo($project_id, $key_id, $per_page, $page);
+        list($response) = $this->projectsProjectIdKeysKeyIdTranslationsGetWithHttpInfo($project_id, $key_id, $sort, $order, $q, $per_page, $page);
         return $response;
     }
 
@@ -12519,16 +13174,19 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Translation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysKeyIdTranslationsGetWithHttpInfo($project_id, $key_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysKeyIdTranslationsGetWithHttpInfo($project_id, $key_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation';
-        $request = $this->projectsProjectIdKeysKeyIdTranslationsGetRequest($project_id, $key_id, $per_page, $page);
+        $request = $this->projectsProjectIdKeysKeyIdTranslationsGetRequest($project_id, $key_id, $sort, $order, $q, $per_page, $page);
 
         try {
 
@@ -12587,14 +13245,17 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysKeyIdTranslationsGetAsync($project_id, $key_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysKeyIdTranslationsGetAsync($project_id, $key_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        return $this->projectsProjectIdKeysKeyIdTranslationsGetAsyncWithHttpInfo($project_id, $key_id, $per_page, $page)->then(function ($response) {
+        return $this->projectsProjectIdKeysKeyIdTranslationsGetAsyncWithHttpInfo($project_id, $key_id, $sort, $order, $q, $per_page, $page)->then(function ($response) {
             return $response[0];
         });
     }
@@ -12606,15 +13267,18 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysKeyIdTranslationsGetAsyncWithHttpInfo($project_id, $key_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysKeyIdTranslationsGetAsyncWithHttpInfo($project_id, $key_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation';
-        $request = $this->projectsProjectIdKeysKeyIdTranslationsGetRequest($project_id, $key_id, $per_page, $page);
+        $request = $this->projectsProjectIdKeysKeyIdTranslationsGetRequest($project_id, $key_id, $sort, $order, $q, $per_page, $page);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -12649,12 +13313,15 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $key_id KeyId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysKeyIdTranslationsGetRequest($project_id, $key_id, $per_page = '25', $page = '1')
+    protected function projectsProjectIdKeysKeyIdTranslationsGetRequest($project_id, $key_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -12672,6 +13339,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
         // query params
         if ($per_page !== null) {
             $queryParams['per_page'] = ObjectSerializer::toQueryValue($per_page);
@@ -12756,29 +13435,57 @@ class DefaultApi
     /**
      * Operation projectsProjectIdKeysPost
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationKeyDetails
      */
-    public function projectsProjectIdKeysPost($project_id)
+    public function projectsProjectIdKeysPost($name, $project_id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
-        list($response) = $this->projectsProjectIdKeysPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdKeysPostWithHttpInfo($name, $project_id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdKeysPostWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationKeyDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysPostWithHttpInfo($project_id)
+    public function projectsProjectIdKeysPostWithHttpInfo($name, $project_id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationKeyDetails';
-        $request = $this->projectsProjectIdKeysPostRequest($project_id);
+        $request = $this->projectsProjectIdKeysPostRequest($name, $project_id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
 
         try {
 
@@ -12835,13 +13542,27 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysPostAsync($project_id)
+    public function projectsProjectIdKeysPostAsync($name, $project_id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
-        return $this->projectsProjectIdKeysPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdKeysPostAsyncWithHttpInfo($name, $project_id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key)->then(function ($response) {
             return $response[0];
         });
     }
@@ -12851,14 +13572,28 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdKeysPostAsyncWithHttpInfo($name, $project_id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationKeyDetails';
-        $request = $this->projectsProjectIdKeysPostRequest($project_id);
+        $request = $this->projectsProjectIdKeysPostRequest($name, $project_id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -12891,12 +13626,30 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdKeysPost'
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $plural  (optional)
+     * @param string $name_plural  (optional)
+     * @param string $data_type  (optional)
+     * @param string $tags  (optional)
+     * @param int $max_characters_allowed  (optional)
+     * @param string $screenshot  (optional)
+     * @param bool $remove_screenshot  (optional)
+     * @param bool $unformatted  (optional)
+     * @param bool $xml_space_preserve  (optional)
+     * @param string $original_file  (optional)
+     * @param string $localized_format_string  (optional)
+     * @param string $localized_format_key  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysPostRequest($project_id)
+    protected function projectsProjectIdKeysPostRequest($name, $project_id, $description = null, $plural = null, $name_plural = null, $data_type = null, $tags = null, $max_characters_allowed = null, $screenshot = null, $remove_screenshot = null, $unformatted = null, $xml_space_preserve = null, $original_file = null, $localized_format_string = null, $localized_format_key = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdKeysPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdKeysPost');
@@ -12909,6 +13662,62 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($plural !== null) {
+            $queryParams['plural'] = ObjectSerializer::toQueryValue($plural);
+        }
+        // query params
+        if ($name_plural !== null) {
+            $queryParams['name_plural'] = ObjectSerializer::toQueryValue($name_plural);
+        }
+        // query params
+        if ($data_type !== null) {
+            $queryParams['data_type'] = ObjectSerializer::toQueryValue($data_type);
+        }
+        // query params
+        if ($tags !== null) {
+            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
+        // query params
+        if ($max_characters_allowed !== null) {
+            $queryParams['max_characters_allowed'] = ObjectSerializer::toQueryValue($max_characters_allowed);
+        }
+        // query params
+        if ($screenshot !== null) {
+            $queryParams['screenshot'] = ObjectSerializer::toQueryValue($screenshot);
+        }
+        // query params
+        if ($remove_screenshot !== null) {
+            $queryParams['remove_screenshot'] = ObjectSerializer::toQueryValue($remove_screenshot);
+        }
+        // query params
+        if ($unformatted !== null) {
+            $queryParams['unformatted'] = ObjectSerializer::toQueryValue($unformatted);
+        }
+        // query params
+        if ($xml_space_preserve !== null) {
+            $queryParams['xml_space_preserve'] = ObjectSerializer::toQueryValue($xml_space_preserve);
+        }
+        // query params
+        if ($original_file !== null) {
+            $queryParams['original_file'] = ObjectSerializer::toQueryValue($original_file);
+        }
+        // query params
+        if ($localized_format_string !== null) {
+            $queryParams['localized_format_string'] = ObjectSerializer::toQueryValue($localized_format_string);
+        }
+        // query params
+        if ($localized_format_key !== null) {
+            $queryParams['localized_format_key'] = ObjectSerializer::toQueryValue($localized_format_key);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -12982,15 +13791,19 @@ class DefaultApi
      * Operation projectsProjectIdKeysSearchPost
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationKey[]
      */
-    public function projectsProjectIdKeysSearchPost($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysSearchPost($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
-        list($response) = $this->projectsProjectIdKeysSearchPostWithHttpInfo($project_id, $per_page, $page);
+        list($response) = $this->projectsProjectIdKeysSearchPostWithHttpInfo($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
         return $response;
     }
 
@@ -12998,16 +13811,20 @@ class DefaultApi
      * Operation projectsProjectIdKeysSearchPostWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationKey[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysSearchPostWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysSearchPostWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\TranslationKey[]';
-        $request = $this->projectsProjectIdKeysSearchPostRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdKeysSearchPostRequest($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
 
         try {
 
@@ -13065,14 +13882,18 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysSearchPostAsync($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysSearchPostAsync($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
-        return $this->projectsProjectIdKeysSearchPostAsyncWithHttpInfo($project_id, $per_page, $page)->then(function ($response) {
+        return $this->projectsProjectIdKeysSearchPostAsyncWithHttpInfo($project_id, $sort, $order, $q, $locale_id, $per_page, $page)->then(function ($response) {
             return $response[0];
         });
     }
@@ -13083,15 +13904,19 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysSearchPostAsyncWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdKeysSearchPostAsyncWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\TranslationKey[]';
-        $request = $this->projectsProjectIdKeysSearchPostRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdKeysSearchPostRequest($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -13125,12 +13950,16 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdKeysSearchPost'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysSearchPostRequest($project_id, $per_page = '25', $page = '1')
+    protected function projectsProjectIdKeysSearchPostRequest($project_id, $sort = null, $order = null, $q = null, $locale_id = null, $per_page = '25', $page = '1')
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -13144,6 +13973,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
         // query params
         if ($per_page !== null) {
             $queryParams['per_page'] = ObjectSerializer::toQueryValue($per_page);
@@ -13224,29 +14069,35 @@ class DefaultApi
     /**
      * Operation projectsProjectIdKeysTagPatch
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedResources
      */
-    public function projectsProjectIdKeysTagPatch($project_id)
+    public function projectsProjectIdKeysTagPatch($tags, $project_id, $q = null, $locale_id = null)
     {
-        list($response) = $this->projectsProjectIdKeysTagPatchWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdKeysTagPatchWithHttpInfo($tags, $project_id, $q, $locale_id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdKeysTagPatchWithHttpInfo
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedResources, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysTagPatchWithHttpInfo($project_id)
+    public function projectsProjectIdKeysTagPatchWithHttpInfo($tags, $project_id, $q = null, $locale_id = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedResources';
-        $request = $this->projectsProjectIdKeysTagPatchRequest($project_id);
+        $request = $this->projectsProjectIdKeysTagPatchRequest($tags, $project_id, $q, $locale_id);
 
         try {
 
@@ -13303,13 +14154,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysTagPatchAsync($project_id)
+    public function projectsProjectIdKeysTagPatchAsync($tags, $project_id, $q = null, $locale_id = null)
     {
-        return $this->projectsProjectIdKeysTagPatchAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdKeysTagPatchAsyncWithHttpInfo($tags, $project_id, $q, $locale_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -13319,14 +14173,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysTagPatchAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdKeysTagPatchAsyncWithHttpInfo($tags, $project_id, $q = null, $locale_id = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedResources';
-        $request = $this->projectsProjectIdKeysTagPatchRequest($project_id);
+        $request = $this->projectsProjectIdKeysTagPatchRequest($tags, $project_id, $q, $locale_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -13359,12 +14216,19 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdKeysTagPatch'
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysTagPatchRequest($project_id)
+    protected function projectsProjectIdKeysTagPatchRequest($tags, $project_id, $q = null, $locale_id = null)
     {
+        // verify the required parameter 'tags' is set
+        if ($tags === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $tags when calling projectsProjectIdKeysTagPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdKeysTagPatch');
@@ -13377,6 +14241,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
+        // query params
+        if ($tags !== null) {
+            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -13449,29 +14325,35 @@ class DefaultApi
     /**
      * Operation projectsProjectIdKeysUntagPatch
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedResources
      */
-    public function projectsProjectIdKeysUntagPatch($project_id)
+    public function projectsProjectIdKeysUntagPatch($tags, $project_id, $q = null, $locale_id = null)
     {
-        list($response) = $this->projectsProjectIdKeysUntagPatchWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdKeysUntagPatchWithHttpInfo($tags, $project_id, $q, $locale_id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdKeysUntagPatchWithHttpInfo
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedResources, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdKeysUntagPatchWithHttpInfo($project_id)
+    public function projectsProjectIdKeysUntagPatchWithHttpInfo($tags, $project_id, $q = null, $locale_id = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedResources';
-        $request = $this->projectsProjectIdKeysUntagPatchRequest($project_id);
+        $request = $this->projectsProjectIdKeysUntagPatchRequest($tags, $project_id, $q, $locale_id);
 
         try {
 
@@ -13528,13 +14410,16 @@ class DefaultApi
      *
      * 
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysUntagPatchAsync($project_id)
+    public function projectsProjectIdKeysUntagPatchAsync($tags, $project_id, $q = null, $locale_id = null)
     {
-        return $this->projectsProjectIdKeysUntagPatchAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdKeysUntagPatchAsyncWithHttpInfo($tags, $project_id, $q, $locale_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -13544,14 +14429,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdKeysUntagPatchAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdKeysUntagPatchAsyncWithHttpInfo($tags, $project_id, $q = null, $locale_id = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedResources';
-        $request = $this->projectsProjectIdKeysUntagPatchRequest($project_id);
+        $request = $this->projectsProjectIdKeysUntagPatchRequest($tags, $project_id, $q, $locale_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -13584,12 +14472,19 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdKeysUntagPatch'
      *
+     * @param string $tags  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdKeysUntagPatchRequest($project_id)
+    protected function projectsProjectIdKeysUntagPatchRequest($tags, $project_id, $q = null, $locale_id = null)
     {
+        // verify the required parameter 'tags' is set
+        if ($tags === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $tags when calling projectsProjectIdKeysUntagPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdKeysUntagPatch');
@@ -13602,6 +14497,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
+        // query params
+        if ($tags !== null) {
+            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -14122,30 +15029,48 @@ class DefaultApi
     /**
      * Operation projectsProjectIdLocalesIdDownloadGet
      *
+     * @param string $file_format  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $tag  (optional)
+     * @param bool $include_empty_translations  (optional)
+     * @param bool $keep_notranslate_tags  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param string $format_options  (optional)
+     * @param string $encoding  (optional)
+     * @param bool $skip_unverified_translations  (optional)
+     * @param string $fallback_locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function projectsProjectIdLocalesIdDownloadGet($project_id, $id)
+    public function projectsProjectIdLocalesIdDownloadGet($file_format, $project_id, $id, $tag = null, $include_empty_translations = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $fallback_locale_id = null)
     {
-        $this->projectsProjectIdLocalesIdDownloadGetWithHttpInfo($project_id, $id);
+        $this->projectsProjectIdLocalesIdDownloadGetWithHttpInfo($file_format, $project_id, $id, $tag, $include_empty_translations, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $fallback_locale_id);
     }
 
     /**
      * Operation projectsProjectIdLocalesIdDownloadGetWithHttpInfo
      *
+     * @param string $file_format  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $tag  (optional)
+     * @param bool $include_empty_translations  (optional)
+     * @param bool $keep_notranslate_tags  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param string $format_options  (optional)
+     * @param string $encoding  (optional)
+     * @param bool $skip_unverified_translations  (optional)
+     * @param string $fallback_locale_id  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdLocalesIdDownloadGetWithHttpInfo($project_id, $id)
+    public function projectsProjectIdLocalesIdDownloadGetWithHttpInfo($file_format, $project_id, $id, $tag = null, $include_empty_translations = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $fallback_locale_id = null)
     {
         $returnType = '';
-        $request = $this->projectsProjectIdLocalesIdDownloadGetRequest($project_id, $id);
+        $request = $this->projectsProjectIdLocalesIdDownloadGetRequest($file_format, $project_id, $id, $tag, $include_empty_translations, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $fallback_locale_id);
 
         try {
 
@@ -14184,14 +15109,23 @@ class DefaultApi
      *
      * 
      *
+     * @param string $file_format  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $tag  (optional)
+     * @param bool $include_empty_translations  (optional)
+     * @param bool $keep_notranslate_tags  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param string $format_options  (optional)
+     * @param string $encoding  (optional)
+     * @param bool $skip_unverified_translations  (optional)
+     * @param string $fallback_locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesIdDownloadGetAsync($project_id, $id)
+    public function projectsProjectIdLocalesIdDownloadGetAsync($file_format, $project_id, $id, $tag = null, $include_empty_translations = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $fallback_locale_id = null)
     {
-        return $this->projectsProjectIdLocalesIdDownloadGetAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdLocalesIdDownloadGetAsyncWithHttpInfo($file_format, $project_id, $id, $tag, $include_empty_translations, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $fallback_locale_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -14201,15 +15135,24 @@ class DefaultApi
      *
      * 
      *
+     * @param string $file_format  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $tag  (optional)
+     * @param bool $include_empty_translations  (optional)
+     * @param bool $keep_notranslate_tags  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param string $format_options  (optional)
+     * @param string $encoding  (optional)
+     * @param bool $skip_unverified_translations  (optional)
+     * @param string $fallback_locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesIdDownloadGetAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdLocalesIdDownloadGetAsyncWithHttpInfo($file_format, $project_id, $id, $tag = null, $include_empty_translations = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $fallback_locale_id = null)
     {
         $returnType = '';
-        $request = $this->projectsProjectIdLocalesIdDownloadGetRequest($project_id, $id);
+        $request = $this->projectsProjectIdLocalesIdDownloadGetRequest($file_format, $project_id, $id, $tag, $include_empty_translations, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $fallback_locale_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             return [null, $response->getStatusCode(), $response->getHeaders()];
@@ -14228,13 +15171,26 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdLocalesIdDownloadGet'
      *
+     * @param string $file_format  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $tag  (optional)
+     * @param bool $include_empty_translations  (optional)
+     * @param bool $keep_notranslate_tags  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param string $format_options  (optional)
+     * @param string $encoding  (optional)
+     * @param bool $skip_unverified_translations  (optional)
+     * @param string $fallback_locale_id  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdLocalesIdDownloadGetRequest($project_id, $id)
+    protected function projectsProjectIdLocalesIdDownloadGetRequest($file_format, $project_id, $id, $tag = null, $include_empty_translations = null, $keep_notranslate_tags = null, $convert_emoji = null, $format_options = null, $encoding = null, $skip_unverified_translations = null, $fallback_locale_id = null)
     {
+        // verify the required parameter 'file_format' is set
+        if ($file_format === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $file_format when calling projectsProjectIdLocalesIdDownloadGet');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdLocalesIdDownloadGet');
@@ -14251,6 +15207,42 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($file_format !== null) {
+            $queryParams['file_format'] = ObjectSerializer::toQueryValue($file_format);
+        }
+        // query params
+        if ($tag !== null) {
+            $queryParams['tag'] = ObjectSerializer::toQueryValue($tag);
+        }
+        // query params
+        if ($include_empty_translations !== null) {
+            $queryParams['include_empty_translations'] = ObjectSerializer::toQueryValue($include_empty_translations);
+        }
+        // query params
+        if ($keep_notranslate_tags !== null) {
+            $queryParams['keep_notranslate_tags'] = ObjectSerializer::toQueryValue($keep_notranslate_tags);
+        }
+        // query params
+        if ($convert_emoji !== null) {
+            $queryParams['convert_emoji'] = ObjectSerializer::toQueryValue($convert_emoji);
+        }
+        // query params
+        if ($format_options !== null) {
+            $queryParams['format_options'] = ObjectSerializer::toQueryValue($format_options);
+        }
+        // query params
+        if ($encoding !== null) {
+            $queryParams['encoding'] = ObjectSerializer::toQueryValue($encoding);
+        }
+        // query params
+        if ($skip_unverified_translations !== null) {
+            $queryParams['skip_unverified_translations'] = ObjectSerializer::toQueryValue($skip_unverified_translations);
+        }
+        // query params
+        if ($fallback_locale_id !== null) {
+            $queryParams['fallback_locale_id'] = ObjectSerializer::toQueryValue($fallback_locale_id);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -14565,31 +15557,47 @@ class DefaultApi
     /**
      * Operation projectsProjectIdLocalesIdPatch
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\LocaleDetails
      */
-    public function projectsProjectIdLocalesIdPatch($project_id, $id)
+    public function projectsProjectIdLocalesIdPatch($name, $code, $project_id, $id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
-        list($response) = $this->projectsProjectIdLocalesIdPatchWithHttpInfo($project_id, $id);
+        list($response) = $this->projectsProjectIdLocalesIdPatchWithHttpInfo($name, $code, $project_id, $id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdLocalesIdPatchWithHttpInfo
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\LocaleDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdLocalesIdPatchWithHttpInfo($project_id, $id)
+    public function projectsProjectIdLocalesIdPatchWithHttpInfo($name, $code, $project_id, $id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
         $returnType = '\Swagger\Client\Model\LocaleDetails';
-        $request = $this->projectsProjectIdLocalesIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdLocalesIdPatchRequest($name, $code, $project_id, $id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
 
         try {
 
@@ -14646,14 +15654,22 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesIdPatchAsync($project_id, $id)
+    public function projectsProjectIdLocalesIdPatchAsync($name, $code, $project_id, $id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
-        return $this->projectsProjectIdLocalesIdPatchAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdLocalesIdPatchAsyncWithHttpInfo($name, $code, $project_id, $id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations)->then(function ($response) {
             return $response[0];
         });
     }
@@ -14663,15 +15679,23 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesIdPatchAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdLocalesIdPatchAsyncWithHttpInfo($name, $code, $project_id, $id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
         $returnType = '\Swagger\Client\Model\LocaleDetails';
-        $request = $this->projectsProjectIdLocalesIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdLocalesIdPatchRequest($name, $code, $project_id, $id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -14704,13 +15728,29 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdLocalesIdPatch'
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdLocalesIdPatchRequest($project_id, $id)
+    protected function projectsProjectIdLocalesIdPatchRequest($name, $code, $project_id, $id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdLocalesIdPatch');
+        }
+        // verify the required parameter 'code' is set
+        if ($code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $code when calling projectsProjectIdLocalesIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdLocalesIdPatch');
@@ -14727,6 +15767,38 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($code !== null) {
+            $queryParams['code'] = ObjectSerializer::toQueryValue($code);
+        }
+        // query params
+        if ($default !== null) {
+            $queryParams['default'] = ObjectSerializer::toQueryValue($default);
+        }
+        // query params
+        if ($main !== null) {
+            $queryParams['main'] = ObjectSerializer::toQueryValue($main);
+        }
+        // query params
+        if ($rtl !== null) {
+            $queryParams['rtl'] = ObjectSerializer::toQueryValue($rtl);
+        }
+        // query params
+        if ($source_locale_id !== null) {
+            $queryParams['source_locale_id'] = ObjectSerializer::toQueryValue($source_locale_id);
+        }
+        // query params
+        if ($unverify_new_translations !== null) {
+            $queryParams['unverify_new_translations'] = ObjectSerializer::toQueryValue($unverify_new_translations);
+        }
+        // query params
+        if ($unverify_updated_translations !== null) {
+            $queryParams['unverify_updated_translations'] = ObjectSerializer::toQueryValue($unverify_updated_translations);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -14805,15 +15877,18 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $locale_id LocaleId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Translation
      */
-    public function projectsProjectIdLocalesLocaleIdTranslationsGet($project_id, $locale_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdLocalesLocaleIdTranslationsGet($project_id, $locale_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        list($response) = $this->projectsProjectIdLocalesLocaleIdTranslationsGetWithHttpInfo($project_id, $locale_id, $per_page, $page);
+        list($response) = $this->projectsProjectIdLocalesLocaleIdTranslationsGetWithHttpInfo($project_id, $locale_id, $sort, $order, $q, $per_page, $page);
         return $response;
     }
 
@@ -14822,16 +15897,19 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $locale_id LocaleId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Translation, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdLocalesLocaleIdTranslationsGetWithHttpInfo($project_id, $locale_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdLocalesLocaleIdTranslationsGetWithHttpInfo($project_id, $locale_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation';
-        $request = $this->projectsProjectIdLocalesLocaleIdTranslationsGetRequest($project_id, $locale_id, $per_page, $page);
+        $request = $this->projectsProjectIdLocalesLocaleIdTranslationsGetRequest($project_id, $locale_id, $sort, $order, $q, $per_page, $page);
 
         try {
 
@@ -14890,14 +15968,17 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $locale_id LocaleId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesLocaleIdTranslationsGetAsync($project_id, $locale_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdLocalesLocaleIdTranslationsGetAsync($project_id, $locale_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        return $this->projectsProjectIdLocalesLocaleIdTranslationsGetAsyncWithHttpInfo($project_id, $locale_id, $per_page, $page)->then(function ($response) {
+        return $this->projectsProjectIdLocalesLocaleIdTranslationsGetAsyncWithHttpInfo($project_id, $locale_id, $sort, $order, $q, $per_page, $page)->then(function ($response) {
             return $response[0];
         });
     }
@@ -14909,15 +15990,18 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $locale_id LocaleId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesLocaleIdTranslationsGetAsyncWithHttpInfo($project_id, $locale_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdLocalesLocaleIdTranslationsGetAsyncWithHttpInfo($project_id, $locale_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation';
-        $request = $this->projectsProjectIdLocalesLocaleIdTranslationsGetRequest($project_id, $locale_id, $per_page, $page);
+        $request = $this->projectsProjectIdLocalesLocaleIdTranslationsGetRequest($project_id, $locale_id, $sort, $order, $q, $per_page, $page);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -14952,12 +16036,15 @@ class DefaultApi
      *
      * @param string $project_id ProjectId (required)
      * @param string $locale_id LocaleId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdLocalesLocaleIdTranslationsGetRequest($project_id, $locale_id, $per_page = '25', $page = '1')
+    protected function projectsProjectIdLocalesLocaleIdTranslationsGetRequest($project_id, $locale_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -14975,6 +16062,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
         // query params
         if ($per_page !== null) {
             $queryParams['per_page'] = ObjectSerializer::toQueryValue($per_page);
@@ -15059,29 +16158,45 @@ class DefaultApi
     /**
      * Operation projectsProjectIdLocalesPost
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\LocaleDetails
      */
-    public function projectsProjectIdLocalesPost($project_id)
+    public function projectsProjectIdLocalesPost($name, $code, $project_id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
-        list($response) = $this->projectsProjectIdLocalesPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdLocalesPostWithHttpInfo($name, $code, $project_id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdLocalesPostWithHttpInfo
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\LocaleDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdLocalesPostWithHttpInfo($project_id)
+    public function projectsProjectIdLocalesPostWithHttpInfo($name, $code, $project_id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
         $returnType = '\Swagger\Client\Model\LocaleDetails';
-        $request = $this->projectsProjectIdLocalesPostRequest($project_id);
+        $request = $this->projectsProjectIdLocalesPostRequest($name, $code, $project_id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
 
         try {
 
@@ -15138,13 +16253,21 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesPostAsync($project_id)
+    public function projectsProjectIdLocalesPostAsync($name, $code, $project_id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
-        return $this->projectsProjectIdLocalesPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdLocalesPostAsyncWithHttpInfo($name, $code, $project_id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations)->then(function ($response) {
             return $response[0];
         });
     }
@@ -15154,14 +16277,22 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdLocalesPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdLocalesPostAsyncWithHttpInfo($name, $code, $project_id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
         $returnType = '\Swagger\Client\Model\LocaleDetails';
-        $request = $this->projectsProjectIdLocalesPostRequest($project_id);
+        $request = $this->projectsProjectIdLocalesPostRequest($name, $code, $project_id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -15194,12 +16325,28 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdLocalesPost'
      *
+     * @param string $name  (required)
+     * @param string $code  (required)
      * @param string $project_id ProjectId (required)
+     * @param bool $default  (optional)
+     * @param bool $main  (optional)
+     * @param bool $rtl  (optional)
+     * @param string $source_locale_id  (optional)
+     * @param bool $unverify_new_translations  (optional)
+     * @param bool $unverify_updated_translations  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdLocalesPostRequest($project_id)
+    protected function projectsProjectIdLocalesPostRequest($name, $code, $project_id, $default = null, $main = null, $rtl = null, $source_locale_id = null, $unverify_new_translations = null, $unverify_updated_translations = null)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdLocalesPost');
+        }
+        // verify the required parameter 'code' is set
+        if ($code === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $code when calling projectsProjectIdLocalesPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdLocalesPost');
@@ -15212,6 +16359,38 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
+        // query params
+        if ($code !== null) {
+            $queryParams['code'] = ObjectSerializer::toQueryValue($code);
+        }
+        // query params
+        if ($default !== null) {
+            $queryParams['default'] = ObjectSerializer::toQueryValue($default);
+        }
+        // query params
+        if ($main !== null) {
+            $queryParams['main'] = ObjectSerializer::toQueryValue($main);
+        }
+        // query params
+        if ($rtl !== null) {
+            $queryParams['rtl'] = ObjectSerializer::toQueryValue($rtl);
+        }
+        // query params
+        if ($source_locale_id !== null) {
+            $queryParams['source_locale_id'] = ObjectSerializer::toQueryValue($source_locale_id);
+        }
+        // query params
+        if ($unverify_new_translations !== null) {
+            $queryParams['unverify_new_translations'] = ObjectSerializer::toQueryValue($unverify_new_translations);
+        }
+        // query params
+        if ($unverify_updated_translations !== null) {
+            $queryParams['unverify_updated_translations'] = ObjectSerializer::toQueryValue($unverify_updated_translations);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -16208,29 +17387,55 @@ class DefaultApi
     /**
      * Operation projectsProjectIdOrdersPost
      *
+     * @param string $lsp  (required)
+     * @param string $source_locale_id  (required)
+     * @param string $target_locale_ids  (required)
+     * @param string $translation_type  (required)
+     * @param string $category  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $tag  (optional)
+     * @param string $message  (optional)
+     * @param string $styleguide_id  (optional)
+     * @param bool $unverify_translations_upon_delivery  (optional)
+     * @param bool $include_untranslated_keys  (optional)
+     * @param bool $include_unverified_translations  (optional)
+     * @param bool $quality  (optional)
+     * @param bool $priority  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationOrder
      */
-    public function projectsProjectIdOrdersPost($project_id)
+    public function projectsProjectIdOrdersPost($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag = null, $message = null, $styleguide_id = null, $unverify_translations_upon_delivery = null, $include_untranslated_keys = null, $include_unverified_translations = null, $quality = null, $priority = null)
     {
-        list($response) = $this->projectsProjectIdOrdersPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdOrdersPostWithHttpInfo($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag, $message, $styleguide_id, $unverify_translations_upon_delivery, $include_untranslated_keys, $include_unverified_translations, $quality, $priority);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdOrdersPostWithHttpInfo
      *
+     * @param string $lsp  (required)
+     * @param string $source_locale_id  (required)
+     * @param string $target_locale_ids  (required)
+     * @param string $translation_type  (required)
+     * @param string $category  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $tag  (optional)
+     * @param string $message  (optional)
+     * @param string $styleguide_id  (optional)
+     * @param bool $unverify_translations_upon_delivery  (optional)
+     * @param bool $include_untranslated_keys  (optional)
+     * @param bool $include_unverified_translations  (optional)
+     * @param bool $quality  (optional)
+     * @param bool $priority  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationOrder, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdOrdersPostWithHttpInfo($project_id)
+    public function projectsProjectIdOrdersPostWithHttpInfo($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag = null, $message = null, $styleguide_id = null, $unverify_translations_upon_delivery = null, $include_untranslated_keys = null, $include_unverified_translations = null, $quality = null, $priority = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationOrder';
-        $request = $this->projectsProjectIdOrdersPostRequest($project_id);
+        $request = $this->projectsProjectIdOrdersPostRequest($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag, $message, $styleguide_id, $unverify_translations_upon_delivery, $include_untranslated_keys, $include_unverified_translations, $quality, $priority);
 
         try {
 
@@ -16287,13 +17492,26 @@ class DefaultApi
      *
      * 
      *
+     * @param string $lsp  (required)
+     * @param string $source_locale_id  (required)
+     * @param string $target_locale_ids  (required)
+     * @param string $translation_type  (required)
+     * @param string $category  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $tag  (optional)
+     * @param string $message  (optional)
+     * @param string $styleguide_id  (optional)
+     * @param bool $unverify_translations_upon_delivery  (optional)
+     * @param bool $include_untranslated_keys  (optional)
+     * @param bool $include_unverified_translations  (optional)
+     * @param bool $quality  (optional)
+     * @param bool $priority  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdOrdersPostAsync($project_id)
+    public function projectsProjectIdOrdersPostAsync($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag = null, $message = null, $styleguide_id = null, $unverify_translations_upon_delivery = null, $include_untranslated_keys = null, $include_unverified_translations = null, $quality = null, $priority = null)
     {
-        return $this->projectsProjectIdOrdersPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdOrdersPostAsyncWithHttpInfo($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag, $message, $styleguide_id, $unverify_translations_upon_delivery, $include_untranslated_keys, $include_unverified_translations, $quality, $priority)->then(function ($response) {
             return $response[0];
         });
     }
@@ -16303,14 +17521,27 @@ class DefaultApi
      *
      * 
      *
+     * @param string $lsp  (required)
+     * @param string $source_locale_id  (required)
+     * @param string $target_locale_ids  (required)
+     * @param string $translation_type  (required)
+     * @param string $category  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $tag  (optional)
+     * @param string $message  (optional)
+     * @param string $styleguide_id  (optional)
+     * @param bool $unverify_translations_upon_delivery  (optional)
+     * @param bool $include_untranslated_keys  (optional)
+     * @param bool $include_unverified_translations  (optional)
+     * @param bool $quality  (optional)
+     * @param bool $priority  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdOrdersPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdOrdersPostAsyncWithHttpInfo($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag = null, $message = null, $styleguide_id = null, $unverify_translations_upon_delivery = null, $include_untranslated_keys = null, $include_unverified_translations = null, $quality = null, $priority = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationOrder';
-        $request = $this->projectsProjectIdOrdersPostRequest($project_id);
+        $request = $this->projectsProjectIdOrdersPostRequest($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag, $message, $styleguide_id, $unverify_translations_upon_delivery, $include_untranslated_keys, $include_unverified_translations, $quality, $priority);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -16343,12 +17574,45 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdOrdersPost'
      *
+     * @param string $lsp  (required)
+     * @param string $source_locale_id  (required)
+     * @param string $target_locale_ids  (required)
+     * @param string $translation_type  (required)
+     * @param string $category  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $tag  (optional)
+     * @param string $message  (optional)
+     * @param string $styleguide_id  (optional)
+     * @param bool $unverify_translations_upon_delivery  (optional)
+     * @param bool $include_untranslated_keys  (optional)
+     * @param bool $include_unverified_translations  (optional)
+     * @param bool $quality  (optional)
+     * @param bool $priority  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdOrdersPostRequest($project_id)
+    protected function projectsProjectIdOrdersPostRequest($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag = null, $message = null, $styleguide_id = null, $unverify_translations_upon_delivery = null, $include_untranslated_keys = null, $include_unverified_translations = null, $quality = null, $priority = null)
     {
+        // verify the required parameter 'lsp' is set
+        if ($lsp === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $lsp when calling projectsProjectIdOrdersPost');
+        }
+        // verify the required parameter 'source_locale_id' is set
+        if ($source_locale_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $source_locale_id when calling projectsProjectIdOrdersPost');
+        }
+        // verify the required parameter 'target_locale_ids' is set
+        if ($target_locale_ids === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $target_locale_ids when calling projectsProjectIdOrdersPost');
+        }
+        // verify the required parameter 'translation_type' is set
+        if ($translation_type === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $translation_type when calling projectsProjectIdOrdersPost');
+        }
+        // verify the required parameter 'category' is set
+        if ($category === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $category when calling projectsProjectIdOrdersPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdOrdersPost');
@@ -16361,6 +17625,58 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($lsp !== null) {
+            $queryParams['lsp'] = ObjectSerializer::toQueryValue($lsp);
+        }
+        // query params
+        if ($source_locale_id !== null) {
+            $queryParams['source_locale_id'] = ObjectSerializer::toQueryValue($source_locale_id);
+        }
+        // query params
+        if ($target_locale_ids !== null) {
+            $queryParams['target_locale_ids'] = ObjectSerializer::toQueryValue($target_locale_ids);
+        }
+        // query params
+        if ($translation_type !== null) {
+            $queryParams['translation_type'] = ObjectSerializer::toQueryValue($translation_type);
+        }
+        // query params
+        if ($tag !== null) {
+            $queryParams['tag'] = ObjectSerializer::toQueryValue($tag);
+        }
+        // query params
+        if ($message !== null) {
+            $queryParams['message'] = ObjectSerializer::toQueryValue($message);
+        }
+        // query params
+        if ($styleguide_id !== null) {
+            $queryParams['styleguide_id'] = ObjectSerializer::toQueryValue($styleguide_id);
+        }
+        // query params
+        if ($unverify_translations_upon_delivery !== null) {
+            $queryParams['unverify_translations_upon_delivery'] = ObjectSerializer::toQueryValue($unverify_translations_upon_delivery);
+        }
+        // query params
+        if ($include_untranslated_keys !== null) {
+            $queryParams['include_untranslated_keys'] = ObjectSerializer::toQueryValue($include_untranslated_keys);
+        }
+        // query params
+        if ($include_unverified_translations !== null) {
+            $queryParams['include_unverified_translations'] = ObjectSerializer::toQueryValue($include_unverified_translations);
+        }
+        // query params
+        if ($category !== null) {
+            $queryParams['category'] = ObjectSerializer::toQueryValue($category);
+        }
+        // query params
+        if ($quality !== null) {
+            $queryParams['quality'] = ObjectSerializer::toQueryValue($quality);
+        }
+        // query params
+        if ($priority !== null) {
+            $queryParams['priority'] = ObjectSerializer::toQueryValue($priority);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -17119,31 +18435,57 @@ class DefaultApi
     /**
      * Operation projectsProjectIdStyleguidesIdPatch
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\StyleguideDetails
      */
-    public function projectsProjectIdStyleguidesIdPatch($project_id, $id)
+    public function projectsProjectIdStyleguidesIdPatch($title, $project_id, $id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
-        list($response) = $this->projectsProjectIdStyleguidesIdPatchWithHttpInfo($project_id, $id);
+        list($response) = $this->projectsProjectIdStyleguidesIdPatchWithHttpInfo($title, $project_id, $id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdStyleguidesIdPatchWithHttpInfo
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\StyleguideDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdStyleguidesIdPatchWithHttpInfo($project_id, $id)
+    public function projectsProjectIdStyleguidesIdPatchWithHttpInfo($title, $project_id, $id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
         $returnType = '\Swagger\Client\Model\StyleguideDetails';
-        $request = $this->projectsProjectIdStyleguidesIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdStyleguidesIdPatchRequest($title, $project_id, $id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
 
         try {
 
@@ -17200,14 +18542,27 @@ class DefaultApi
      *
      * 
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdStyleguidesIdPatchAsync($project_id, $id)
+    public function projectsProjectIdStyleguidesIdPatchAsync($title, $project_id, $id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
-        return $this->projectsProjectIdStyleguidesIdPatchAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdStyleguidesIdPatchAsyncWithHttpInfo($title, $project_id, $id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples)->then(function ($response) {
             return $response[0];
         });
     }
@@ -17217,15 +18572,28 @@ class DefaultApi
      *
      * 
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdStyleguidesIdPatchAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdStyleguidesIdPatchAsyncWithHttpInfo($title, $project_id, $id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
         $returnType = '\Swagger\Client\Model\StyleguideDetails';
-        $request = $this->projectsProjectIdStyleguidesIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdStyleguidesIdPatchRequest($title, $project_id, $id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -17258,13 +18626,30 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdStyleguidesIdPatch'
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdStyleguidesIdPatchRequest($project_id, $id)
+    protected function projectsProjectIdStyleguidesIdPatchRequest($title, $project_id, $id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
+        // verify the required parameter 'title' is set
+        if ($title === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $title when calling projectsProjectIdStyleguidesIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdStyleguidesIdPatch');
@@ -17281,6 +18666,58 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($title !== null) {
+            $queryParams['title'] = ObjectSerializer::toQueryValue($title);
+        }
+        // query params
+        if ($audience !== null) {
+            $queryParams['audience'] = ObjectSerializer::toQueryValue($audience);
+        }
+        // query params
+        if ($target_audience !== null) {
+            $queryParams['target_audience'] = ObjectSerializer::toQueryValue($target_audience);
+        }
+        // query params
+        if ($grammatical_person !== null) {
+            $queryParams['grammatical_person'] = ObjectSerializer::toQueryValue($grammatical_person);
+        }
+        // query params
+        if ($vocabulary_type !== null) {
+            $queryParams['vocabulary_type'] = ObjectSerializer::toQueryValue($vocabulary_type);
+        }
+        // query params
+        if ($business !== null) {
+            $queryParams['business'] = ObjectSerializer::toQueryValue($business);
+        }
+        // query params
+        if ($company_branding !== null) {
+            $queryParams['company_branding'] = ObjectSerializer::toQueryValue($company_branding);
+        }
+        // query params
+        if ($formatting !== null) {
+            $queryParams['formatting'] = ObjectSerializer::toQueryValue($formatting);
+        }
+        // query params
+        if ($glossary_terms !== null) {
+            $queryParams['glossary_terms'] = ObjectSerializer::toQueryValue($glossary_terms);
+        }
+        // query params
+        if ($grammar_consistency !== null) {
+            $queryParams['grammar_consistency'] = ObjectSerializer::toQueryValue($grammar_consistency);
+        }
+        // query params
+        if ($literal_translation !== null) {
+            $queryParams['literal_translation'] = ObjectSerializer::toQueryValue($literal_translation);
+        }
+        // query params
+        if ($overall_tone !== null) {
+            $queryParams['overall_tone'] = ObjectSerializer::toQueryValue($overall_tone);
+        }
+        // query params
+        if ($samples !== null) {
+            $queryParams['samples'] = ObjectSerializer::toQueryValue($samples);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -17357,29 +18794,55 @@ class DefaultApi
     /**
      * Operation projectsProjectIdStyleguidesPost
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\StyleguideDetails
      */
-    public function projectsProjectIdStyleguidesPost($project_id)
+    public function projectsProjectIdStyleguidesPost($title, $project_id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
-        list($response) = $this->projectsProjectIdStyleguidesPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdStyleguidesPostWithHttpInfo($title, $project_id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdStyleguidesPostWithHttpInfo
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\StyleguideDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdStyleguidesPostWithHttpInfo($project_id)
+    public function projectsProjectIdStyleguidesPostWithHttpInfo($title, $project_id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
         $returnType = '\Swagger\Client\Model\StyleguideDetails';
-        $request = $this->projectsProjectIdStyleguidesPostRequest($project_id);
+        $request = $this->projectsProjectIdStyleguidesPostRequest($title, $project_id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
 
         try {
 
@@ -17436,13 +18899,26 @@ class DefaultApi
      *
      * 
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdStyleguidesPostAsync($project_id)
+    public function projectsProjectIdStyleguidesPostAsync($title, $project_id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
-        return $this->projectsProjectIdStyleguidesPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdStyleguidesPostAsyncWithHttpInfo($title, $project_id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples)->then(function ($response) {
             return $response[0];
         });
     }
@@ -17452,14 +18928,27 @@ class DefaultApi
      *
      * 
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdStyleguidesPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdStyleguidesPostAsyncWithHttpInfo($title, $project_id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
         $returnType = '\Swagger\Client\Model\StyleguideDetails';
-        $request = $this->projectsProjectIdStyleguidesPostRequest($project_id);
+        $request = $this->projectsProjectIdStyleguidesPostRequest($title, $project_id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -17492,12 +18981,29 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdStyleguidesPost'
      *
+     * @param string $title  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $audience  (optional)
+     * @param string $target_audience  (optional)
+     * @param string $grammatical_person  (optional)
+     * @param string $vocabulary_type  (optional)
+     * @param string $business  (optional)
+     * @param string $company_branding  (optional)
+     * @param string $formatting  (optional)
+     * @param string $glossary_terms  (optional)
+     * @param string $grammar_consistency  (optional)
+     * @param string $literal_translation  (optional)
+     * @param string $overall_tone  (optional)
+     * @param string $samples  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdStyleguidesPostRequest($project_id)
+    protected function projectsProjectIdStyleguidesPostRequest($title, $project_id, $audience = null, $target_audience = null, $grammatical_person = null, $vocabulary_type = null, $business = null, $company_branding = null, $formatting = null, $glossary_terms = null, $grammar_consistency = null, $literal_translation = null, $overall_tone = null, $samples = null)
     {
+        // verify the required parameter 'title' is set
+        if ($title === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $title when calling projectsProjectIdStyleguidesPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdStyleguidesPost');
@@ -17510,6 +19016,58 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($title !== null) {
+            $queryParams['title'] = ObjectSerializer::toQueryValue($title);
+        }
+        // query params
+        if ($audience !== null) {
+            $queryParams['audience'] = ObjectSerializer::toQueryValue($audience);
+        }
+        // query params
+        if ($target_audience !== null) {
+            $queryParams['target_audience'] = ObjectSerializer::toQueryValue($target_audience);
+        }
+        // query params
+        if ($grammatical_person !== null) {
+            $queryParams['grammatical_person'] = ObjectSerializer::toQueryValue($grammatical_person);
+        }
+        // query params
+        if ($vocabulary_type !== null) {
+            $queryParams['vocabulary_type'] = ObjectSerializer::toQueryValue($vocabulary_type);
+        }
+        // query params
+        if ($business !== null) {
+            $queryParams['business'] = ObjectSerializer::toQueryValue($business);
+        }
+        // query params
+        if ($company_branding !== null) {
+            $queryParams['company_branding'] = ObjectSerializer::toQueryValue($company_branding);
+        }
+        // query params
+        if ($formatting !== null) {
+            $queryParams['formatting'] = ObjectSerializer::toQueryValue($formatting);
+        }
+        // query params
+        if ($glossary_terms !== null) {
+            $queryParams['glossary_terms'] = ObjectSerializer::toQueryValue($glossary_terms);
+        }
+        // query params
+        if ($grammar_consistency !== null) {
+            $queryParams['grammar_consistency'] = ObjectSerializer::toQueryValue($grammar_consistency);
+        }
+        // query params
+        if ($literal_translation !== null) {
+            $queryParams['literal_translation'] = ObjectSerializer::toQueryValue($literal_translation);
+        }
+        // query params
+        if ($overall_tone !== null) {
+            $queryParams['overall_tone'] = ObjectSerializer::toQueryValue($overall_tone);
+        }
+        // query params
+        if ($samples !== null) {
+            $queryParams['samples'] = ObjectSerializer::toQueryValue($samples);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -18268,29 +19826,31 @@ class DefaultApi
     /**
      * Operation projectsProjectIdTagsPost
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TagWithStats
      */
-    public function projectsProjectIdTagsPost($project_id)
+    public function projectsProjectIdTagsPost($name, $project_id)
     {
-        list($response) = $this->projectsProjectIdTagsPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdTagsPostWithHttpInfo($name, $project_id);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdTagsPostWithHttpInfo
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TagWithStats, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTagsPostWithHttpInfo($project_id)
+    public function projectsProjectIdTagsPostWithHttpInfo($name, $project_id)
     {
         $returnType = '\Swagger\Client\Model\TagWithStats';
-        $request = $this->projectsProjectIdTagsPostRequest($project_id);
+        $request = $this->projectsProjectIdTagsPostRequest($name, $project_id);
 
         try {
 
@@ -18347,13 +19907,14 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTagsPostAsync($project_id)
+    public function projectsProjectIdTagsPostAsync($name, $project_id)
     {
-        return $this->projectsProjectIdTagsPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdTagsPostAsyncWithHttpInfo($name, $project_id)->then(function ($response) {
             return $response[0];
         });
     }
@@ -18363,14 +19924,15 @@ class DefaultApi
      *
      * 
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTagsPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdTagsPostAsyncWithHttpInfo($name, $project_id)
     {
         $returnType = '\Swagger\Client\Model\TagWithStats';
-        $request = $this->projectsProjectIdTagsPostRequest($project_id);
+        $request = $this->projectsProjectIdTagsPostRequest($name, $project_id);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -18403,12 +19965,17 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdTagsPost'
      *
+     * @param string $name  (required)
      * @param string $project_id ProjectId (required)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTagsPostRequest($project_id)
+    protected function projectsProjectIdTagsPostRequest($name, $project_id)
     {
+        // verify the required parameter 'name' is set
+        if ($name === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $name when calling projectsProjectIdTagsPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdTagsPost');
@@ -18421,6 +19988,10 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($name !== null) {
+            $queryParams['name'] = ObjectSerializer::toQueryValue($name);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -18494,13 +20065,16 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsExcludePatch
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedCount
      */
-    public function projectsProjectIdTranslationsExcludePatch($project_id)
+    public function projectsProjectIdTranslationsExcludePatch($project_id, $q = null, $sort = null, $order = null)
     {
-        list($response) = $this->projectsProjectIdTranslationsExcludePatchWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdTranslationsExcludePatchWithHttpInfo($project_id, $q, $sort, $order);
         return $response;
     }
 
@@ -18508,14 +20082,17 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsExcludePatchWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsExcludePatchWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsExcludePatchWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsExcludePatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsExcludePatchRequest($project_id, $q, $sort, $order);
 
         try {
 
@@ -18573,12 +20150,15 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsExcludePatchAsync($project_id)
+    public function projectsProjectIdTranslationsExcludePatchAsync($project_id, $q = null, $sort = null, $order = null)
     {
-        return $this->projectsProjectIdTranslationsExcludePatchAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsExcludePatchAsyncWithHttpInfo($project_id, $q, $sort, $order)->then(function ($response) {
             return $response[0];
         });
     }
@@ -18589,13 +20169,16 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsExcludePatchAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsExcludePatchAsyncWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsExcludePatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsExcludePatchRequest($project_id, $q, $sort, $order);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -18629,10 +20212,13 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdTranslationsExcludePatch'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsExcludePatchRequest($project_id)
+    protected function projectsProjectIdTranslationsExcludePatchRequest($project_id, $q = null, $sort = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -18646,6 +20232,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -18719,15 +20317,18 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsGet
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Translation[]
      */
-    public function projectsProjectIdTranslationsGet($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsGet($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        list($response) = $this->projectsProjectIdTranslationsGetWithHttpInfo($project_id, $per_page, $page);
+        list($response) = $this->projectsProjectIdTranslationsGetWithHttpInfo($project_id, $sort, $order, $q, $per_page, $page);
         return $response;
     }
 
@@ -18735,16 +20336,19 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsGetWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Translation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsGetWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsGetWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation[]';
-        $request = $this->projectsProjectIdTranslationsGetRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdTranslationsGetRequest($project_id, $sort, $order, $q, $per_page, $page);
 
         try {
 
@@ -18802,14 +20406,17 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsGetAsync($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsGetAsync($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        return $this->projectsProjectIdTranslationsGetAsyncWithHttpInfo($project_id, $per_page, $page)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsGetAsyncWithHttpInfo($project_id, $sort, $order, $q, $per_page, $page)->then(function ($response) {
             return $response[0];
         });
     }
@@ -18820,15 +20427,18 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsGetAsyncWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsGetAsyncWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation[]';
-        $request = $this->projectsProjectIdTranslationsGetRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdTranslationsGetRequest($project_id, $sort, $order, $q, $per_page, $page);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -18862,12 +20472,15 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdTranslationsGet'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsGetRequest($project_id, $per_page = '25', $page = '1')
+    protected function projectsProjectIdTranslationsGetRequest($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -18881,6 +20494,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
         // query params
         if ($per_page !== null) {
             $queryParams['per_page'] = ObjectSerializer::toQueryValue($per_page);
@@ -19199,31 +20824,39 @@ class DefaultApi
     /**
      * Operation projectsProjectIdTranslationsIdPatch
      *
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationDetails
      */
-    public function projectsProjectIdTranslationsIdPatch($project_id, $id)
+    public function projectsProjectIdTranslationsIdPatch($content, $project_id, $id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
-        list($response) = $this->projectsProjectIdTranslationsIdPatchWithHttpInfo($project_id, $id);
+        list($response) = $this->projectsProjectIdTranslationsIdPatchWithHttpInfo($content, $project_id, $id, $plural_suffix, $unverified, $excluded);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdTranslationsIdPatchWithHttpInfo
      *
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsIdPatchWithHttpInfo($project_id, $id)
+    public function projectsProjectIdTranslationsIdPatchWithHttpInfo($content, $project_id, $id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationDetails';
-        $request = $this->projectsProjectIdTranslationsIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdTranslationsIdPatchRequest($content, $project_id, $id, $plural_suffix, $unverified, $excluded);
 
         try {
 
@@ -19280,14 +20913,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsIdPatchAsync($project_id, $id)
+    public function projectsProjectIdTranslationsIdPatchAsync($content, $project_id, $id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
-        return $this->projectsProjectIdTranslationsIdPatchAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsIdPatchAsyncWithHttpInfo($content, $project_id, $id, $plural_suffix, $unverified, $excluded)->then(function ($response) {
             return $response[0];
         });
     }
@@ -19297,15 +20934,19 @@ class DefaultApi
      *
      * 
      *
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsIdPatchAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdTranslationsIdPatchAsyncWithHttpInfo($content, $project_id, $id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationDetails';
-        $request = $this->projectsProjectIdTranslationsIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdTranslationsIdPatchRequest($content, $project_id, $id, $plural_suffix, $unverified, $excluded);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -19338,13 +20979,21 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdTranslationsIdPatch'
      *
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsIdPatchRequest($project_id, $id)
+    protected function projectsProjectIdTranslationsIdPatchRequest($content, $project_id, $id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
+        // verify the required parameter 'content' is set
+        if ($content === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $content when calling projectsProjectIdTranslationsIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdTranslationsIdPatch');
@@ -19361,6 +21010,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($content !== null) {
+            $queryParams['content'] = ObjectSerializer::toQueryValue($content);
+        }
+        // query params
+        if ($plural_suffix !== null) {
+            $queryParams['plural_suffix'] = ObjectSerializer::toQueryValue($plural_suffix);
+        }
+        // query params
+        if ($unverified !== null) {
+            $queryParams['unverified'] = ObjectSerializer::toQueryValue($unverified);
+        }
+        // query params
+        if ($excluded !== null) {
+            $queryParams['excluded'] = ObjectSerializer::toQueryValue($excluded);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -19438,13 +21103,16 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsIncludePatch
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedCount
      */
-    public function projectsProjectIdTranslationsIncludePatch($project_id)
+    public function projectsProjectIdTranslationsIncludePatch($project_id, $q = null, $sort = null, $order = null)
     {
-        list($response) = $this->projectsProjectIdTranslationsIncludePatchWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdTranslationsIncludePatchWithHttpInfo($project_id, $q, $sort, $order);
         return $response;
     }
 
@@ -19452,14 +21120,17 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsIncludePatchWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsIncludePatchWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsIncludePatchWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsIncludePatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsIncludePatchRequest($project_id, $q, $sort, $order);
 
         try {
 
@@ -19517,12 +21188,15 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsIncludePatchAsync($project_id)
+    public function projectsProjectIdTranslationsIncludePatchAsync($project_id, $q = null, $sort = null, $order = null)
     {
-        return $this->projectsProjectIdTranslationsIncludePatchAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsIncludePatchAsyncWithHttpInfo($project_id, $q, $sort, $order)->then(function ($response) {
             return $response[0];
         });
     }
@@ -19533,13 +21207,16 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsIncludePatchAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsIncludePatchAsyncWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsIncludePatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsIncludePatchRequest($project_id, $q, $sort, $order);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -19573,10 +21250,13 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdTranslationsIncludePatch'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsIncludePatchRequest($project_id)
+    protected function projectsProjectIdTranslationsIncludePatchRequest($project_id, $q = null, $sort = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -19590,6 +21270,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -19662,29 +21354,41 @@ class DefaultApi
     /**
      * Operation projectsProjectIdTranslationsPost
      *
+     * @param string $locale_id  (required)
+     * @param string $key_id  (required)
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\TranslationDetails
      */
-    public function projectsProjectIdTranslationsPost($project_id)
+    public function projectsProjectIdTranslationsPost($locale_id, $key_id, $content, $project_id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
-        list($response) = $this->projectsProjectIdTranslationsPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdTranslationsPostWithHttpInfo($locale_id, $key_id, $content, $project_id, $plural_suffix, $unverified, $excluded);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdTranslationsPostWithHttpInfo
      *
+     * @param string $locale_id  (required)
+     * @param string $key_id  (required)
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\TranslationDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsPostWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsPostWithHttpInfo($locale_id, $key_id, $content, $project_id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationDetails';
-        $request = $this->projectsProjectIdTranslationsPostRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsPostRequest($locale_id, $key_id, $content, $project_id, $plural_suffix, $unverified, $excluded);
 
         try {
 
@@ -19741,13 +21445,19 @@ class DefaultApi
      *
      * 
      *
+     * @param string $locale_id  (required)
+     * @param string $key_id  (required)
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsPostAsync($project_id)
+    public function projectsProjectIdTranslationsPostAsync($locale_id, $key_id, $content, $project_id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
-        return $this->projectsProjectIdTranslationsPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsPostAsyncWithHttpInfo($locale_id, $key_id, $content, $project_id, $plural_suffix, $unverified, $excluded)->then(function ($response) {
             return $response[0];
         });
     }
@@ -19757,14 +21467,20 @@ class DefaultApi
      *
      * 
      *
+     * @param string $locale_id  (required)
+     * @param string $key_id  (required)
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsPostAsyncWithHttpInfo($locale_id, $key_id, $content, $project_id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
         $returnType = '\Swagger\Client\Model\TranslationDetails';
-        $request = $this->projectsProjectIdTranslationsPostRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsPostRequest($locale_id, $key_id, $content, $project_id, $plural_suffix, $unverified, $excluded);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -19797,12 +21513,30 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdTranslationsPost'
      *
+     * @param string $locale_id  (required)
+     * @param string $key_id  (required)
+     * @param string $content  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $plural_suffix  (optional)
+     * @param bool $unverified  (optional)
+     * @param bool $excluded  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsPostRequest($project_id)
+    protected function projectsProjectIdTranslationsPostRequest($locale_id, $key_id, $content, $project_id, $plural_suffix = null, $unverified = null, $excluded = null)
     {
+        // verify the required parameter 'locale_id' is set
+        if ($locale_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $locale_id when calling projectsProjectIdTranslationsPost');
+        }
+        // verify the required parameter 'key_id' is set
+        if ($key_id === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $key_id when calling projectsProjectIdTranslationsPost');
+        }
+        // verify the required parameter 'content' is set
+        if ($content === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $content when calling projectsProjectIdTranslationsPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdTranslationsPost');
@@ -19815,6 +21549,30 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
+        // query params
+        if ($key_id !== null) {
+            $queryParams['key_id'] = ObjectSerializer::toQueryValue($key_id);
+        }
+        // query params
+        if ($content !== null) {
+            $queryParams['content'] = ObjectSerializer::toQueryValue($content);
+        }
+        // query params
+        if ($plural_suffix !== null) {
+            $queryParams['plural_suffix'] = ObjectSerializer::toQueryValue($plural_suffix);
+        }
+        // query params
+        if ($unverified !== null) {
+            $queryParams['unverified'] = ObjectSerializer::toQueryValue($unverified);
+        }
+        // query params
+        if ($excluded !== null) {
+            $queryParams['excluded'] = ObjectSerializer::toQueryValue($excluded);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -19888,15 +21646,18 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsSearchPost
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Translation[]
      */
-    public function projectsProjectIdTranslationsSearchPost($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsSearchPost($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        list($response) = $this->projectsProjectIdTranslationsSearchPostWithHttpInfo($project_id, $per_page, $page);
+        list($response) = $this->projectsProjectIdTranslationsSearchPostWithHttpInfo($project_id, $sort, $order, $q, $per_page, $page);
         return $response;
     }
 
@@ -19904,16 +21665,19 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsSearchPostWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Translation[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsSearchPostWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsSearchPostWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation[]';
-        $request = $this->projectsProjectIdTranslationsSearchPostRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdTranslationsSearchPostRequest($project_id, $sort, $order, $q, $per_page, $page);
 
         try {
 
@@ -19971,14 +21735,17 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsSearchPostAsync($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsSearchPostAsync($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
-        return $this->projectsProjectIdTranslationsSearchPostAsyncWithHttpInfo($project_id, $per_page, $page)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsSearchPostAsyncWithHttpInfo($project_id, $sort, $order, $q, $per_page, $page)->then(function ($response) {
             return $response[0];
         });
     }
@@ -19989,15 +21756,18 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsSearchPostAsyncWithHttpInfo($project_id, $per_page = '25', $page = '1')
+    public function projectsProjectIdTranslationsSearchPostAsyncWithHttpInfo($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         $returnType = '\Swagger\Client\Model\Translation[]';
-        $request = $this->projectsProjectIdTranslationsSearchPostRequest($project_id, $per_page, $page);
+        $request = $this->projectsProjectIdTranslationsSearchPostRequest($project_id, $sort, $order, $q, $per_page, $page);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -20031,12 +21801,15 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdTranslationsSearchPost'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
+     * @param string $q  (optional)
      * @param int $per_page Per Page (optional, default to 25)
      * @param int $page Page (optional, default to 1)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsSearchPostRequest($project_id, $per_page = '25', $page = '1')
+    protected function projectsProjectIdTranslationsSearchPostRequest($project_id, $sort = null, $order = null, $q = null, $per_page = '25', $page = '1')
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -20050,6 +21823,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
         // query params
         if ($per_page !== null) {
             $queryParams['per_page'] = ObjectSerializer::toQueryValue($per_page);
@@ -20638,13 +22423,16 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsUnverifyPatch
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedCount
      */
-    public function projectsProjectIdTranslationsUnverifyPatch($project_id)
+    public function projectsProjectIdTranslationsUnverifyPatch($project_id, $q = null, $sort = null, $order = null)
     {
-        list($response) = $this->projectsProjectIdTranslationsUnverifyPatchWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdTranslationsUnverifyPatchWithHttpInfo($project_id, $q, $sort, $order);
         return $response;
     }
 
@@ -20652,14 +22440,17 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsUnverifyPatchWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsUnverifyPatchWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsUnverifyPatchWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsUnverifyPatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsUnverifyPatchRequest($project_id, $q, $sort, $order);
 
         try {
 
@@ -20717,12 +22508,15 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsUnverifyPatchAsync($project_id)
+    public function projectsProjectIdTranslationsUnverifyPatchAsync($project_id, $q = null, $sort = null, $order = null)
     {
-        return $this->projectsProjectIdTranslationsUnverifyPatchAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsUnverifyPatchAsyncWithHttpInfo($project_id, $q, $sort, $order)->then(function ($response) {
             return $response[0];
         });
     }
@@ -20733,13 +22527,16 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsUnverifyPatchAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsUnverifyPatchAsyncWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsUnverifyPatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsUnverifyPatchRequest($project_id, $q, $sort, $order);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -20773,10 +22570,13 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdTranslationsUnverifyPatch'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsUnverifyPatchRequest($project_id)
+    protected function projectsProjectIdTranslationsUnverifyPatchRequest($project_id, $q = null, $sort = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -20790,6 +22590,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -20863,13 +22675,16 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsVerifyPatch
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\AffectedCount
      */
-    public function projectsProjectIdTranslationsVerifyPatch($project_id)
+    public function projectsProjectIdTranslationsVerifyPatch($project_id, $q = null, $sort = null, $order = null)
     {
-        list($response) = $this->projectsProjectIdTranslationsVerifyPatchWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdTranslationsVerifyPatchWithHttpInfo($project_id, $q, $sort, $order);
         return $response;
     }
 
@@ -20877,14 +22692,17 @@ class DefaultApi
      * Operation projectsProjectIdTranslationsVerifyPatchWithHttpInfo
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\AffectedCount, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdTranslationsVerifyPatchWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsVerifyPatchWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsVerifyPatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsVerifyPatchRequest($project_id, $q, $sort, $order);
 
         try {
 
@@ -20942,12 +22760,15 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsVerifyPatchAsync($project_id)
+    public function projectsProjectIdTranslationsVerifyPatchAsync($project_id, $q = null, $sort = null, $order = null)
     {
-        return $this->projectsProjectIdTranslationsVerifyPatchAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdTranslationsVerifyPatchAsyncWithHttpInfo($project_id, $q, $sort, $order)->then(function ($response) {
             return $response[0];
         });
     }
@@ -20958,13 +22779,16 @@ class DefaultApi
      * 
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdTranslationsVerifyPatchAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdTranslationsVerifyPatchAsyncWithHttpInfo($project_id, $q = null, $sort = null, $order = null)
     {
         $returnType = '\Swagger\Client\Model\AffectedCount';
-        $request = $this->projectsProjectIdTranslationsVerifyPatchRequest($project_id);
+        $request = $this->projectsProjectIdTranslationsVerifyPatchRequest($project_id, $q, $sort, $order);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -20998,10 +22822,13 @@ class DefaultApi
      * Create request for operation 'projectsProjectIdTranslationsVerifyPatch'
      *
      * @param string $project_id ProjectId (required)
+     * @param string $q  (optional)
+     * @param string $sort  (optional)
+     * @param string $order  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdTranslationsVerifyPatchRequest($project_id)
+    protected function projectsProjectIdTranslationsVerifyPatchRequest($project_id, $q = null, $sort = null, $order = null)
     {
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
@@ -21015,6 +22842,18 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($q !== null) {
+            $queryParams['q'] = ObjectSerializer::toQueryValue($q);
+        }
+        // query params
+        if ($sort !== null) {
+            $queryParams['sort'] = ObjectSerializer::toQueryValue($sort);
+        }
+        // query params
+        if ($order !== null) {
+            $queryParams['order'] = ObjectSerializer::toQueryValue($order);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -21568,29 +23407,51 @@ class DefaultApi
     /**
      * Operation projectsProjectIdUploadsPost
      *
+     * @param string $file  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $file_format  (optional)
+     * @param string $locale_id  (optional)
+     * @param string $tags  (optional)
+     * @param bool $update_translations  (optional)
+     * @param bool $update_descriptions  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param bool $skip_upload_tags  (optional)
+     * @param bool $skip_unverification  (optional)
+     * @param string $file_encoding  (optional)
+     * @param string $format_options  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Upload
      */
-    public function projectsProjectIdUploadsPost($project_id)
+    public function projectsProjectIdUploadsPost($file, $project_id, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $format_options = null)
     {
-        list($response) = $this->projectsProjectIdUploadsPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdUploadsPostWithHttpInfo($file, $project_id, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $format_options);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdUploadsPostWithHttpInfo
      *
+     * @param string $file  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $file_format  (optional)
+     * @param string $locale_id  (optional)
+     * @param string $tags  (optional)
+     * @param bool $update_translations  (optional)
+     * @param bool $update_descriptions  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param bool $skip_upload_tags  (optional)
+     * @param bool $skip_unverification  (optional)
+     * @param string $file_encoding  (optional)
+     * @param string $format_options  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Upload, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdUploadsPostWithHttpInfo($project_id)
+    public function projectsProjectIdUploadsPostWithHttpInfo($file, $project_id, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $format_options = null)
     {
         $returnType = '\Swagger\Client\Model\Upload';
-        $request = $this->projectsProjectIdUploadsPostRequest($project_id);
+        $request = $this->projectsProjectIdUploadsPostRequest($file, $project_id, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $format_options);
 
         try {
 
@@ -21647,13 +23508,24 @@ class DefaultApi
      *
      * 
      *
+     * @param string $file  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $file_format  (optional)
+     * @param string $locale_id  (optional)
+     * @param string $tags  (optional)
+     * @param bool $update_translations  (optional)
+     * @param bool $update_descriptions  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param bool $skip_upload_tags  (optional)
+     * @param bool $skip_unverification  (optional)
+     * @param string $file_encoding  (optional)
+     * @param string $format_options  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdUploadsPostAsync($project_id)
+    public function projectsProjectIdUploadsPostAsync($file, $project_id, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $format_options = null)
     {
-        return $this->projectsProjectIdUploadsPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdUploadsPostAsyncWithHttpInfo($file, $project_id, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $format_options)->then(function ($response) {
             return $response[0];
         });
     }
@@ -21663,14 +23535,25 @@ class DefaultApi
      *
      * 
      *
+     * @param string $file  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $file_format  (optional)
+     * @param string $locale_id  (optional)
+     * @param string $tags  (optional)
+     * @param bool $update_translations  (optional)
+     * @param bool $update_descriptions  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param bool $skip_upload_tags  (optional)
+     * @param bool $skip_unverification  (optional)
+     * @param string $file_encoding  (optional)
+     * @param string $format_options  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdUploadsPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdUploadsPostAsyncWithHttpInfo($file, $project_id, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $format_options = null)
     {
         $returnType = '\Swagger\Client\Model\Upload';
-        $request = $this->projectsProjectIdUploadsPostRequest($project_id);
+        $request = $this->projectsProjectIdUploadsPostRequest($file, $project_id, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $format_options);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -21703,12 +23586,27 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdUploadsPost'
      *
+     * @param string $file  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $file_format  (optional)
+     * @param string $locale_id  (optional)
+     * @param string $tags  (optional)
+     * @param bool $update_translations  (optional)
+     * @param bool $update_descriptions  (optional)
+     * @param bool $convert_emoji  (optional)
+     * @param bool $skip_upload_tags  (optional)
+     * @param bool $skip_unverification  (optional)
+     * @param string $file_encoding  (optional)
+     * @param string $format_options  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdUploadsPostRequest($project_id)
+    protected function projectsProjectIdUploadsPostRequest($file, $project_id, $file_format = null, $locale_id = null, $tags = null, $update_translations = null, $update_descriptions = null, $convert_emoji = null, $skip_upload_tags = null, $skip_unverification = null, $file_encoding = null, $format_options = null)
     {
+        // verify the required parameter 'file' is set
+        if ($file === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $file when calling projectsProjectIdUploadsPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdUploadsPost');
@@ -21721,6 +23619,50 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($file !== null) {
+            $queryParams['file'] = ObjectSerializer::toQueryValue($file);
+        }
+        // query params
+        if ($file_format !== null) {
+            $queryParams['file_format'] = ObjectSerializer::toQueryValue($file_format);
+        }
+        // query params
+        if ($locale_id !== null) {
+            $queryParams['locale_id'] = ObjectSerializer::toQueryValue($locale_id);
+        }
+        // query params
+        if ($tags !== null) {
+            $queryParams['tags'] = ObjectSerializer::toQueryValue($tags);
+        }
+        // query params
+        if ($update_translations !== null) {
+            $queryParams['update_translations'] = ObjectSerializer::toQueryValue($update_translations);
+        }
+        // query params
+        if ($update_descriptions !== null) {
+            $queryParams['update_descriptions'] = ObjectSerializer::toQueryValue($update_descriptions);
+        }
+        // query params
+        if ($convert_emoji !== null) {
+            $queryParams['convert_emoji'] = ObjectSerializer::toQueryValue($convert_emoji);
+        }
+        // query params
+        if ($skip_upload_tags !== null) {
+            $queryParams['skip_upload_tags'] = ObjectSerializer::toQueryValue($skip_upload_tags);
+        }
+        // query params
+        if ($skip_unverification !== null) {
+            $queryParams['skip_unverification'] = ObjectSerializer::toQueryValue($skip_unverification);
+        }
+        // query params
+        if ($file_encoding !== null) {
+            $queryParams['file_encoding'] = ObjectSerializer::toQueryValue($file_encoding);
+        }
+        // query params
+        if ($format_options !== null) {
+            $queryParams['format_options'] = ObjectSerializer::toQueryValue($format_options);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -22479,31 +24421,39 @@ class DefaultApi
     /**
      * Operation projectsProjectIdWebhooksIdPatch
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Webhook
      */
-    public function projectsProjectIdWebhooksIdPatch($project_id, $id)
+    public function projectsProjectIdWebhooksIdPatch($callback_url, $events, $project_id, $id, $description = null, $active = null)
     {
-        list($response) = $this->projectsProjectIdWebhooksIdPatchWithHttpInfo($project_id, $id);
+        list($response) = $this->projectsProjectIdWebhooksIdPatchWithHttpInfo($callback_url, $events, $project_id, $id, $description, $active);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdWebhooksIdPatchWithHttpInfo
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdWebhooksIdPatchWithHttpInfo($project_id, $id)
+    public function projectsProjectIdWebhooksIdPatchWithHttpInfo($callback_url, $events, $project_id, $id, $description = null, $active = null)
     {
         $returnType = '\Swagger\Client\Model\Webhook';
-        $request = $this->projectsProjectIdWebhooksIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdWebhooksIdPatchRequest($callback_url, $events, $project_id, $id, $description, $active);
 
         try {
 
@@ -22560,14 +24510,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdWebhooksIdPatchAsync($project_id, $id)
+    public function projectsProjectIdWebhooksIdPatchAsync($callback_url, $events, $project_id, $id, $description = null, $active = null)
     {
-        return $this->projectsProjectIdWebhooksIdPatchAsyncWithHttpInfo($project_id, $id)->then(function ($response) {
+        return $this->projectsProjectIdWebhooksIdPatchAsyncWithHttpInfo($callback_url, $events, $project_id, $id, $description, $active)->then(function ($response) {
             return $response[0];
         });
     }
@@ -22577,15 +24531,19 @@ class DefaultApi
      *
      * 
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdWebhooksIdPatchAsyncWithHttpInfo($project_id, $id)
+    public function projectsProjectIdWebhooksIdPatchAsyncWithHttpInfo($callback_url, $events, $project_id, $id, $description = null, $active = null)
     {
         $returnType = '\Swagger\Client\Model\Webhook';
-        $request = $this->projectsProjectIdWebhooksIdPatchRequest($project_id, $id);
+        $request = $this->projectsProjectIdWebhooksIdPatchRequest($callback_url, $events, $project_id, $id, $description, $active);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -22618,13 +24576,25 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdWebhooksIdPatch'
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
      * @param string $id Id (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdWebhooksIdPatchRequest($project_id, $id)
+    protected function projectsProjectIdWebhooksIdPatchRequest($callback_url, $events, $project_id, $id, $description = null, $active = null)
     {
+        // verify the required parameter 'callback_url' is set
+        if ($callback_url === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $callback_url when calling projectsProjectIdWebhooksIdPatch');
+        }
+        // verify the required parameter 'events' is set
+        if ($events === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $events when calling projectsProjectIdWebhooksIdPatch');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdWebhooksIdPatch');
@@ -22641,6 +24611,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($callback_url !== null) {
+            $queryParams['callback_url'] = ObjectSerializer::toQueryValue($callback_url);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($events !== null) {
+            $queryParams['events'] = ObjectSerializer::toQueryValue($events);
+        }
+        // query params
+        if ($active !== null) {
+            $queryParams['active'] = ObjectSerializer::toQueryValue($active);
+        }
 
         // path params
         if ($project_id !== null) {
@@ -22922,29 +24908,37 @@ class DefaultApi
     /**
      * Operation projectsProjectIdWebhooksPost
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\Webhook
      */
-    public function projectsProjectIdWebhooksPost($project_id)
+    public function projectsProjectIdWebhooksPost($callback_url, $events, $project_id, $description = null, $active = null)
     {
-        list($response) = $this->projectsProjectIdWebhooksPostWithHttpInfo($project_id);
+        list($response) = $this->projectsProjectIdWebhooksPostWithHttpInfo($callback_url, $events, $project_id, $description, $active);
         return $response;
     }
 
     /**
      * Operation projectsProjectIdWebhooksPostWithHttpInfo
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\Webhook, HTTP status code, HTTP response headers (array of strings)
      */
-    public function projectsProjectIdWebhooksPostWithHttpInfo($project_id)
+    public function projectsProjectIdWebhooksPostWithHttpInfo($callback_url, $events, $project_id, $description = null, $active = null)
     {
         $returnType = '\Swagger\Client\Model\Webhook';
-        $request = $this->projectsProjectIdWebhooksPostRequest($project_id);
+        $request = $this->projectsProjectIdWebhooksPostRequest($callback_url, $events, $project_id, $description, $active);
 
         try {
 
@@ -23001,13 +24995,17 @@ class DefaultApi
      *
      * 
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdWebhooksPostAsync($project_id)
+    public function projectsProjectIdWebhooksPostAsync($callback_url, $events, $project_id, $description = null, $active = null)
     {
-        return $this->projectsProjectIdWebhooksPostAsyncWithHttpInfo($project_id)->then(function ($response) {
+        return $this->projectsProjectIdWebhooksPostAsyncWithHttpInfo($callback_url, $events, $project_id, $description, $active)->then(function ($response) {
             return $response[0];
         });
     }
@@ -23017,14 +25015,18 @@ class DefaultApi
      *
      * 
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function projectsProjectIdWebhooksPostAsyncWithHttpInfo($project_id)
+    public function projectsProjectIdWebhooksPostAsyncWithHttpInfo($callback_url, $events, $project_id, $description = null, $active = null)
     {
         $returnType = '\Swagger\Client\Model\Webhook';
-        $request = $this->projectsProjectIdWebhooksPostRequest($project_id);
+        $request = $this->projectsProjectIdWebhooksPostRequest($callback_url, $events, $project_id, $description, $active);
 
         return $this->client->sendAsync($request)->then(function ($response) use ($returnType) {
             $responseBody = $response->getBody();
@@ -23057,12 +25059,24 @@ class DefaultApi
     /**
      * Create request for operation 'projectsProjectIdWebhooksPost'
      *
+     * @param string $callback_url  (required)
+     * @param string $events  (required)
      * @param string $project_id ProjectId (required)
+     * @param string $description  (optional)
+     * @param bool $active  (optional)
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function projectsProjectIdWebhooksPostRequest($project_id)
+    protected function projectsProjectIdWebhooksPostRequest($callback_url, $events, $project_id, $description = null, $active = null)
     {
+        // verify the required parameter 'callback_url' is set
+        if ($callback_url === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $callback_url when calling projectsProjectIdWebhooksPost');
+        }
+        // verify the required parameter 'events' is set
+        if ($events === null) {
+            throw new \InvalidArgumentException('Missing the required parameter $events when calling projectsProjectIdWebhooksPost');
+        }
         // verify the required parameter 'project_id' is set
         if ($project_id === null) {
             throw new \InvalidArgumentException('Missing the required parameter $project_id when calling projectsProjectIdWebhooksPost');
@@ -23075,6 +25089,22 @@ class DefaultApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($callback_url !== null) {
+            $queryParams['callback_url'] = ObjectSerializer::toQueryValue($callback_url);
+        }
+        // query params
+        if ($description !== null) {
+            $queryParams['description'] = ObjectSerializer::toQueryValue($description);
+        }
+        // query params
+        if ($events !== null) {
+            $queryParams['events'] = ObjectSerializer::toQueryValue($events);
+        }
+        // query params
+        if ($active !== null) {
+            $queryParams['active'] = ObjectSerializer::toQueryValue($active);
+        }
 
         // path params
         if ($project_id !== null) {

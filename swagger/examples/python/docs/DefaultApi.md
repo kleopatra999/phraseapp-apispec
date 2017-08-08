@@ -337,7 +337,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_glossaries_glossary_id_terms_id_patch**
-> GlossaryTerm accounts_account_id_glossaries_glossary_id_terms_id_patch(account_id, glossary_id, id)
+> GlossaryTerm accounts_account_id_glossaries_glossary_id_terms_id_patch(term, account_id, glossary_id, id, description=description, translatable=translatable, case_sensitive=case_sensitive)
 
 
 
@@ -359,12 +359,16 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+term = 'term_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 glossary_id = 'glossary_id_example' # str | GlossaryId
 id = 'id_example' # str | Id
+description = 'description_example' # str |  (optional)
+translatable = true # bool |  (optional)
+case_sensitive = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_id_patch(account_id, glossary_id, id)
+    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_id_patch(term, account_id, glossary_id, id, description=description, translatable=translatable, case_sensitive=case_sensitive)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_glossaries_glossary_id_terms_id_patch: %s\n" % e)
@@ -374,9 +378,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **term** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **glossary_id** | **str**| GlossaryId | 
  **id** | **str**| Id | 
+ **description** | **str**|  | [optional] 
+ **translatable** | **bool**|  | [optional] 
+ **case_sensitive** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -394,7 +402,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_glossaries_glossary_id_terms_post**
-> GlossaryTerm accounts_account_id_glossaries_glossary_id_terms_post(account_id, glossary_id)
+> GlossaryTerm accounts_account_id_glossaries_glossary_id_terms_post(term, account_id, glossary_id, description=description, translatable=translatable, case_sensitive=case_sensitive)
 
 
 
@@ -416,11 +424,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+term = 'term_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 glossary_id = 'glossary_id_example' # str | GlossaryId
+description = 'description_example' # str |  (optional)
+translatable = true # bool |  (optional)
+case_sensitive = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_post(account_id, glossary_id)
+    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_post(term, account_id, glossary_id, description=description, translatable=translatable, case_sensitive=case_sensitive)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_glossaries_glossary_id_terms_post: %s\n" % e)
@@ -430,8 +442,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **term** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **glossary_id** | **str**| GlossaryId | 
+ **description** | **str**|  | [optional] 
+ **translatable** | **bool**|  | [optional] 
+ **case_sensitive** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -507,7 +523,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch**
-> GlossaryTermTranslation accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(account_id, glossary_id, term_id, id)
+> GlossaryTermTranslation accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(locale_code, account_id, glossary_id, term_id, id, content=content)
 
 
 
@@ -529,13 +545,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+locale_code = 'locale_code_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 glossary_id = 'glossary_id_example' # str | GlossaryId
 term_id = 'term_id_example' # str | TermId
 id = 'id_example' # str | Id
+content = 'content_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(account_id, glossary_id, term_id, id)
+    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(locale_code, account_id, glossary_id, term_id, id, content=content)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch: %s\n" % e)
@@ -545,10 +563,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **locale_code** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **glossary_id** | **str**| GlossaryId | 
  **term_id** | **str**| TermId | 
  **id** | **str**| Id | 
+ **content** | **str**|  | [optional] 
 
 ### Return type
 
@@ -566,7 +586,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post**
-> GlossaryTermTranslation accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(account_id, glossary_id, term_id)
+> GlossaryTermTranslation accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(locale_code, account_id, glossary_id, term_id, content=content)
 
 
 
@@ -588,12 +608,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+locale_code = 'locale_code_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 glossary_id = 'glossary_id_example' # str | GlossaryId
 term_id = 'term_id_example' # str | TermId
+content = 'content_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(account_id, glossary_id, term_id)
+    api_response = api_instance.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(locale_code, account_id, glossary_id, term_id, content=content)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post: %s\n" % e)
@@ -603,9 +625,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **locale_code** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **glossary_id** | **str**| GlossaryId | 
  **term_id** | **str**| TermId | 
+ **content** | **str**|  | [optional] 
 
 ### Return type
 
@@ -732,7 +756,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_glossaries_id_patch**
-> Glossary accounts_account_id_glossaries_id_patch(account_id, id)
+> Glossary accounts_account_id_glossaries_id_patch(name, account_id, id, project_ids=project_ids)
 
 
 
@@ -754,11 +778,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 id = 'id_example' # str | Id
+project_ids = 'project_ids_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_glossaries_id_patch(account_id, id)
+    api_response = api_instance.accounts_account_id_glossaries_id_patch(name, account_id, id, project_ids=project_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_glossaries_id_patch: %s\n" % e)
@@ -768,8 +794,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **id** | **str**| Id | 
+ **project_ids** | **str**|  | [optional] 
 
 ### Return type
 
@@ -787,7 +815,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_glossaries_post**
-> Glossary accounts_account_id_glossaries_post(account_id)
+> Glossary accounts_account_id_glossaries_post(name, account_id, project_ids=project_ids)
 
 
 
@@ -809,10 +837,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 account_id = 'account_id_example' # str | AccountId
+project_ids = 'project_ids_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_glossaries_post(account_id)
+    api_response = api_instance.accounts_account_id_glossaries_post(name, account_id, project_ids=project_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_glossaries_post: %s\n" % e)
@@ -822,7 +852,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **account_id** | **str**| AccountId | 
+ **project_ids** | **str**|  | [optional] 
 
 ### Return type
 
@@ -1006,7 +1038,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_invitations_id_patch**
-> Invitation accounts_account_id_invitations_id_patch(account_id, id)
+> Invitation accounts_account_id_invitations_id_patch(role, account_id, id, project_ids=project_ids, locale_ids=locale_ids)
 
 
 
@@ -1028,11 +1060,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+role = 'role_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 id = 'id_example' # str | Id
+project_ids = 'project_ids_example' # str |  (optional)
+locale_ids = 'locale_ids_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_invitations_id_patch(account_id, id)
+    api_response = api_instance.accounts_account_id_invitations_id_patch(role, account_id, id, project_ids=project_ids, locale_ids=locale_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_invitations_id_patch: %s\n" % e)
@@ -1042,8 +1077,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **role** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **id** | **str**| Id | 
+ **project_ids** | **str**|  | [optional] 
+ **locale_ids** | **str**|  | [optional] 
 
 ### Return type
 
@@ -1116,7 +1154,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_invitations_post**
-> Invitation accounts_account_id_invitations_post(account_id)
+> Invitation accounts_account_id_invitations_post(email, role, account_id, project_ids=project_ids, locale_ids=locale_ids)
 
 
 
@@ -1138,10 +1176,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+email = 'email_example' # str | 
+role = 'role_example' # str | 
 account_id = 'account_id_example' # str | AccountId
+project_ids = 'project_ids_example' # str |  (optional)
+locale_ids = 'locale_ids_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_invitations_post(account_id)
+    api_response = api_instance.accounts_account_id_invitations_post(email, role, account_id, project_ids=project_ids, locale_ids=locale_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_invitations_post: %s\n" % e)
@@ -1151,7 +1193,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **email** | **str**|  | 
+ **role** | **str**|  | 
  **account_id** | **str**| AccountId | 
+ **project_ids** | **str**|  | [optional] 
+ **locale_ids** | **str**|  | [optional] 
 
 ### Return type
 
@@ -1335,7 +1381,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **accounts_account_id_members_id_patch**
-> Member accounts_account_id_members_id_patch(account_id, id)
+> Member accounts_account_id_members_id_patch(role, account_id, id, project_ids=project_ids, locale_ids=locale_ids)
 
 
 
@@ -1357,11 +1403,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+role = 'role_example' # str | 
 account_id = 'account_id_example' # str | AccountId
 id = 'id_example' # str | Id
+project_ids = 'project_ids_example' # str |  (optional)
+locale_ids = 'locale_ids_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.accounts_account_id_members_id_patch(account_id, id)
+    api_response = api_instance.accounts_account_id_members_id_patch(role, account_id, id, project_ids=project_ids, locale_ids=locale_ids)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->accounts_account_id_members_id_patch: %s\n" % e)
@@ -1371,8 +1420,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **role** | **str**|  | 
  **account_id** | **str**| AccountId | 
  **id** | **str**| Id | 
+ **project_ids** | **str**|  | [optional] 
+ **locale_ids** | **str**|  | [optional] 
 
 ### Return type
 
@@ -1655,7 +1707,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authorizations_id_patch**
-> Authorization authorizations_id_patch(id)
+> Authorization authorizations_id_patch(note, id, scopes=scopes, expires_at=expires_at)
 
 
 
@@ -1676,10 +1728,13 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+note = 'note_example' # str | 
 id = 'id_example' # str | Id
+scopes = 'scopes_example' # str |  (optional)
+expires_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
 try: 
-    api_response = api_instance.authorizations_id_patch(id)
+    api_response = api_instance.authorizations_id_patch(note, id, scopes=scopes, expires_at=expires_at)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->authorizations_id_patch: %s\n" % e)
@@ -1689,7 +1744,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **note** | **str**|  | 
  **id** | **str**| Id | 
+ **scopes** | **str**|  | [optional] 
+ **expires_at** | **datetime**|  | [optional] 
 
 ### Return type
 
@@ -1707,7 +1765,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **authorizations_post**
-> AuthorizationWithToken authorizations_post()
+> AuthorizationWithToken authorizations_post(note, scopes=scopes, expires_at=expires_at)
 
 
 
@@ -1728,16 +1786,24 @@ configuration.password = 'YOUR_PASSWORD'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+note = 'note_example' # str | 
+scopes = 'scopes_example' # str |  (optional)
+expires_at = '2013-10-20T19:20:30+01:00' # datetime |  (optional)
 
 try: 
-    api_response = api_instance.authorizations_post()
+    api_response = api_instance.authorizations_post(note, scopes=scopes, expires_at=expires_at)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->authorizations_post: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **note** | **str**|  | 
+ **scopes** | **str**|  | [optional] 
+ **expires_at** | **datetime**|  | [optional] 
 
 ### Return type
 
@@ -1964,7 +2030,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_id_patch**
-> ProjectDetails projects_id_patch(id)
+> ProjectDetails projects_id_patch(name, id, main_format=main_format, shares_translation_memory=shares_translation_memory, account_id=account_id)
 
 
 
@@ -1986,10 +2052,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 id = 'id_example' # str | Id
+main_format = 'main_format_example' # str |  (optional)
+shares_translation_memory = true # bool |  (optional)
+account_id = 'account_id_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_id_patch(id)
+    api_response = api_instance.projects_id_patch(name, id, main_format=main_format, shares_translation_memory=shares_translation_memory, account_id=account_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_id_patch: %s\n" % e)
@@ -1999,7 +2069,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **id** | **str**| Id | 
+ **main_format** | **str**|  | [optional] 
+ **shares_translation_memory** | **bool**|  | [optional] 
+ **account_id** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2017,7 +2091,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_post**
-> ProjectDetails projects_post()
+> ProjectDetails projects_post(name, main_format=main_format, shares_translation_memory=shares_translation_memory, account_id=account_id)
 
 
 
@@ -2039,16 +2113,26 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
+main_format = 'main_format_example' # str |  (optional)
+shares_translation_memory = true # bool |  (optional)
+account_id = 'account_id_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_post()
+    api_response = api_instance.projects_post(name, main_format=main_format, shares_translation_memory=shares_translation_memory, account_id=account_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_post: %s\n" % e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
+ **main_format** | **str**|  | [optional] 
+ **shares_translation_memory** | **bool**|  | [optional] 
+ **account_id** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2232,7 +2316,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_blacklisted_keys_id_patch**
-> BlacklistedKey projects_project_id_blacklisted_keys_id_patch(project_id, id)
+> BlacklistedKey projects_project_id_blacklisted_keys_id_patch(name, project_id, id)
 
 
 
@@ -2254,11 +2338,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
 
 try: 
-    api_response = api_instance.projects_project_id_blacklisted_keys_id_patch(project_id, id)
+    api_response = api_instance.projects_project_id_blacklisted_keys_id_patch(name, project_id, id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_blacklisted_keys_id_patch: %s\n" % e)
@@ -2268,6 +2353,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
 
@@ -2287,7 +2373,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_blacklisted_keys_post**
-> BlacklistedKey projects_project_id_blacklisted_keys_post(project_id)
+> BlacklistedKey projects_project_id_blacklisted_keys_post(name, project_id)
 
 
 
@@ -2309,10 +2395,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 
 try: 
-    api_response = api_instance.projects_project_id_blacklisted_keys_post(project_id)
+    api_response = api_instance.projects_project_id_blacklisted_keys_post(name, project_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_blacklisted_keys_post: %s\n" % e)
@@ -2322,6 +2409,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **project_id** | **str**| ProjectId | 
 
 ### Return type
@@ -2340,7 +2428,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_delete**
-> AffectedResources projects_project_id_keys_delete(project_id)
+> AffectedResources projects_project_id_keys_delete(project_id, q=q, locale_id=locale_id)
 
 
 
@@ -2363,9 +2451,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+locale_id = 'locale_id_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_delete(project_id)
+    api_response = api_instance.projects_project_id_keys_delete(project_id, q=q, locale_id=locale_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_delete: %s\n" % e)
@@ -2376,6 +2466,8 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **locale_id** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2393,7 +2485,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_get**
-> list[TranslationKey] projects_project_id_keys_get(project_id, per_page=per_page, page=page)
+> list[TranslationKey] projects_project_id_keys_get(project_id, sort=sort, order=order, q=q, locale_id=locale_id, per_page=per_page, page=page)
 
 
 
@@ -2416,11 +2508,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
+q = 'q_example' # str |  (optional)
+locale_id = 'locale_id_example' # str |  (optional)
 per_page = 25 # int | Per Page (optional) (default to 25)
 page = 1 # int | Page (optional) (default to 1)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_get(project_id, per_page=per_page, page=page)
+    api_response = api_instance.projects_project_id_keys_get(project_id, sort=sort, order=order, q=q, locale_id=locale_id, per_page=per_page, page=page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_get: %s\n" % e)
@@ -2431,6 +2527,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
+ **q** | **str**|  | [optional] 
+ **locale_id** | **str**|  | [optional] 
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -2559,7 +2659,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_id_patch**
-> TranslationKeyDetails projects_project_id_keys_id_patch(project_id, id)
+> TranslationKeyDetails projects_project_id_keys_id_patch(name, project_id, id, description=description, plural=plural, name_plural=name_plural, data_type=data_type, tags=tags, max_characters_allowed=max_characters_allowed, screenshot=screenshot, remove_screenshot=remove_screenshot, unformatted=unformatted, xml_space_preserve=xml_space_preserve, original_file=original_file, localized_format_string=localized_format_string, localized_format_key=localized_format_key)
 
 
 
@@ -2581,11 +2681,25 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
+description = 'description_example' # str |  (optional)
+plural = true # bool |  (optional)
+name_plural = 'name_plural_example' # str |  (optional)
+data_type = 'data_type_example' # str |  (optional)
+tags = 'tags_example' # str |  (optional)
+max_characters_allowed = 56 # int |  (optional)
+screenshot = 'screenshot_example' # str |  (optional)
+remove_screenshot = true # bool |  (optional)
+unformatted = true # bool |  (optional)
+xml_space_preserve = true # bool |  (optional)
+original_file = 'original_file_example' # str |  (optional)
+localized_format_string = 'localized_format_string_example' # str |  (optional)
+localized_format_key = 'localized_format_key_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_id_patch(project_id, id)
+    api_response = api_instance.projects_project_id_keys_id_patch(name, project_id, id, description=description, plural=plural, name_plural=name_plural, data_type=data_type, tags=tags, max_characters_allowed=max_characters_allowed, screenshot=screenshot, remove_screenshot=remove_screenshot, unformatted=unformatted, xml_space_preserve=xml_space_preserve, original_file=original_file, localized_format_string=localized_format_string, localized_format_key=localized_format_key)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_id_patch: %s\n" % e)
@@ -2595,8 +2709,22 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
+ **description** | **str**|  | [optional] 
+ **plural** | **bool**|  | [optional] 
+ **name_plural** | **str**|  | [optional] 
+ **data_type** | **str**|  | [optional] 
+ **tags** | **str**|  | [optional] 
+ **max_characters_allowed** | **int**|  | [optional] 
+ **screenshot** | **str**|  | [optional] 
+ **remove_screenshot** | **bool**|  | [optional] 
+ **unformatted** | **bool**|  | [optional] 
+ **xml_space_preserve** | **bool**|  | [optional] 
+ **original_file** | **str**|  | [optional] 
+ **localized_format_string** | **str**|  | [optional] 
+ **localized_format_key** | **str**|  | [optional] 
 
 ### Return type
 
@@ -2786,7 +2914,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_key_id_comments_id_patch**
-> Comment projects_project_id_keys_key_id_comments_id_patch(project_id, key_id, id)
+> Comment projects_project_id_keys_key_id_comments_id_patch(message, project_id, key_id, id)
 
 
 
@@ -2808,12 +2936,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+message = 'message_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 key_id = 'key_id_example' # str | KeyId
 id = 'id_example' # str | Id
 
 try: 
-    api_response = api_instance.projects_project_id_keys_key_id_comments_id_patch(project_id, key_id, id)
+    api_response = api_instance.projects_project_id_keys_key_id_comments_id_patch(message, project_id, key_id, id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_key_id_comments_id_patch: %s\n" % e)
@@ -2823,6 +2952,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **message** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **key_id** | **str**| KeyId | 
  **id** | **str**| Id | 
@@ -3011,7 +3141,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_key_id_comments_post**
-> Comment projects_project_id_keys_key_id_comments_post(project_id, key_id)
+> Comment projects_project_id_keys_key_id_comments_post(message, project_id, key_id)
 
 
 
@@ -3033,11 +3163,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+message = 'message_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 key_id = 'key_id_example' # str | KeyId
 
 try: 
-    api_response = api_instance.projects_project_id_keys_key_id_comments_post(project_id, key_id)
+    api_response = api_instance.projects_project_id_keys_key_id_comments_post(message, project_id, key_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_key_id_comments_post: %s\n" % e)
@@ -3047,6 +3178,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **message** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **key_id** | **str**| KeyId | 
 
@@ -3066,7 +3198,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_key_id_translations_get**
-> Translation projects_project_id_keys_key_id_translations_get(project_id, key_id, per_page=per_page, page=page)
+> Translation projects_project_id_keys_key_id_translations_get(project_id, key_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
 
 
 
@@ -3090,11 +3222,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
 key_id = 'key_id_example' # str | KeyId
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
+q = 'q_example' # str |  (optional)
 per_page = 25 # int | Per Page (optional) (default to 25)
 page = 1 # int | Page (optional) (default to 1)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_key_id_translations_get(project_id, key_id, per_page=per_page, page=page)
+    api_response = api_instance.projects_project_id_keys_key_id_translations_get(project_id, key_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_key_id_translations_get: %s\n" % e)
@@ -3106,6 +3241,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
  **key_id** | **str**| KeyId | 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
+ **q** | **str**|  | [optional] 
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -3125,7 +3263,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_post**
-> TranslationKeyDetails projects_project_id_keys_post(project_id)
+> TranslationKeyDetails projects_project_id_keys_post(name, project_id, description=description, plural=plural, name_plural=name_plural, data_type=data_type, tags=tags, max_characters_allowed=max_characters_allowed, screenshot=screenshot, remove_screenshot=remove_screenshot, unformatted=unformatted, xml_space_preserve=xml_space_preserve, original_file=original_file, localized_format_string=localized_format_string, localized_format_key=localized_format_key)
 
 
 
@@ -3147,10 +3285,24 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+description = 'description_example' # str |  (optional)
+plural = true # bool |  (optional)
+name_plural = 'name_plural_example' # str |  (optional)
+data_type = 'data_type_example' # str |  (optional)
+tags = 'tags_example' # str |  (optional)
+max_characters_allowed = 56 # int |  (optional)
+screenshot = 'screenshot_example' # str |  (optional)
+remove_screenshot = true # bool |  (optional)
+unformatted = true # bool |  (optional)
+xml_space_preserve = true # bool |  (optional)
+original_file = 'original_file_example' # str |  (optional)
+localized_format_string = 'localized_format_string_example' # str |  (optional)
+localized_format_key = 'localized_format_key_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_post(project_id)
+    api_response = api_instance.projects_project_id_keys_post(name, project_id, description=description, plural=plural, name_plural=name_plural, data_type=data_type, tags=tags, max_characters_allowed=max_characters_allowed, screenshot=screenshot, remove_screenshot=remove_screenshot, unformatted=unformatted, xml_space_preserve=xml_space_preserve, original_file=original_file, localized_format_string=localized_format_string, localized_format_key=localized_format_key)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_post: %s\n" % e)
@@ -3160,7 +3312,21 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **description** | **str**|  | [optional] 
+ **plural** | **bool**|  | [optional] 
+ **name_plural** | **str**|  | [optional] 
+ **data_type** | **str**|  | [optional] 
+ **tags** | **str**|  | [optional] 
+ **max_characters_allowed** | **int**|  | [optional] 
+ **screenshot** | **str**|  | [optional] 
+ **remove_screenshot** | **bool**|  | [optional] 
+ **unformatted** | **bool**|  | [optional] 
+ **xml_space_preserve** | **bool**|  | [optional] 
+ **original_file** | **str**|  | [optional] 
+ **localized_format_string** | **str**|  | [optional] 
+ **localized_format_key** | **str**|  | [optional] 
 
 ### Return type
 
@@ -3178,7 +3344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_search_post**
-> list[TranslationKey] projects_project_id_keys_search_post(project_id, per_page=per_page, page=page)
+> list[TranslationKey] projects_project_id_keys_search_post(project_id, sort=sort, order=order, q=q, locale_id=locale_id, per_page=per_page, page=page)
 
 
 
@@ -3201,11 +3367,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
+q = 'q_example' # str |  (optional)
+locale_id = 'locale_id_example' # str |  (optional)
 per_page = 25 # int | Per Page (optional) (default to 25)
 page = 1 # int | Page (optional) (default to 1)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_search_post(project_id, per_page=per_page, page=page)
+    api_response = api_instance.projects_project_id_keys_search_post(project_id, sort=sort, order=order, q=q, locale_id=locale_id, per_page=per_page, page=page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_search_post: %s\n" % e)
@@ -3216,6 +3386,10 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
+ **q** | **str**|  | [optional] 
+ **locale_id** | **str**|  | [optional] 
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -3235,7 +3409,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_tag_patch**
-> AffectedResources projects_project_id_keys_tag_patch(project_id)
+> AffectedResources projects_project_id_keys_tag_patch(tags, project_id, q=q, locale_id=locale_id)
 
 
 
@@ -3257,10 +3431,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+tags = 'tags_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+locale_id = 'locale_id_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_tag_patch(project_id)
+    api_response = api_instance.projects_project_id_keys_tag_patch(tags, project_id, q=q, locale_id=locale_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_tag_patch: %s\n" % e)
@@ -3270,7 +3447,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tags** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **locale_id** | **str**|  | [optional] 
 
 ### Return type
 
@@ -3288,7 +3468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_keys_untag_patch**
-> AffectedResources projects_project_id_keys_untag_patch(project_id)
+> AffectedResources projects_project_id_keys_untag_patch(tags, project_id, q=q, locale_id=locale_id)
 
 
 
@@ -3310,10 +3490,13 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+tags = 'tags_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+locale_id = 'locale_id_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_keys_untag_patch(project_id)
+    api_response = api_instance.projects_project_id_keys_untag_patch(tags, project_id, q=q, locale_id=locale_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_keys_untag_patch: %s\n" % e)
@@ -3323,7 +3506,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tags** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **locale_id** | **str**|  | [optional] 
 
 ### Return type
 
@@ -3452,7 +3638,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_locales_id_download_get**
-> projects_project_id_locales_id_download_get(project_id, id)
+> projects_project_id_locales_id_download_get(file_format, project_id, id, tag=tag, include_empty_translations=include_empty_translations, keep_notranslate_tags=keep_notranslate_tags, convert_emoji=convert_emoji, format_options=format_options, encoding=encoding, skip_unverified_translations=skip_unverified_translations, fallback_locale_id=fallback_locale_id)
 
 
 
@@ -3474,11 +3660,20 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+file_format = 'file_format_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
+tag = 'tag_example' # str |  (optional)
+include_empty_translations = true # bool |  (optional)
+keep_notranslate_tags = true # bool |  (optional)
+convert_emoji = true # bool |  (optional)
+format_options = 'format_options_example' # str |  (optional)
+encoding = 'encoding_example' # str |  (optional)
+skip_unverified_translations = true # bool |  (optional)
+fallback_locale_id = 'fallback_locale_id_example' # str |  (optional)
 
 try: 
-    api_instance.projects_project_id_locales_id_download_get(project_id, id)
+    api_instance.projects_project_id_locales_id_download_get(file_format, project_id, id, tag=tag, include_empty_translations=include_empty_translations, keep_notranslate_tags=keep_notranslate_tags, convert_emoji=convert_emoji, format_options=format_options, encoding=encoding, skip_unverified_translations=skip_unverified_translations, fallback_locale_id=fallback_locale_id)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_locales_id_download_get: %s\n" % e)
 ```
@@ -3487,8 +3682,17 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **file_format** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
+ **tag** | **str**|  | [optional] 
+ **include_empty_translations** | **bool**|  | [optional] 
+ **keep_notranslate_tags** | **bool**|  | [optional] 
+ **convert_emoji** | **bool**|  | [optional] 
+ **format_options** | **str**|  | [optional] 
+ **encoding** | **str**|  | [optional] 
+ **skip_unverified_translations** | **bool**|  | [optional] 
+ **fallback_locale_id** | **str**|  | [optional] 
 
 ### Return type
 
@@ -3561,7 +3765,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_locales_id_patch**
-> LocaleDetails projects_project_id_locales_id_patch(project_id, id)
+> LocaleDetails projects_project_id_locales_id_patch(name, code, project_id, id, default=default, main=main, rtl=rtl, source_locale_id=source_locale_id, unverify_new_translations=unverify_new_translations, unverify_updated_translations=unverify_updated_translations)
 
 
 
@@ -3583,11 +3787,19 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
+code = 'code_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
+default = true # bool |  (optional)
+main = true # bool |  (optional)
+rtl = true # bool |  (optional)
+source_locale_id = 'source_locale_id_example' # str |  (optional)
+unverify_new_translations = true # bool |  (optional)
+unverify_updated_translations = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_locales_id_patch(project_id, id)
+    api_response = api_instance.projects_project_id_locales_id_patch(name, code, project_id, id, default=default, main=main, rtl=rtl, source_locale_id=source_locale_id, unverify_new_translations=unverify_new_translations, unverify_updated_translations=unverify_updated_translations)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_locales_id_patch: %s\n" % e)
@@ -3597,8 +3809,16 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
+ **code** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
+ **default** | **bool**|  | [optional] 
+ **main** | **bool**|  | [optional] 
+ **rtl** | **bool**|  | [optional] 
+ **source_locale_id** | **str**|  | [optional] 
+ **unverify_new_translations** | **bool**|  | [optional] 
+ **unverify_updated_translations** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -3616,7 +3836,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_locales_locale_id_translations_get**
-> Translation projects_project_id_locales_locale_id_translations_get(project_id, locale_id, per_page=per_page, page=page)
+> Translation projects_project_id_locales_locale_id_translations_get(project_id, locale_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
 
 
 
@@ -3640,11 +3860,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
 locale_id = 'locale_id_example' # str | LocaleId
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
+q = 'q_example' # str |  (optional)
 per_page = 25 # int | Per Page (optional) (default to 25)
 page = 1 # int | Page (optional) (default to 1)
 
 try: 
-    api_response = api_instance.projects_project_id_locales_locale_id_translations_get(project_id, locale_id, per_page=per_page, page=page)
+    api_response = api_instance.projects_project_id_locales_locale_id_translations_get(project_id, locale_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_locales_locale_id_translations_get: %s\n" % e)
@@ -3656,6 +3879,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
  **locale_id** | **str**| LocaleId | 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
+ **q** | **str**|  | [optional] 
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -3675,7 +3901,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_locales_post**
-> LocaleDetails projects_project_id_locales_post(project_id)
+> LocaleDetails projects_project_id_locales_post(name, code, project_id, default=default, main=main, rtl=rtl, source_locale_id=source_locale_id, unverify_new_translations=unverify_new_translations, unverify_updated_translations=unverify_updated_translations)
 
 
 
@@ -3697,10 +3923,18 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
+code = 'code_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+default = true # bool |  (optional)
+main = true # bool |  (optional)
+rtl = true # bool |  (optional)
+source_locale_id = 'source_locale_id_example' # str |  (optional)
+unverify_new_translations = true # bool |  (optional)
+unverify_updated_translations = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_locales_post(project_id)
+    api_response = api_instance.projects_project_id_locales_post(name, code, project_id, default=default, main=main, rtl=rtl, source_locale_id=source_locale_id, unverify_new_translations=unverify_new_translations, unverify_updated_translations=unverify_updated_translations)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_locales_post: %s\n" % e)
@@ -3710,7 +3944,15 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
+ **code** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **default** | **bool**|  | [optional] 
+ **main** | **bool**|  | [optional] 
+ **rtl** | **bool**|  | [optional] 
+ **source_locale_id** | **str**|  | [optional] 
+ **unverify_new_translations** | **bool**|  | [optional] 
+ **unverify_updated_translations** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -3949,7 +4191,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_orders_post**
-> TranslationOrder projects_project_id_orders_post(project_id)
+> TranslationOrder projects_project_id_orders_post(lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, tag=tag, message=message, styleguide_id=styleguide_id, unverify_translations_upon_delivery=unverify_translations_upon_delivery, include_untranslated_keys=include_untranslated_keys, include_unverified_translations=include_unverified_translations, quality=quality, priority=priority)
 
 
 
@@ -3971,10 +4213,23 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+lsp = 'lsp_example' # str | 
+source_locale_id = 'source_locale_id_example' # str | 
+target_locale_ids = 'target_locale_ids_example' # str | 
+translation_type = 'translation_type_example' # str | 
+category = 'category_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+tag = 'tag_example' # str |  (optional)
+message = 'message_example' # str |  (optional)
+styleguide_id = 'styleguide_id_example' # str |  (optional)
+unverify_translations_upon_delivery = true # bool |  (optional)
+include_untranslated_keys = true # bool |  (optional)
+include_unverified_translations = true # bool |  (optional)
+quality = true # bool |  (optional)
+priority = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_orders_post(project_id)
+    api_response = api_instance.projects_project_id_orders_post(lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, tag=tag, message=message, styleguide_id=styleguide_id, unverify_translations_upon_delivery=unverify_translations_upon_delivery, include_untranslated_keys=include_untranslated_keys, include_unverified_translations=include_unverified_translations, quality=quality, priority=priority)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_orders_post: %s\n" % e)
@@ -3984,7 +4239,20 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **lsp** | **str**|  | 
+ **source_locale_id** | **str**|  | 
+ **target_locale_ids** | **str**|  | 
+ **translation_type** | **str**|  | 
+ **category** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **tag** | **str**|  | [optional] 
+ **message** | **str**|  | [optional] 
+ **styleguide_id** | **str**|  | [optional] 
+ **unverify_translations_upon_delivery** | **bool**|  | [optional] 
+ **include_untranslated_keys** | **bool**|  | [optional] 
+ **include_unverified_translations** | **bool**|  | [optional] 
+ **quality** | **bool**|  | [optional] 
+ **priority** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -4168,7 +4436,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_styleguides_id_patch**
-> StyleguideDetails projects_project_id_styleguides_id_patch(project_id, id)
+> StyleguideDetails projects_project_id_styleguides_id_patch(title, project_id, id, audience=audience, target_audience=target_audience, grammatical_person=grammatical_person, vocabulary_type=vocabulary_type, business=business, company_branding=company_branding, formatting=formatting, glossary_terms=glossary_terms, grammar_consistency=grammar_consistency, literal_translation=literal_translation, overall_tone=overall_tone, samples=samples)
 
 
 
@@ -4190,11 +4458,24 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+title = 'title_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
+audience = 'audience_example' # str |  (optional)
+target_audience = 'target_audience_example' # str |  (optional)
+grammatical_person = 'grammatical_person_example' # str |  (optional)
+vocabulary_type = 'vocabulary_type_example' # str |  (optional)
+business = 'business_example' # str |  (optional)
+company_branding = 'company_branding_example' # str |  (optional)
+formatting = 'formatting_example' # str |  (optional)
+glossary_terms = 'glossary_terms_example' # str |  (optional)
+grammar_consistency = 'grammar_consistency_example' # str |  (optional)
+literal_translation = 'literal_translation_example' # str |  (optional)
+overall_tone = 'overall_tone_example' # str |  (optional)
+samples = 'samples_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_styleguides_id_patch(project_id, id)
+    api_response = api_instance.projects_project_id_styleguides_id_patch(title, project_id, id, audience=audience, target_audience=target_audience, grammatical_person=grammatical_person, vocabulary_type=vocabulary_type, business=business, company_branding=company_branding, formatting=formatting, glossary_terms=glossary_terms, grammar_consistency=grammar_consistency, literal_translation=literal_translation, overall_tone=overall_tone, samples=samples)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_styleguides_id_patch: %s\n" % e)
@@ -4204,8 +4485,21 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **title** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
+ **audience** | **str**|  | [optional] 
+ **target_audience** | **str**|  | [optional] 
+ **grammatical_person** | **str**|  | [optional] 
+ **vocabulary_type** | **str**|  | [optional] 
+ **business** | **str**|  | [optional] 
+ **company_branding** | **str**|  | [optional] 
+ **formatting** | **str**|  | [optional] 
+ **glossary_terms** | **str**|  | [optional] 
+ **grammar_consistency** | **str**|  | [optional] 
+ **literal_translation** | **str**|  | [optional] 
+ **overall_tone** | **str**|  | [optional] 
+ **samples** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4223,7 +4517,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_styleguides_post**
-> StyleguideDetails projects_project_id_styleguides_post(project_id)
+> StyleguideDetails projects_project_id_styleguides_post(title, project_id, audience=audience, target_audience=target_audience, grammatical_person=grammatical_person, vocabulary_type=vocabulary_type, business=business, company_branding=company_branding, formatting=formatting, glossary_terms=glossary_terms, grammar_consistency=grammar_consistency, literal_translation=literal_translation, overall_tone=overall_tone, samples=samples)
 
 
 
@@ -4245,10 +4539,23 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+title = 'title_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+audience = 'audience_example' # str |  (optional)
+target_audience = 'target_audience_example' # str |  (optional)
+grammatical_person = 'grammatical_person_example' # str |  (optional)
+vocabulary_type = 'vocabulary_type_example' # str |  (optional)
+business = 'business_example' # str |  (optional)
+company_branding = 'company_branding_example' # str |  (optional)
+formatting = 'formatting_example' # str |  (optional)
+glossary_terms = 'glossary_terms_example' # str |  (optional)
+grammar_consistency = 'grammar_consistency_example' # str |  (optional)
+literal_translation = 'literal_translation_example' # str |  (optional)
+overall_tone = 'overall_tone_example' # str |  (optional)
+samples = 'samples_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_styleguides_post(project_id)
+    api_response = api_instance.projects_project_id_styleguides_post(title, project_id, audience=audience, target_audience=target_audience, grammatical_person=grammatical_person, vocabulary_type=vocabulary_type, business=business, company_branding=company_branding, formatting=formatting, glossary_terms=glossary_terms, grammar_consistency=grammar_consistency, literal_translation=literal_translation, overall_tone=overall_tone, samples=samples)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_styleguides_post: %s\n" % e)
@@ -4258,7 +4565,20 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **title** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **audience** | **str**|  | [optional] 
+ **target_audience** | **str**|  | [optional] 
+ **grammatical_person** | **str**|  | [optional] 
+ **vocabulary_type** | **str**|  | [optional] 
+ **business** | **str**|  | [optional] 
+ **company_branding** | **str**|  | [optional] 
+ **formatting** | **str**|  | [optional] 
+ **glossary_terms** | **str**|  | [optional] 
+ **grammar_consistency** | **str**|  | [optional] 
+ **literal_translation** | **str**|  | [optional] 
+ **overall_tone** | **str**|  | [optional] 
+ **samples** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4442,7 +4762,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_tags_post**
-> TagWithStats projects_project_id_tags_post(project_id)
+> TagWithStats projects_project_id_tags_post(name, project_id)
 
 
 
@@ -4464,10 +4784,11 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+name = 'name_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 
 try: 
-    api_response = api_instance.projects_project_id_tags_post(project_id)
+    api_response = api_instance.projects_project_id_tags_post(name, project_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_tags_post: %s\n" % e)
@@ -4477,6 +4798,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **str**|  | 
  **project_id** | **str**| ProjectId | 
 
 ### Return type
@@ -4495,7 +4817,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_exclude_patch**
-> AffectedCount projects_project_id_translations_exclude_patch(project_id)
+> AffectedCount projects_project_id_translations_exclude_patch(project_id, q=q, sort=sort, order=order)
 
 
 
@@ -4518,9 +4840,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_exclude_patch(project_id)
+    api_response = api_instance.projects_project_id_translations_exclude_patch(project_id, q=q, sort=sort, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_exclude_patch: %s\n" % e)
@@ -4531,6 +4856,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4548,7 +4876,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_get**
-> list[Translation] projects_project_id_translations_get(project_id, per_page=per_page, page=page)
+> list[Translation] projects_project_id_translations_get(project_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
 
 
 
@@ -4571,11 +4899,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
+q = 'q_example' # str |  (optional)
 per_page = 25 # int | Per Page (optional) (default to 25)
 page = 1 # int | Page (optional) (default to 1)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_get(project_id, per_page=per_page, page=page)
+    api_response = api_instance.projects_project_id_translations_get(project_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_get: %s\n" % e)
@@ -4586,6 +4917,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
+ **q** | **str**|  | [optional] 
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -4660,7 +4994,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_id_patch**
-> TranslationDetails projects_project_id_translations_id_patch(project_id, id)
+> TranslationDetails projects_project_id_translations_id_patch(content, project_id, id, plural_suffix=plural_suffix, unverified=unverified, excluded=excluded)
 
 
 
@@ -4682,11 +5016,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+content = 'content_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
+plural_suffix = 'plural_suffix_example' # str |  (optional)
+unverified = true # bool |  (optional)
+excluded = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_id_patch(project_id, id)
+    api_response = api_instance.projects_project_id_translations_id_patch(content, project_id, id, plural_suffix=plural_suffix, unverified=unverified, excluded=excluded)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_id_patch: %s\n" % e)
@@ -4696,8 +5034,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **content** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
+ **plural_suffix** | **str**|  | [optional] 
+ **unverified** | **bool**|  | [optional] 
+ **excluded** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -4715,7 +5057,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_include_patch**
-> AffectedCount projects_project_id_translations_include_patch(project_id)
+> AffectedCount projects_project_id_translations_include_patch(project_id, q=q, sort=sort, order=order)
 
 
 
@@ -4738,9 +5080,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_include_patch(project_id)
+    api_response = api_instance.projects_project_id_translations_include_patch(project_id, q=q, sort=sort, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_include_patch: %s\n" % e)
@@ -4751,6 +5096,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
 
 ### Return type
 
@@ -4768,7 +5116,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_post**
-> TranslationDetails projects_project_id_translations_post(project_id)
+> TranslationDetails projects_project_id_translations_post(locale_id, key_id, content, project_id, plural_suffix=plural_suffix, unverified=unverified, excluded=excluded)
 
 
 
@@ -4790,10 +5138,16 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+locale_id = 'locale_id_example' # str | 
+key_id = 'key_id_example' # str | 
+content = 'content_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+plural_suffix = 'plural_suffix_example' # str |  (optional)
+unverified = true # bool |  (optional)
+excluded = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_post(project_id)
+    api_response = api_instance.projects_project_id_translations_post(locale_id, key_id, content, project_id, plural_suffix=plural_suffix, unverified=unverified, excluded=excluded)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_post: %s\n" % e)
@@ -4803,7 +5157,13 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **locale_id** | **str**|  | 
+ **key_id** | **str**|  | 
+ **content** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **plural_suffix** | **str**|  | [optional] 
+ **unverified** | **bool**|  | [optional] 
+ **excluded** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -4821,7 +5181,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_search_post**
-> list[Translation] projects_project_id_translations_search_post(project_id, per_page=per_page, page=page)
+> list[Translation] projects_project_id_translations_search_post(project_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
 
 
 
@@ -4844,11 +5204,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
+q = 'q_example' # str |  (optional)
 per_page = 25 # int | Per Page (optional) (default to 25)
 page = 1 # int | Page (optional) (default to 1)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_search_post(project_id, per_page=per_page, page=page)
+    api_response = api_instance.projects_project_id_translations_search_post(project_id, sort=sort, order=order, q=q, per_page=per_page, page=page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_search_post: %s\n" % e)
@@ -4859,6 +5222,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
+ **q** | **str**|  | [optional] 
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -4994,7 +5360,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_unverify_patch**
-> AffectedCount projects_project_id_translations_unverify_patch(project_id)
+> AffectedCount projects_project_id_translations_unverify_patch(project_id, q=q, sort=sort, order=order)
 
 
 
@@ -5017,9 +5383,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_unverify_patch(project_id)
+    api_response = api_instance.projects_project_id_translations_unverify_patch(project_id, q=q, sort=sort, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_unverify_patch: %s\n" % e)
@@ -5030,6 +5399,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5047,7 +5419,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_translations_verify_patch**
-> AffectedCount projects_project_id_translations_verify_patch(project_id)
+> AffectedCount projects_project_id_translations_verify_patch(project_id, q=q, sort=sort, order=order)
 
 
 
@@ -5070,9 +5442,12 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
 project_id = 'project_id_example' # str | ProjectId
+q = 'q_example' # str |  (optional)
+sort = 'sort_example' # str |  (optional)
+order = 'order_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_translations_verify_patch(project_id)
+    api_response = api_instance.projects_project_id_translations_verify_patch(project_id, q=q, sort=sort, order=order)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_translations_verify_patch: %s\n" % e)
@@ -5083,6 +5458,9 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **str**| ProjectId | 
+ **q** | **str**|  | [optional] 
+ **sort** | **str**|  | [optional] 
+ **order** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5212,7 +5590,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_uploads_post**
-> Upload projects_project_id_uploads_post(project_id)
+> Upload projects_project_id_uploads_post(file, project_id, file_format=file_format, locale_id=locale_id, tags=tags, update_translations=update_translations, update_descriptions=update_descriptions, convert_emoji=convert_emoji, skip_upload_tags=skip_upload_tags, skip_unverification=skip_unverification, file_encoding=file_encoding, format_options=format_options)
 
 
 
@@ -5234,10 +5612,21 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+file = 'file_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+file_format = 'file_format_example' # str |  (optional)
+locale_id = 'locale_id_example' # str |  (optional)
+tags = 'tags_example' # str |  (optional)
+update_translations = true # bool |  (optional)
+update_descriptions = true # bool |  (optional)
+convert_emoji = true # bool |  (optional)
+skip_upload_tags = true # bool |  (optional)
+skip_unverification = true # bool |  (optional)
+file_encoding = 'file_encoding_example' # str |  (optional)
+format_options = 'format_options_example' # str |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_uploads_post(project_id)
+    api_response = api_instance.projects_project_id_uploads_post(file, project_id, file_format=file_format, locale_id=locale_id, tags=tags, update_translations=update_translations, update_descriptions=update_descriptions, convert_emoji=convert_emoji, skip_upload_tags=skip_upload_tags, skip_unverification=skip_unverification, file_encoding=file_encoding, format_options=format_options)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_uploads_post: %s\n" % e)
@@ -5247,7 +5636,18 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **file** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **file_format** | **str**|  | [optional] 
+ **locale_id** | **str**|  | [optional] 
+ **tags** | **str**|  | [optional] 
+ **update_translations** | **bool**|  | [optional] 
+ **update_descriptions** | **bool**|  | [optional] 
+ **convert_emoji** | **bool**|  | [optional] 
+ **skip_upload_tags** | **bool**|  | [optional] 
+ **skip_unverification** | **bool**|  | [optional] 
+ **file_encoding** | **str**|  | [optional] 
+ **format_options** | **str**|  | [optional] 
 
 ### Return type
 
@@ -5431,7 +5831,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_webhooks_id_patch**
-> Webhook projects_project_id_webhooks_id_patch(project_id, id)
+> Webhook projects_project_id_webhooks_id_patch(callback_url, events, project_id, id, description=description, active=active)
 
 
 
@@ -5453,11 +5853,15 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+callback_url = 'callback_url_example' # str | 
+events = 'events_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
 id = 'id_example' # str | Id
+description = 'description_example' # str |  (optional)
+active = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_webhooks_id_patch(project_id, id)
+    api_response = api_instance.projects_project_id_webhooks_id_patch(callback_url, events, project_id, id, description=description, active=active)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_webhooks_id_patch: %s\n" % e)
@@ -5467,8 +5871,12 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **callback_url** | **str**|  | 
+ **events** | **str**|  | 
  **project_id** | **str**| ProjectId | 
  **id** | **str**| Id | 
+ **description** | **str**|  | [optional] 
+ **active** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -5540,7 +5948,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **projects_project_id_webhooks_post**
-> Webhook projects_project_id_webhooks_post(project_id)
+> Webhook projects_project_id_webhooks_post(callback_url, events, project_id, description=description, active=active)
 
 
 
@@ -5562,10 +5970,14 @@ configuration.api_key['Authorization'] = 'YOUR_API_KEY'
 
 # create an instance of the API class
 api_instance = phraseapp.DefaultApi(phraseapp.ApiClient(configuration))
+callback_url = 'callback_url_example' # str | 
+events = 'events_example' # str | 
 project_id = 'project_id_example' # str | ProjectId
+description = 'description_example' # str |  (optional)
+active = true # bool |  (optional)
 
 try: 
-    api_response = api_instance.projects_project_id_webhooks_post(project_id)
+    api_response = api_instance.projects_project_id_webhooks_post(callback_url, events, project_id, description=description, active=active)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling DefaultApi->projects_project_id_webhooks_post: %s\n" % e)
@@ -5575,7 +5987,11 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **callback_url** | **str**|  | 
+ **events** | **str**|  | 
  **project_id** | **str**| ProjectId | 
+ **description** | **str**|  | [optional] 
+ **active** | **bool**|  | [optional] 
 
 ### Return type
 

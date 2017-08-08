@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **default** | **bool** |  | [optional] 
 **main** | **bool** |  | [optional] 
 **rtl** | **bool** |  | [optional] 
-**plural_forms** | **string[]** |  | [optional] 
 **source_locale** | [**\Swagger\Client\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

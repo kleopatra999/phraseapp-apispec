@@ -37,7 +37,6 @@ class Locale(object):
         'default': 'bool',
         'main': 'bool',
         'rtl': 'bool',
-        'plural_forms': 'list[str]',
         'source_locale': 'LocalePreview',
         'created_at': 'datetime',
         'updated_at': 'datetime'
@@ -50,13 +49,12 @@ class Locale(object):
         'default': 'default',
         'main': 'main',
         'rtl': 'rtl',
-        'plural_forms': 'plural_forms',
         'source_locale': 'source_locale',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, name=None, code=None, default=None, main=None, rtl=None, plural_forms=None, source_locale=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, name=None, code=None, default=None, main=None, rtl=None, source_locale=None, created_at=None, updated_at=None):
         """
         Locale - a model defined in Swagger
         """
@@ -67,7 +65,6 @@ class Locale(object):
         self._default = None
         self._main = None
         self._rtl = None
-        self._plural_forms = None
         self._source_locale = None
         self._created_at = None
         self._updated_at = None
@@ -85,8 +82,6 @@ class Locale(object):
           self.main = main
         if rtl is not None:
           self.rtl = rtl
-        if plural_forms is not None:
-          self.plural_forms = plural_forms
         if source_locale is not None:
           self.source_locale = source_locale
         if created_at is not None:
@@ -219,27 +214,6 @@ class Locale(object):
         """
 
         self._rtl = rtl
-
-    @property
-    def plural_forms(self):
-        """
-        Gets the plural_forms of this Locale.
-
-        :return: The plural_forms of this Locale.
-        :rtype: list[str]
-        """
-        return self._plural_forms
-
-    @plural_forms.setter
-    def plural_forms(self, plural_forms):
-        """
-        Sets the plural_forms of this Locale.
-
-        :param plural_forms: The plural_forms of this Locale.
-        :type: list[str]
-        """
-
-        self._plural_forms = plural_forms
 
     @property
     def source_locale(self):

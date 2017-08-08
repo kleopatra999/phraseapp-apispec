@@ -63,7 +63,6 @@ class TranslationOrder implements ArrayAccess
         'translation_type' => 'string',
         'progress_percent' => 'int',
         'source_locale' => '\Swagger\Client\Model\LocalePreview',
-        'target_locales' => '\Swagger\Client\Model\LocalePreview[]',
         'tag' => 'string',
         'styleguide' => '\Swagger\Client\Model\StyleguidePreview',
         'unverify_translations_upon_delivery' => 'bool',
@@ -87,7 +86,6 @@ class TranslationOrder implements ArrayAccess
         'translation_type' => null,
         'progress_percent' => null,
         'source_locale' => null,
-        'target_locales' => null,
         'tag' => null,
         'styleguide' => null,
         'unverify_translations_upon_delivery' => null,
@@ -121,7 +119,6 @@ class TranslationOrder implements ArrayAccess
         'translation_type' => 'translation_type',
         'progress_percent' => 'progress_percent',
         'source_locale' => 'source_locale',
-        'target_locales' => 'target_locales',
         'tag' => 'tag',
         'styleguide' => 'styleguide',
         'unverify_translations_upon_delivery' => 'unverify_translations_upon_delivery',
@@ -146,7 +143,6 @@ class TranslationOrder implements ArrayAccess
         'translation_type' => 'setTranslationType',
         'progress_percent' => 'setProgressPercent',
         'source_locale' => 'setSourceLocale',
-        'target_locales' => 'setTargetLocales',
         'tag' => 'setTag',
         'styleguide' => 'setStyleguide',
         'unverify_translations_upon_delivery' => 'setUnverifyTranslationsUponDelivery',
@@ -171,7 +167,6 @@ class TranslationOrder implements ArrayAccess
         'translation_type' => 'getTranslationType',
         'progress_percent' => 'getProgressPercent',
         'source_locale' => 'getSourceLocale',
-        'target_locales' => 'getTargetLocales',
         'tag' => 'getTag',
         'styleguide' => 'getStyleguide',
         'unverify_translations_upon_delivery' => 'getUnverifyTranslationsUponDelivery',
@@ -221,7 +216,6 @@ class TranslationOrder implements ArrayAccess
         $this->container['translation_type'] = isset($data['translation_type']) ? $data['translation_type'] : null;
         $this->container['progress_percent'] = isset($data['progress_percent']) ? $data['progress_percent'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
-        $this->container['target_locales'] = isset($data['target_locales']) ? $data['target_locales'] : null;
         $this->container['tag'] = isset($data['tag']) ? $data['tag'] : null;
         $this->container['styleguide'] = isset($data['styleguide']) ? $data['styleguide'] : null;
         $this->container['unverify_translations_upon_delivery'] = isset($data['unverify_translations_upon_delivery']) ? $data['unverify_translations_upon_delivery'] : null;
@@ -441,27 +435,6 @@ class TranslationOrder implements ArrayAccess
     public function setSourceLocale($source_locale)
     {
         $this->container['source_locale'] = $source_locale;
-
-        return $this;
-    }
-
-    /**
-     * Gets target_locales
-     * @return \Swagger\Client\Model\LocalePreview[]
-     */
-    public function getTargetLocales()
-    {
-        return $this->container['target_locales'];
-    }
-
-    /**
-     * Sets target_locales
-     * @param \Swagger\Client\Model\LocalePreview[] $target_locales
-     * @return $this
-     */
-    public function setTargetLocales($target_locales)
-    {
-        $this->container['target_locales'] = $target_locales;
 
         return $this;
     }

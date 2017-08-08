@@ -54,7 +54,7 @@ class ProjectLocales implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'locales' => '\Swagger\Client\Model\LocalePreview[]'
+        
     ];
 
     /**
@@ -62,7 +62,7 @@ class ProjectLocales implements ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'locales' => null
+        
     ];
 
     public static function swaggerTypes()
@@ -80,7 +80,7 @@ class ProjectLocales implements ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'locales' => 'locales'
+        
     ];
 
 
@@ -89,7 +89,7 @@ class ProjectLocales implements ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'locales' => 'setLocales'
+        
     ];
 
 
@@ -98,7 +98,7 @@ class ProjectLocales implements ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'locales' => 'getLocales'
+        
     ];
 
     public static function attributeMap()
@@ -132,7 +132,6 @@ class ProjectLocales implements ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
     }
 
     /**
@@ -159,27 +158,6 @@ class ProjectLocales implements ArrayAccess
         return true;
     }
 
-
-    /**
-     * Gets locales
-     * @return \Swagger\Client\Model\LocalePreview[]
-     */
-    public function getLocales()
-    {
-        return $this->container['locales'];
-    }
-
-    /**
-     * Sets locales
-     * @param \Swagger\Client\Model\LocalePreview[] $locales
-     * @return $this
-     */
-    public function setLocales($locales)
-    {
-        $this->container['locales'] = $locales;
-
-        return $this;
-    }
     /**
      * Returns true if offset exists. False otherwise.
      * @param  integer $offset Offset

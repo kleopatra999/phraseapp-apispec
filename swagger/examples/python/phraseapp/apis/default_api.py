@@ -470,47 +470,55 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_glossaries_glossary_id_terms_id_patch(self, account_id, glossary_id, id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_id_patch(self, term, account_id, glossary_id, id, **kwargs):
         """
         Update an existing glossary term.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_id_patch(account_id, glossary_id, id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_id_patch(term, account_id, glossary_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str term: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
         :param str id: Id (required)
+        :param str description:
+        :param bool translatable:
+        :param bool case_sensitive:
         :return: GlossaryTerm
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(account_id, glossary_id, id, **kwargs)
+            return self.accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(term, account_id, glossary_id, id, **kwargs)
         else:
-            (data) = self.accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(account_id, glossary_id, id, **kwargs)
+            (data) = self.accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(term, account_id, glossary_id, id, **kwargs)
             return data
 
-    def accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(self, account_id, glossary_id, id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(self, term, account_id, glossary_id, id, **kwargs):
         """
         Update an existing glossary term.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(account_id, glossary_id, id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_id_patch_with_http_info(term, account_id, glossary_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str term: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
         :param str id: Id (required)
+        :param str description:
+        :param bool translatable:
+        :param bool case_sensitive:
         :return: GlossaryTerm
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'glossary_id', 'id']
+        all_params = ['term', 'account_id', 'glossary_id', 'id', 'description', 'translatable', 'case_sensitive']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -525,6 +533,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'term' is set
+        if ('term' not in params) or (params['term'] is None):
+            raise ValueError("Missing the required parameter `term` when calling `accounts_account_id_glossaries_glossary_id_terms_id_patch`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_glossaries_glossary_id_terms_id_patch`")
@@ -547,6 +558,14 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'term' in params:
+            query_params.append(('term', params['term']))
+        if 'description' in params:
+            query_params.append(('description', params['description']))
+        if 'translatable' in params:
+            query_params.append(('translatable', params['translatable']))
+        if 'case_sensitive' in params:
+            query_params.append(('case_sensitive', params['case_sensitive']))
 
         header_params = {}
 
@@ -580,45 +599,53 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_glossaries_glossary_id_terms_post(self, account_id, glossary_id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_post(self, term, account_id, glossary_id, **kwargs):
         """
         Create a new glossary term.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_post(account_id, glossary_id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_post(term, account_id, glossary_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str term: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
+        :param str description:
+        :param bool translatable:
+        :param bool case_sensitive:
         :return: GlossaryTerm
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(account_id, glossary_id, **kwargs)
+            return self.accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(term, account_id, glossary_id, **kwargs)
         else:
-            (data) = self.accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(account_id, glossary_id, **kwargs)
+            (data) = self.accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(term, account_id, glossary_id, **kwargs)
             return data
 
-    def accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(self, account_id, glossary_id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(self, term, account_id, glossary_id, **kwargs):
         """
         Create a new glossary term.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(account_id, glossary_id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_post_with_http_info(term, account_id, glossary_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str term: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
+        :param str description:
+        :param bool translatable:
+        :param bool case_sensitive:
         :return: GlossaryTerm
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'glossary_id']
+        all_params = ['term', 'account_id', 'glossary_id', 'description', 'translatable', 'case_sensitive']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -633,6 +660,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'term' is set
+        if ('term' not in params) or (params['term'] is None):
+            raise ValueError("Missing the required parameter `term` when calling `accounts_account_id_glossaries_glossary_id_terms_post`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_glossaries_glossary_id_terms_post`")
@@ -650,6 +680,14 @@ class DefaultApi(object):
             path_params['GlossaryId'] = params['glossary_id']
 
         query_params = []
+        if 'term' in params:
+            query_params.append(('term', params['term']))
+        if 'description' in params:
+            query_params.append(('description', params['description']))
+        if 'translatable' in params:
+            query_params.append(('translatable', params['translatable']))
+        if 'case_sensitive' in params:
+            query_params.append(('case_sensitive', params['case_sensitive']))
 
         header_params = {}
 
@@ -800,49 +838,53 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(self, account_id, glossary_id, term_id, id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(self, locale_code, account_id, glossary_id, term_id, id, **kwargs):
         """
         Update an existing glossary term translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(account_id, glossary_id, term_id, id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch(locale_code, account_id, glossary_id, term_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str locale_code: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
         :param str term_id: TermId (required)
         :param str id: Id (required)
+        :param str content:
         :return: GlossaryTermTranslation
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(account_id, glossary_id, term_id, id, **kwargs)
+            return self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(locale_code, account_id, glossary_id, term_id, id, **kwargs)
         else:
-            (data) = self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(account_id, glossary_id, term_id, id, **kwargs)
+            (data) = self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(locale_code, account_id, glossary_id, term_id, id, **kwargs)
             return data
 
-    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(self, account_id, glossary_id, term_id, id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(self, locale_code, account_id, glossary_id, term_id, id, **kwargs):
         """
         Update an existing glossary term translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(account_id, glossary_id, term_id, id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch_with_http_info(locale_code, account_id, glossary_id, term_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str locale_code: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
         :param str term_id: TermId (required)
         :param str id: Id (required)
+        :param str content:
         :return: GlossaryTermTranslation
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'glossary_id', 'term_id', 'id']
+        all_params = ['locale_code', 'account_id', 'glossary_id', 'term_id', 'id', 'content']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -857,6 +899,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'locale_code' is set
+        if ('locale_code' not in params) or (params['locale_code'] is None):
+            raise ValueError("Missing the required parameter `locale_code` when calling `accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_glossaries_glossary_id_terms_term_id_translations_id_patch`")
@@ -884,6 +929,10 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'locale_code' in params:
+            query_params.append(('locale_code', params['locale_code']))
+        if 'content' in params:
+            query_params.append(('content', params['content']))
 
         header_params = {}
 
@@ -917,47 +966,51 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(self, account_id, glossary_id, term_id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(self, locale_code, account_id, glossary_id, term_id, **kwargs):
         """
         Create a new glossary term translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(account_id, glossary_id, term_id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post(locale_code, account_id, glossary_id, term_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str locale_code: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
         :param str term_id: TermId (required)
+        :param str content:
         :return: GlossaryTermTranslation
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(account_id, glossary_id, term_id, **kwargs)
+            return self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(locale_code, account_id, glossary_id, term_id, **kwargs)
         else:
-            (data) = self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(account_id, glossary_id, term_id, **kwargs)
+            (data) = self.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(locale_code, account_id, glossary_id, term_id, **kwargs)
             return data
 
-    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(self, account_id, glossary_id, term_id, **kwargs):
+    def accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(self, locale_code, account_id, glossary_id, term_id, **kwargs):
         """
         Create a new glossary term translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(account_id, glossary_id, term_id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post_with_http_info(locale_code, account_id, glossary_id, term_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str locale_code: (required)
         :param str account_id: AccountId (required)
         :param str glossary_id: GlossaryId (required)
         :param str term_id: TermId (required)
+        :param str content:
         :return: GlossaryTermTranslation
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'glossary_id', 'term_id']
+        all_params = ['locale_code', 'account_id', 'glossary_id', 'term_id', 'content']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -972,6 +1025,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'locale_code' is set
+        if ('locale_code' not in params) or (params['locale_code'] is None):
+            raise ValueError("Missing the required parameter `locale_code` when calling `accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_glossaries_glossary_id_terms_term_id_translations_post`")
@@ -994,6 +1050,10 @@ class DefaultApi(object):
             path_params['TermId'] = params['term_id']
 
         query_params = []
+        if 'locale_code' in params:
+            query_params.append(('locale_code', params['locale_code']))
+        if 'content' in params:
+            query_params.append(('content', params['content']))
 
         header_params = {}
 
@@ -1233,45 +1293,49 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_glossaries_id_patch(self, account_id, id, **kwargs):
+    def accounts_account_id_glossaries_id_patch(self, name, account_id, id, **kwargs):
         """
         Update an existing glossary.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_id_patch(account_id, id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_id_patch(name, account_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str account_id: AccountId (required)
         :param str id: Id (required)
+        :param str project_ids:
         :return: Glossary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_glossaries_id_patch_with_http_info(account_id, id, **kwargs)
+            return self.accounts_account_id_glossaries_id_patch_with_http_info(name, account_id, id, **kwargs)
         else:
-            (data) = self.accounts_account_id_glossaries_id_patch_with_http_info(account_id, id, **kwargs)
+            (data) = self.accounts_account_id_glossaries_id_patch_with_http_info(name, account_id, id, **kwargs)
             return data
 
-    def accounts_account_id_glossaries_id_patch_with_http_info(self, account_id, id, **kwargs):
+    def accounts_account_id_glossaries_id_patch_with_http_info(self, name, account_id, id, **kwargs):
         """
         Update an existing glossary.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_id_patch_with_http_info(account_id, id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_id_patch_with_http_info(name, account_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str account_id: AccountId (required)
         :param str id: Id (required)
+        :param str project_ids:
         :return: Glossary
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'id']
+        all_params = ['name', 'account_id', 'id', 'project_ids']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1286,6 +1350,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `accounts_account_id_glossaries_id_patch`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_glossaries_id_patch`")
@@ -1303,6 +1370,10 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'project_ids' in params:
+            query_params.append(('project_ids', params['project_ids']))
 
         header_params = {}
 
@@ -1336,43 +1407,47 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_glossaries_post(self, account_id, **kwargs):
+    def accounts_account_id_glossaries_post(self, name, account_id, **kwargs):
         """
         Create a new glossary.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_post(account_id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_post(name, account_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str account_id: AccountId (required)
+        :param str project_ids:
         :return: Glossary
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_glossaries_post_with_http_info(account_id, **kwargs)
+            return self.accounts_account_id_glossaries_post_with_http_info(name, account_id, **kwargs)
         else:
-            (data) = self.accounts_account_id_glossaries_post_with_http_info(account_id, **kwargs)
+            (data) = self.accounts_account_id_glossaries_post_with_http_info(name, account_id, **kwargs)
             return data
 
-    def accounts_account_id_glossaries_post_with_http_info(self, account_id, **kwargs):
+    def accounts_account_id_glossaries_post_with_http_info(self, name, account_id, **kwargs):
         """
         Create a new glossary.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_glossaries_post_with_http_info(account_id, async=True)
+        >>> thread = api.accounts_account_id_glossaries_post_with_http_info(name, account_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str account_id: AccountId (required)
+        :param str project_ids:
         :return: Glossary
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id']
+        all_params = ['name', 'account_id', 'project_ids']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1387,6 +1462,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `accounts_account_id_glossaries_post`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_glossaries_post`")
@@ -1399,6 +1477,10 @@ class DefaultApi(object):
             path_params['AccountId'] = params['account_id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'project_ids' in params:
+            query_params.append(('project_ids', params['project_ids']))
 
         header_params = {}
 
@@ -1742,45 +1824,51 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_invitations_id_patch(self, account_id, id, **kwargs):
+    def accounts_account_id_invitations_id_patch(self, role, account_id, id, **kwargs):
         """
         Update an existing invitation (must not be accepted yet). The <code>email</code> cannot be updated. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_invitations_id_patch(account_id, id, async=True)
+        >>> thread = api.accounts_account_id_invitations_id_patch(role, account_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str role: (required)
         :param str account_id: AccountId (required)
         :param str id: Id (required)
+        :param str project_ids:
+        :param str locale_ids:
         :return: Invitation
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_invitations_id_patch_with_http_info(account_id, id, **kwargs)
+            return self.accounts_account_id_invitations_id_patch_with_http_info(role, account_id, id, **kwargs)
         else:
-            (data) = self.accounts_account_id_invitations_id_patch_with_http_info(account_id, id, **kwargs)
+            (data) = self.accounts_account_id_invitations_id_patch_with_http_info(role, account_id, id, **kwargs)
             return data
 
-    def accounts_account_id_invitations_id_patch_with_http_info(self, account_id, id, **kwargs):
+    def accounts_account_id_invitations_id_patch_with_http_info(self, role, account_id, id, **kwargs):
         """
         Update an existing invitation (must not be accepted yet). The <code>email</code> cannot be updated. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_invitations_id_patch_with_http_info(account_id, id, async=True)
+        >>> thread = api.accounts_account_id_invitations_id_patch_with_http_info(role, account_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str role: (required)
         :param str account_id: AccountId (required)
         :param str id: Id (required)
+        :param str project_ids:
+        :param str locale_ids:
         :return: Invitation
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'id']
+        all_params = ['role', 'account_id', 'id', 'project_ids', 'locale_ids']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1795,6 +1883,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'role' is set
+        if ('role' not in params) or (params['role'] is None):
+            raise ValueError("Missing the required parameter `role` when calling `accounts_account_id_invitations_id_patch`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_invitations_id_patch`")
@@ -1812,6 +1903,12 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'role' in params:
+            query_params.append(('role', params['role']))
+        if 'project_ids' in params:
+            query_params.append(('project_ids', params['project_ids']))
+        if 'locale_ids' in params:
+            query_params.append(('locale_ids', params['locale_ids']))
 
         header_params = {}
 
@@ -1948,43 +2045,51 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_invitations_post(self, account_id, **kwargs):
+    def accounts_account_id_invitations_post(self, email, role, account_id, **kwargs):
         """
         Invite a person to an account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_invitations_post(account_id, async=True)
+        >>> thread = api.accounts_account_id_invitations_post(email, role, account_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str email: (required)
+        :param str role: (required)
         :param str account_id: AccountId (required)
+        :param str project_ids:
+        :param str locale_ids:
         :return: Invitation
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_invitations_post_with_http_info(account_id, **kwargs)
+            return self.accounts_account_id_invitations_post_with_http_info(email, role, account_id, **kwargs)
         else:
-            (data) = self.accounts_account_id_invitations_post_with_http_info(account_id, **kwargs)
+            (data) = self.accounts_account_id_invitations_post_with_http_info(email, role, account_id, **kwargs)
             return data
 
-    def accounts_account_id_invitations_post_with_http_info(self, account_id, **kwargs):
+    def accounts_account_id_invitations_post_with_http_info(self, email, role, account_id, **kwargs):
         """
         Invite a person to an account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_invitations_post_with_http_info(account_id, async=True)
+        >>> thread = api.accounts_account_id_invitations_post_with_http_info(email, role, account_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str email: (required)
+        :param str role: (required)
         :param str account_id: AccountId (required)
+        :param str project_ids:
+        :param str locale_ids:
         :return: Invitation
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id']
+        all_params = ['email', 'role', 'account_id', 'project_ids', 'locale_ids']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1999,6 +2104,12 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'email' is set
+        if ('email' not in params) or (params['email'] is None):
+            raise ValueError("Missing the required parameter `email` when calling `accounts_account_id_invitations_post`")
+        # verify the required parameter 'role' is set
+        if ('role' not in params) or (params['role'] is None):
+            raise ValueError("Missing the required parameter `role` when calling `accounts_account_id_invitations_post`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_invitations_post`")
@@ -2011,6 +2122,14 @@ class DefaultApi(object):
             path_params['AccountId'] = params['account_id']
 
         query_params = []
+        if 'email' in params:
+            query_params.append(('email', params['email']))
+        if 'role' in params:
+            query_params.append(('role', params['role']))
+        if 'project_ids' in params:
+            query_params.append(('project_ids', params['project_ids']))
+        if 'locale_ids' in params:
+            query_params.append(('locale_ids', params['locale_ids']))
 
         header_params = {}
 
@@ -2354,45 +2473,51 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def accounts_account_id_members_id_patch(self, account_id, id, **kwargs):
+    def accounts_account_id_members_id_patch(self, role, account_id, id, **kwargs):
         """
         Update user permissions in the account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_members_id_patch(account_id, id, async=True)
+        >>> thread = api.accounts_account_id_members_id_patch(role, account_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str role: (required)
         :param str account_id: AccountId (required)
         :param str id: Id (required)
+        :param str project_ids:
+        :param str locale_ids:
         :return: Member
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.accounts_account_id_members_id_patch_with_http_info(account_id, id, **kwargs)
+            return self.accounts_account_id_members_id_patch_with_http_info(role, account_id, id, **kwargs)
         else:
-            (data) = self.accounts_account_id_members_id_patch_with_http_info(account_id, id, **kwargs)
+            (data) = self.accounts_account_id_members_id_patch_with_http_info(role, account_id, id, **kwargs)
             return data
 
-    def accounts_account_id_members_id_patch_with_http_info(self, account_id, id, **kwargs):
+    def accounts_account_id_members_id_patch_with_http_info(self, role, account_id, id, **kwargs):
         """
         Update user permissions in the account. Developers and translators need <code>project_ids</code> and <code>locale_ids</code> assigned to access them. Access token scope must include <code>team.manage</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.accounts_account_id_members_id_patch_with_http_info(account_id, id, async=True)
+        >>> thread = api.accounts_account_id_members_id_patch_with_http_info(role, account_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str role: (required)
         :param str account_id: AccountId (required)
         :param str id: Id (required)
+        :param str project_ids:
+        :param str locale_ids:
         :return: Member
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['account_id', 'id']
+        all_params = ['role', 'account_id', 'id', 'project_ids', 'locale_ids']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2407,6 +2532,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'role' is set
+        if ('role' not in params) or (params['role'] is None):
+            raise ValueError("Missing the required parameter `role` when calling `accounts_account_id_members_id_patch`")
         # verify the required parameter 'account_id' is set
         if ('account_id' not in params) or (params['account_id'] is None):
             raise ValueError("Missing the required parameter `account_id` when calling `accounts_account_id_members_id_patch`")
@@ -2424,6 +2552,12 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'role' in params:
+            query_params.append(('role', params['role']))
+        if 'project_ids' in params:
+            query_params.append(('project_ids', params['project_ids']))
+        if 'locale_ids' in params:
+            query_params.append(('locale_ids', params['locale_ids']))
 
         header_params = {}
 
@@ -2939,43 +3073,49 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def authorizations_id_patch(self, id, **kwargs):
+    def authorizations_id_patch(self, note, id, **kwargs):
         """
         Update an existing authorization.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.authorizations_id_patch(id, async=True)
+        >>> thread = api.authorizations_id_patch(note, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str note: (required)
         :param str id: Id (required)
+        :param str scopes:
+        :param datetime expires_at:
         :return: Authorization
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.authorizations_id_patch_with_http_info(id, **kwargs)
+            return self.authorizations_id_patch_with_http_info(note, id, **kwargs)
         else:
-            (data) = self.authorizations_id_patch_with_http_info(id, **kwargs)
+            (data) = self.authorizations_id_patch_with_http_info(note, id, **kwargs)
             return data
 
-    def authorizations_id_patch_with_http_info(self, id, **kwargs):
+    def authorizations_id_patch_with_http_info(self, note, id, **kwargs):
         """
         Update an existing authorization.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.authorizations_id_patch_with_http_info(id, async=True)
+        >>> thread = api.authorizations_id_patch_with_http_info(note, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str note: (required)
         :param str id: Id (required)
+        :param str scopes:
+        :param datetime expires_at:
         :return: Authorization
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']
+        all_params = ['note', 'id', 'scopes', 'expires_at']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -2990,6 +3130,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'note' is set
+        if ('note' not in params) or (params['note'] is None):
+            raise ValueError("Missing the required parameter `note` when calling `authorizations_id_patch`")
         # verify the required parameter 'id' is set
         if ('id' not in params) or (params['id'] is None):
             raise ValueError("Missing the required parameter `id` when calling `authorizations_id_patch`")
@@ -3002,6 +3145,12 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'note' in params:
+            query_params.append(('note', params['note']))
+        if 'scopes' in params:
+            query_params.append(('scopes', params['scopes']))
+        if 'expires_at' in params:
+            query_params.append(('expires_at', params['expires_at']))
 
         header_params = {}
 
@@ -3035,41 +3184,47 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def authorizations_post(self, **kwargs):
+    def authorizations_post(self, note, **kwargs):
         """
         Create a new authorization.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.authorizations_post(async=True)
+        >>> thread = api.authorizations_post(note, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str note: (required)
+        :param str scopes:
+        :param datetime expires_at:
         :return: AuthorizationWithToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.authorizations_post_with_http_info(**kwargs)
+            return self.authorizations_post_with_http_info(note, **kwargs)
         else:
-            (data) = self.authorizations_post_with_http_info(**kwargs)
+            (data) = self.authorizations_post_with_http_info(note, **kwargs)
             return data
 
-    def authorizations_post_with_http_info(self, **kwargs):
+    def authorizations_post_with_http_info(self, note, **kwargs):
         """
         Create a new authorization.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.authorizations_post_with_http_info(async=True)
+        >>> thread = api.authorizations_post_with_http_info(note, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str note: (required)
+        :param str scopes:
+        :param datetime expires_at:
         :return: AuthorizationWithToken
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['note', 'scopes', 'expires_at']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3084,12 +3239,22 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'note' is set
+        if ('note' not in params) or (params['note'] is None):
+            raise ValueError("Missing the required parameter `note` when calling `authorizations_post`")
+
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
+        if 'note' in params:
+            query_params.append(('note', params['note']))
+        if 'scopes' in params:
+            query_params.append(('scopes', params['scopes']))
+        if 'expires_at' in params:
+            query_params.append(('expires_at', params['expires_at']))
 
         header_params = {}
 
@@ -3500,43 +3665,51 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_id_patch(self, id, **kwargs):
+    def projects_id_patch(self, name, id, **kwargs):
         """
         Update an existing project.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_id_patch(id, async=True)
+        >>> thread = api.projects_id_patch(name, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str id: Id (required)
+        :param str main_format:
+        :param bool shares_translation_memory:
+        :param str account_id:
         :return: ProjectDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_id_patch_with_http_info(id, **kwargs)
+            return self.projects_id_patch_with_http_info(name, id, **kwargs)
         else:
-            (data) = self.projects_id_patch_with_http_info(id, **kwargs)
+            (data) = self.projects_id_patch_with_http_info(name, id, **kwargs)
             return data
 
-    def projects_id_patch_with_http_info(self, id, **kwargs):
+    def projects_id_patch_with_http_info(self, name, id, **kwargs):
         """
         Update an existing project.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_id_patch_with_http_info(id, async=True)
+        >>> thread = api.projects_id_patch_with_http_info(name, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str id: Id (required)
+        :param str main_format:
+        :param bool shares_translation_memory:
+        :param str account_id:
         :return: ProjectDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['id']
+        all_params = ['name', 'id', 'main_format', 'shares_translation_memory', 'account_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3551,6 +3724,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_id_patch`")
         # verify the required parameter 'id' is set
         if ('id' not in params) or (params['id'] is None):
             raise ValueError("Missing the required parameter `id` when calling `projects_id_patch`")
@@ -3563,6 +3739,14 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'main_format' in params:
+            query_params.append(('main_format', params['main_format']))
+        if 'shares_translation_memory' in params:
+            query_params.append(('shares_translation_memory', params['shares_translation_memory']))
+        if 'account_id' in params:
+            query_params.append(('account_id', params['account_id']))
 
         header_params = {}
 
@@ -3596,41 +3780,49 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_post(self, **kwargs):
+    def projects_post(self, name, **kwargs):
         """
         Create a new project.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_post(async=True)
+        >>> thread = api.projects_post(name, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
+        :param str main_format:
+        :param bool shares_translation_memory:
+        :param str account_id:
         :return: ProjectDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_post_with_http_info(**kwargs)
+            return self.projects_post_with_http_info(name, **kwargs)
         else:
-            (data) = self.projects_post_with_http_info(**kwargs)
+            (data) = self.projects_post_with_http_info(name, **kwargs)
             return data
 
-    def projects_post_with_http_info(self, **kwargs):
+    def projects_post_with_http_info(self, name, **kwargs):
         """
         Create a new project.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_post_with_http_info(async=True)
+        >>> thread = api.projects_post_with_http_info(name, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
+        :param str main_format:
+        :param bool shares_translation_memory:
+        :param str account_id:
         :return: ProjectDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = []
+        all_params = ['name', 'main_format', 'shares_translation_memory', 'account_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -3645,12 +3837,24 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_post`")
+
 
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'main_format' in params:
+            query_params.append(('main_format', params['main_format']))
+        if 'shares_translation_memory' in params:
+            query_params.append(('shares_translation_memory', params['shares_translation_memory']))
+        if 'account_id' in params:
+            query_params.append(('account_id', params['account_id']))
 
         header_params = {}
 
@@ -3994,15 +4198,16 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_blacklisted_keys_id_patch(self, project_id, id, **kwargs):
+    def projects_project_id_blacklisted_keys_id_patch(self, name, project_id, id, **kwargs):
         """
         Update an existing rule for blacklisting keys.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_blacklisted_keys_id_patch(project_id, id, async=True)
+        >>> thread = api.projects_project_id_blacklisted_keys_id_patch(name, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
         :return: BlacklistedKey
@@ -4011,20 +4216,21 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_blacklisted_keys_id_patch_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_blacklisted_keys_id_patch_with_http_info(name, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_blacklisted_keys_id_patch_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_blacklisted_keys_id_patch_with_http_info(name, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_blacklisted_keys_id_patch_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_blacklisted_keys_id_patch_with_http_info(self, name, project_id, id, **kwargs):
         """
         Update an existing rule for blacklisting keys.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_blacklisted_keys_id_patch_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_blacklisted_keys_id_patch_with_http_info(name, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
         :return: BlacklistedKey
@@ -4032,7 +4238,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['name', 'project_id', 'id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4047,6 +4253,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_blacklisted_keys_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_blacklisted_keys_id_patch`")
@@ -4064,6 +4273,8 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
 
         header_params = {}
 
@@ -4097,15 +4308,16 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_blacklisted_keys_post(self, project_id, **kwargs):
+    def projects_project_id_blacklisted_keys_post(self, name, project_id, **kwargs):
         """
         Create a new rule for blacklisting keys.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_blacklisted_keys_post(project_id, async=True)
+        >>> thread = api.projects_project_id_blacklisted_keys_post(name, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :return: BlacklistedKey
                  If the method is called asynchronously,
@@ -4113,27 +4325,28 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_blacklisted_keys_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_blacklisted_keys_post_with_http_info(name, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_blacklisted_keys_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_blacklisted_keys_post_with_http_info(name, project_id, **kwargs)
             return data
 
-    def projects_project_id_blacklisted_keys_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_blacklisted_keys_post_with_http_info(self, name, project_id, **kwargs):
         """
         Create a new rule for blacklisting keys.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_blacklisted_keys_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_blacklisted_keys_post_with_http_info(name, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :return: BlacklistedKey
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['name', 'project_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4148,6 +4361,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_blacklisted_keys_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_blacklisted_keys_post`")
@@ -4160,6 +4376,8 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
 
         header_params = {}
 
@@ -4203,6 +4421,8 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str locale_id:
         :return: AffectedResources
                  If the method is called asynchronously,
                  returns the request thread.
@@ -4224,12 +4444,14 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str locale_id:
         :return: AffectedResources
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['project_id', 'q', 'locale_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4256,6 +4478,10 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
 
         header_params = {}
 
@@ -4299,6 +4525,10 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
+        :param str locale_id:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[TranslationKey]
@@ -4322,6 +4552,10 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
+        :param str locale_id:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[TranslationKey]
@@ -4329,7 +4563,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'per_page', 'page']
+        all_params = ['project_id', 'sort', 'order', 'q', 'locale_id', 'per_page', 'page']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4356,6 +4590,14 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))
         if 'page' in params:
@@ -4599,45 +4841,73 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_keys_id_patch(self, project_id, id, **kwargs):
+    def projects_project_id_keys_id_patch(self, name, project_id, id, **kwargs):
         """
         Update an existing key.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_id_patch(project_id, id, async=True)
+        >>> thread = api.projects_project_id_keys_id_patch(name, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str description:
+        :param bool plural:
+        :param str name_plural:
+        :param str data_type:
+        :param str tags:
+        :param int max_characters_allowed:
+        :param str screenshot:
+        :param bool remove_screenshot:
+        :param bool unformatted:
+        :param bool xml_space_preserve:
+        :param str original_file:
+        :param str localized_format_string:
+        :param str localized_format_key:
         :return: TranslationKeyDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_keys_id_patch_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_keys_id_patch_with_http_info(name, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_keys_id_patch_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_keys_id_patch_with_http_info(name, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_keys_id_patch_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_keys_id_patch_with_http_info(self, name, project_id, id, **kwargs):
         """
         Update an existing key.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_id_patch_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_keys_id_patch_with_http_info(name, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str description:
+        :param bool plural:
+        :param str name_plural:
+        :param str data_type:
+        :param str tags:
+        :param int max_characters_allowed:
+        :param str screenshot:
+        :param bool remove_screenshot:
+        :param bool unformatted:
+        :param bool xml_space_preserve:
+        :param str original_file:
+        :param str localized_format_string:
+        :param str localized_format_key:
         :return: TranslationKeyDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['name', 'project_id', 'id', 'description', 'plural', 'name_plural', 'data_type', 'tags', 'max_characters_allowed', 'screenshot', 'remove_screenshot', 'unformatted', 'xml_space_preserve', 'original_file', 'localized_format_string', 'localized_format_key']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -4652,6 +4922,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_keys_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_keys_id_patch`")
@@ -4669,6 +4942,34 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'description' in params:
+            query_params.append(('description', params['description']))
+        if 'plural' in params:
+            query_params.append(('plural', params['plural']))
+        if 'name_plural' in params:
+            query_params.append(('name_plural', params['name_plural']))
+        if 'data_type' in params:
+            query_params.append(('data_type', params['data_type']))
+        if 'tags' in params:
+            query_params.append(('tags', params['tags']))
+        if 'max_characters_allowed' in params:
+            query_params.append(('max_characters_allowed', params['max_characters_allowed']))
+        if 'screenshot' in params:
+            query_params.append(('screenshot', params['screenshot']))
+        if 'remove_screenshot' in params:
+            query_params.append(('remove_screenshot', params['remove_screenshot']))
+        if 'unformatted' in params:
+            query_params.append(('unformatted', params['unformatted']))
+        if 'xml_space_preserve' in params:
+            query_params.append(('xml_space_preserve', params['xml_space_preserve']))
+        if 'original_file' in params:
+            query_params.append(('original_file', params['original_file']))
+        if 'localized_format_string' in params:
+            query_params.append(('localized_format_string', params['localized_format_string']))
+        if 'localized_format_key' in params:
+            query_params.append(('localized_format_key', params['localized_format_key']))
 
         header_params = {}
 
@@ -5033,15 +5334,16 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_keys_key_id_comments_id_patch(self, project_id, key_id, id, **kwargs):
+    def projects_project_id_keys_key_id_comments_id_patch(self, message, project_id, key_id, id, **kwargs):
         """
         Update an existing comment.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_key_id_comments_id_patch(project_id, key_id, id, async=True)
+        >>> thread = api.projects_project_id_keys_key_id_comments_id_patch(message, project_id, key_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str message: (required)
         :param str project_id: ProjectId (required)
         :param str key_id: KeyId (required)
         :param str id: Id (required)
@@ -5051,20 +5353,21 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_keys_key_id_comments_id_patch_with_http_info(project_id, key_id, id, **kwargs)
+            return self.projects_project_id_keys_key_id_comments_id_patch_with_http_info(message, project_id, key_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_keys_key_id_comments_id_patch_with_http_info(project_id, key_id, id, **kwargs)
+            (data) = self.projects_project_id_keys_key_id_comments_id_patch_with_http_info(message, project_id, key_id, id, **kwargs)
             return data
 
-    def projects_project_id_keys_key_id_comments_id_patch_with_http_info(self, project_id, key_id, id, **kwargs):
+    def projects_project_id_keys_key_id_comments_id_patch_with_http_info(self, message, project_id, key_id, id, **kwargs):
         """
         Update an existing comment.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_key_id_comments_id_patch_with_http_info(project_id, key_id, id, async=True)
+        >>> thread = api.projects_project_id_keys_key_id_comments_id_patch_with_http_info(message, project_id, key_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str message: (required)
         :param str project_id: ProjectId (required)
         :param str key_id: KeyId (required)
         :param str id: Id (required)
@@ -5073,7 +5376,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'key_id', 'id']
+        all_params = ['message', 'project_id', 'key_id', 'id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5088,6 +5391,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'message' is set
+        if ('message' not in params) or (params['message'] is None):
+            raise ValueError("Missing the required parameter `message` when calling `projects_project_id_keys_key_id_comments_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_keys_key_id_comments_id_patch`")
@@ -5110,6 +5416,8 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'message' in params:
+            query_params.append(('message', params['message']))
 
         header_params = {}
 
@@ -5473,15 +5781,16 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_keys_key_id_comments_post(self, project_id, key_id, **kwargs):
+    def projects_project_id_keys_key_id_comments_post(self, message, project_id, key_id, **kwargs):
         """
         Create a new comment for a key.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_key_id_comments_post(project_id, key_id, async=True)
+        >>> thread = api.projects_project_id_keys_key_id_comments_post(message, project_id, key_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str message: (required)
         :param str project_id: ProjectId (required)
         :param str key_id: KeyId (required)
         :return: Comment
@@ -5490,20 +5799,21 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_keys_key_id_comments_post_with_http_info(project_id, key_id, **kwargs)
+            return self.projects_project_id_keys_key_id_comments_post_with_http_info(message, project_id, key_id, **kwargs)
         else:
-            (data) = self.projects_project_id_keys_key_id_comments_post_with_http_info(project_id, key_id, **kwargs)
+            (data) = self.projects_project_id_keys_key_id_comments_post_with_http_info(message, project_id, key_id, **kwargs)
             return data
 
-    def projects_project_id_keys_key_id_comments_post_with_http_info(self, project_id, key_id, **kwargs):
+    def projects_project_id_keys_key_id_comments_post_with_http_info(self, message, project_id, key_id, **kwargs):
         """
         Create a new comment for a key.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_key_id_comments_post_with_http_info(project_id, key_id, async=True)
+        >>> thread = api.projects_project_id_keys_key_id_comments_post_with_http_info(message, project_id, key_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str message: (required)
         :param str project_id: ProjectId (required)
         :param str key_id: KeyId (required)
         :return: Comment
@@ -5511,7 +5821,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'key_id']
+        all_params = ['message', 'project_id', 'key_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5526,6 +5836,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'message' is set
+        if ('message' not in params) or (params['message'] is None):
+            raise ValueError("Missing the required parameter `message` when calling `projects_project_id_keys_key_id_comments_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_keys_key_id_comments_post`")
@@ -5543,6 +5856,8 @@ class DefaultApi(object):
             path_params['KeyId'] = params['key_id']
 
         query_params = []
+        if 'message' in params:
+            query_params.append(('message', params['message']))
 
         header_params = {}
 
@@ -5587,6 +5902,9 @@ class DefaultApi(object):
         :param async bool
         :param str project_id: ProjectId (required)
         :param str key_id: KeyId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: Translation
@@ -5611,6 +5929,9 @@ class DefaultApi(object):
         :param async bool
         :param str project_id: ProjectId (required)
         :param str key_id: KeyId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: Translation
@@ -5618,7 +5939,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'key_id', 'per_page', 'page']
+        all_params = ['project_id', 'key_id', 'sort', 'order', 'q', 'per_page', 'page']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5650,6 +5971,12 @@ class DefaultApi(object):
             path_params['KeyId'] = params['key_id']
 
         query_params = []
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+        if 'q' in params:
+            query_params.append(('q', params['q']))
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))
         if 'page' in params:
@@ -5687,43 +6014,71 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_keys_post(self, project_id, **kwargs):
+    def projects_project_id_keys_post(self, name, project_id, **kwargs):
         """
         Create a new key.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_post(project_id, async=True)
+        >>> thread = api.projects_project_id_keys_post(name, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
+        :param str description:
+        :param bool plural:
+        :param str name_plural:
+        :param str data_type:
+        :param str tags:
+        :param int max_characters_allowed:
+        :param str screenshot:
+        :param bool remove_screenshot:
+        :param bool unformatted:
+        :param bool xml_space_preserve:
+        :param str original_file:
+        :param str localized_format_string:
+        :param str localized_format_key:
         :return: TranslationKeyDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_keys_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_keys_post_with_http_info(name, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_keys_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_keys_post_with_http_info(name, project_id, **kwargs)
             return data
 
-    def projects_project_id_keys_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_keys_post_with_http_info(self, name, project_id, **kwargs):
         """
         Create a new key.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_keys_post_with_http_info(name, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
+        :param str description:
+        :param bool plural:
+        :param str name_plural:
+        :param str data_type:
+        :param str tags:
+        :param int max_characters_allowed:
+        :param str screenshot:
+        :param bool remove_screenshot:
+        :param bool unformatted:
+        :param bool xml_space_preserve:
+        :param str original_file:
+        :param str localized_format_string:
+        :param str localized_format_key:
         :return: TranslationKeyDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['name', 'project_id', 'description', 'plural', 'name_plural', 'data_type', 'tags', 'max_characters_allowed', 'screenshot', 'remove_screenshot', 'unformatted', 'xml_space_preserve', 'original_file', 'localized_format_string', 'localized_format_key']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5738,6 +6093,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_keys_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_keys_post`")
@@ -5750,6 +6108,34 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'description' in params:
+            query_params.append(('description', params['description']))
+        if 'plural' in params:
+            query_params.append(('plural', params['plural']))
+        if 'name_plural' in params:
+            query_params.append(('name_plural', params['name_plural']))
+        if 'data_type' in params:
+            query_params.append(('data_type', params['data_type']))
+        if 'tags' in params:
+            query_params.append(('tags', params['tags']))
+        if 'max_characters_allowed' in params:
+            query_params.append(('max_characters_allowed', params['max_characters_allowed']))
+        if 'screenshot' in params:
+            query_params.append(('screenshot', params['screenshot']))
+        if 'remove_screenshot' in params:
+            query_params.append(('remove_screenshot', params['remove_screenshot']))
+        if 'unformatted' in params:
+            query_params.append(('unformatted', params['unformatted']))
+        if 'xml_space_preserve' in params:
+            query_params.append(('xml_space_preserve', params['xml_space_preserve']))
+        if 'original_file' in params:
+            query_params.append(('original_file', params['original_file']))
+        if 'localized_format_string' in params:
+            query_params.append(('localized_format_string', params['localized_format_string']))
+        if 'localized_format_key' in params:
+            query_params.append(('localized_format_key', params['localized_format_key']))
 
         header_params = {}
 
@@ -5793,6 +6179,10 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
+        :param str locale_id:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[TranslationKey]
@@ -5816,6 +6206,10 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
+        :param str locale_id:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[TranslationKey]
@@ -5823,7 +6217,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'per_page', 'page']
+        all_params = ['project_id', 'sort', 'order', 'q', 'locale_id', 'per_page', 'page']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5850,6 +6244,14 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))
         if 'page' in params:
@@ -5887,43 +6289,49 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_keys_tag_patch(self, project_id, **kwargs):
+    def projects_project_id_keys_tag_patch(self, tags, project_id, **kwargs):
         """
         Tags all keys matching query. Same constraints as list.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_tag_patch(project_id, async=True)
+        >>> thread = api.projects_project_id_keys_tag_patch(tags, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str tags: (required)
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str locale_id:
         :return: AffectedResources
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_keys_tag_patch_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_keys_tag_patch_with_http_info(tags, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_keys_tag_patch_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_keys_tag_patch_with_http_info(tags, project_id, **kwargs)
             return data
 
-    def projects_project_id_keys_tag_patch_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_keys_tag_patch_with_http_info(self, tags, project_id, **kwargs):
         """
         Tags all keys matching query. Same constraints as list.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_tag_patch_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_keys_tag_patch_with_http_info(tags, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str tags: (required)
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str locale_id:
         :return: AffectedResources
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['tags', 'project_id', 'q', 'locale_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -5938,6 +6346,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'tags' is set
+        if ('tags' not in params) or (params['tags'] is None):
+            raise ValueError("Missing the required parameter `tags` when calling `projects_project_id_keys_tag_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_keys_tag_patch`")
@@ -5950,6 +6361,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
+        if 'tags' in params:
+            query_params.append(('tags', params['tags']))
 
         header_params = {}
 
@@ -5983,43 +6400,49 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_keys_untag_patch(self, project_id, **kwargs):
+    def projects_project_id_keys_untag_patch(self, tags, project_id, **kwargs):
         """
         Removes specified tags from keys matching query.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_untag_patch(project_id, async=True)
+        >>> thread = api.projects_project_id_keys_untag_patch(tags, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str tags: (required)
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str locale_id:
         :return: AffectedResources
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_keys_untag_patch_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_keys_untag_patch_with_http_info(tags, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_keys_untag_patch_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_keys_untag_patch_with_http_info(tags, project_id, **kwargs)
             return data
 
-    def projects_project_id_keys_untag_patch_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_keys_untag_patch_with_http_info(self, tags, project_id, **kwargs):
         """
         Removes specified tags from keys matching query.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_keys_untag_patch_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_keys_untag_patch_with_http_info(tags, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str tags: (required)
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str locale_id:
         :return: AffectedResources
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['tags', 'project_id', 'q', 'locale_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6034,6 +6457,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'tags' is set
+        if ('tags' not in params) or (params['tags'] is None):
+            raise ValueError("Missing the required parameter `tags` when calling `projects_project_id_keys_untag_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_keys_untag_patch`")
@@ -6046,6 +6472,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
+        if 'tags' in params:
+            query_params.append(('tags', params['tags']))
 
         header_params = {}
 
@@ -6286,45 +6718,63 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_locales_id_download_get(self, project_id, id, **kwargs):
+    def projects_project_id_locales_id_download_get(self, file_format, project_id, id, **kwargs):
         """
         Download a locale in a specific file format.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_locales_id_download_get(project_id, id, async=True)
+        >>> thread = api.projects_project_id_locales_id_download_get(file_format, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str file_format: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str tag:
+        :param bool include_empty_translations:
+        :param bool keep_notranslate_tags:
+        :param bool convert_emoji:
+        :param str format_options:
+        :param str encoding:
+        :param bool skip_unverified_translations:
+        :param str fallback_locale_id:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_locales_id_download_get_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_locales_id_download_get_with_http_info(file_format, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_locales_id_download_get_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_locales_id_download_get_with_http_info(file_format, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_locales_id_download_get_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_locales_id_download_get_with_http_info(self, file_format, project_id, id, **kwargs):
         """
         Download a locale in a specific file format.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_locales_id_download_get_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_locales_id_download_get_with_http_info(file_format, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str file_format: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str tag:
+        :param bool include_empty_translations:
+        :param bool keep_notranslate_tags:
+        :param bool convert_emoji:
+        :param str format_options:
+        :param str encoding:
+        :param bool skip_unverified_translations:
+        :param str fallback_locale_id:
         :return: None
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['file_format', 'project_id', 'id', 'tag', 'include_empty_translations', 'keep_notranslate_tags', 'convert_emoji', 'format_options', 'encoding', 'skip_unverified_translations', 'fallback_locale_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6339,6 +6789,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'file_format' is set
+        if ('file_format' not in params) or (params['file_format'] is None):
+            raise ValueError("Missing the required parameter `file_format` when calling `projects_project_id_locales_id_download_get`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_locales_id_download_get`")
@@ -6356,6 +6809,24 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'file_format' in params:
+            query_params.append(('file_format', params['file_format']))
+        if 'tag' in params:
+            query_params.append(('tag', params['tag']))
+        if 'include_empty_translations' in params:
+            query_params.append(('include_empty_translations', params['include_empty_translations']))
+        if 'keep_notranslate_tags' in params:
+            query_params.append(('keep_notranslate_tags', params['keep_notranslate_tags']))
+        if 'convert_emoji' in params:
+            query_params.append(('convert_emoji', params['convert_emoji']))
+        if 'format_options' in params:
+            query_params.append(('format_options', params['format_options']))
+        if 'encoding' in params:
+            query_params.append(('encoding', params['encoding']))
+        if 'skip_unverified_translations' in params:
+            query_params.append(('skip_unverified_translations', params['skip_unverified_translations']))
+        if 'fallback_locale_id' in params:
+            query_params.append(('fallback_locale_id', params['fallback_locale_id']))
 
         header_params = {}
 
@@ -6492,45 +6963,61 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_locales_id_patch(self, project_id, id, **kwargs):
+    def projects_project_id_locales_id_patch(self, name, code, project_id, id, **kwargs):
         """
         Update an existing locale.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_locales_id_patch(project_id, id, async=True)
+        >>> thread = api.projects_project_id_locales_id_patch(name, code, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
+        :param str code: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param bool default:
+        :param bool main:
+        :param bool rtl:
+        :param str source_locale_id:
+        :param bool unverify_new_translations:
+        :param bool unverify_updated_translations:
         :return: LocaleDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_locales_id_patch_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_locales_id_patch_with_http_info(name, code, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_locales_id_patch_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_locales_id_patch_with_http_info(name, code, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_locales_id_patch_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_locales_id_patch_with_http_info(self, name, code, project_id, id, **kwargs):
         """
         Update an existing locale.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_locales_id_patch_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_locales_id_patch_with_http_info(name, code, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
+        :param str code: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param bool default:
+        :param bool main:
+        :param bool rtl:
+        :param str source_locale_id:
+        :param bool unverify_new_translations:
+        :param bool unverify_updated_translations:
         :return: LocaleDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['name', 'code', 'project_id', 'id', 'default', 'main', 'rtl', 'source_locale_id', 'unverify_new_translations', 'unverify_updated_translations']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6545,6 +7032,12 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_locales_id_patch`")
+        # verify the required parameter 'code' is set
+        if ('code' not in params) or (params['code'] is None):
+            raise ValueError("Missing the required parameter `code` when calling `projects_project_id_locales_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_locales_id_patch`")
@@ -6562,6 +7055,22 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'code' in params:
+            query_params.append(('code', params['code']))
+        if 'default' in params:
+            query_params.append(('default', params['default']))
+        if 'main' in params:
+            query_params.append(('main', params['main']))
+        if 'rtl' in params:
+            query_params.append(('rtl', params['rtl']))
+        if 'source_locale_id' in params:
+            query_params.append(('source_locale_id', params['source_locale_id']))
+        if 'unverify_new_translations' in params:
+            query_params.append(('unverify_new_translations', params['unverify_new_translations']))
+        if 'unverify_updated_translations' in params:
+            query_params.append(('unverify_updated_translations', params['unverify_updated_translations']))
 
         header_params = {}
 
@@ -6606,6 +7115,9 @@ class DefaultApi(object):
         :param async bool
         :param str project_id: ProjectId (required)
         :param str locale_id: LocaleId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: Translation
@@ -6630,6 +7142,9 @@ class DefaultApi(object):
         :param async bool
         :param str project_id: ProjectId (required)
         :param str locale_id: LocaleId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: Translation
@@ -6637,7 +7152,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'locale_id', 'per_page', 'page']
+        all_params = ['project_id', 'locale_id', 'sort', 'order', 'q', 'per_page', 'page']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6669,6 +7184,12 @@ class DefaultApi(object):
             path_params['LocaleId'] = params['locale_id']
 
         query_params = []
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+        if 'q' in params:
+            query_params.append(('q', params['q']))
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))
         if 'page' in params:
@@ -6706,43 +7227,59 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_locales_post(self, project_id, **kwargs):
+    def projects_project_id_locales_post(self, name, code, project_id, **kwargs):
         """
         Create a new locale.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_locales_post(project_id, async=True)
+        >>> thread = api.projects_project_id_locales_post(name, code, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
+        :param str code: (required)
         :param str project_id: ProjectId (required)
+        :param bool default:
+        :param bool main:
+        :param bool rtl:
+        :param str source_locale_id:
+        :param bool unverify_new_translations:
+        :param bool unverify_updated_translations:
         :return: LocaleDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_locales_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_locales_post_with_http_info(name, code, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_locales_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_locales_post_with_http_info(name, code, project_id, **kwargs)
             return data
 
-    def projects_project_id_locales_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_locales_post_with_http_info(self, name, code, project_id, **kwargs):
         """
         Create a new locale.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_locales_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_locales_post_with_http_info(name, code, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
+        :param str code: (required)
         :param str project_id: ProjectId (required)
+        :param bool default:
+        :param bool main:
+        :param bool rtl:
+        :param str source_locale_id:
+        :param bool unverify_new_translations:
+        :param bool unverify_updated_translations:
         :return: LocaleDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['name', 'code', 'project_id', 'default', 'main', 'rtl', 'source_locale_id', 'unverify_new_translations', 'unverify_updated_translations']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -6757,6 +7294,12 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_locales_post`")
+        # verify the required parameter 'code' is set
+        if ('code' not in params) or (params['code'] is None):
+            raise ValueError("Missing the required parameter `code` when calling `projects_project_id_locales_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_locales_post`")
@@ -6769,6 +7312,22 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
+        if 'code' in params:
+            query_params.append(('code', params['code']))
+        if 'default' in params:
+            query_params.append(('default', params['default']))
+        if 'main' in params:
+            query_params.append(('main', params['main']))
+        if 'rtl' in params:
+            query_params.append(('rtl', params['rtl']))
+        if 'source_locale_id' in params:
+            query_params.append(('source_locale_id', params['source_locale_id']))
+        if 'unverify_new_translations' in params:
+            query_params.append(('unverify_new_translations', params['unverify_new_translations']))
+        if 'unverify_updated_translations' in params:
+            query_params.append(('unverify_updated_translations', params['unverify_updated_translations']))
 
         header_params = {}
 
@@ -7215,43 +7774,69 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_orders_post(self, project_id, **kwargs):
+    def projects_project_id_orders_post(self, lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, **kwargs):
         """
         Create a new order. Access token scope must include <code>orders.create</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_orders_post(project_id, async=True)
+        >>> thread = api.projects_project_id_orders_post(lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str lsp: (required)
+        :param str source_locale_id: (required)
+        :param str target_locale_ids: (required)
+        :param str translation_type: (required)
+        :param str category: (required)
         :param str project_id: ProjectId (required)
+        :param str tag:
+        :param str message:
+        :param str styleguide_id:
+        :param bool unverify_translations_upon_delivery:
+        :param bool include_untranslated_keys:
+        :param bool include_unverified_translations:
+        :param bool quality:
+        :param bool priority:
         :return: TranslationOrder
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_orders_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_orders_post_with_http_info(lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_orders_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_orders_post_with_http_info(lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, **kwargs)
             return data
 
-    def projects_project_id_orders_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_orders_post_with_http_info(self, lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, **kwargs):
         """
         Create a new order. Access token scope must include <code>orders.create</code>.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_orders_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_orders_post_with_http_info(lsp, source_locale_id, target_locale_ids, translation_type, category, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str lsp: (required)
+        :param str source_locale_id: (required)
+        :param str target_locale_ids: (required)
+        :param str translation_type: (required)
+        :param str category: (required)
         :param str project_id: ProjectId (required)
+        :param str tag:
+        :param str message:
+        :param str styleguide_id:
+        :param bool unverify_translations_upon_delivery:
+        :param bool include_untranslated_keys:
+        :param bool include_unverified_translations:
+        :param bool quality:
+        :param bool priority:
         :return: TranslationOrder
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['lsp', 'source_locale_id', 'target_locale_ids', 'translation_type', 'category', 'project_id', 'tag', 'message', 'styleguide_id', 'unverify_translations_upon_delivery', 'include_untranslated_keys', 'include_unverified_translations', 'quality', 'priority']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7266,6 +7851,21 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'lsp' is set
+        if ('lsp' not in params) or (params['lsp'] is None):
+            raise ValueError("Missing the required parameter `lsp` when calling `projects_project_id_orders_post`")
+        # verify the required parameter 'source_locale_id' is set
+        if ('source_locale_id' not in params) or (params['source_locale_id'] is None):
+            raise ValueError("Missing the required parameter `source_locale_id` when calling `projects_project_id_orders_post`")
+        # verify the required parameter 'target_locale_ids' is set
+        if ('target_locale_ids' not in params) or (params['target_locale_ids'] is None):
+            raise ValueError("Missing the required parameter `target_locale_ids` when calling `projects_project_id_orders_post`")
+        # verify the required parameter 'translation_type' is set
+        if ('translation_type' not in params) or (params['translation_type'] is None):
+            raise ValueError("Missing the required parameter `translation_type` when calling `projects_project_id_orders_post`")
+        # verify the required parameter 'category' is set
+        if ('category' not in params) or (params['category'] is None):
+            raise ValueError("Missing the required parameter `category` when calling `projects_project_id_orders_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_orders_post`")
@@ -7278,6 +7878,32 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'lsp' in params:
+            query_params.append(('lsp', params['lsp']))
+        if 'source_locale_id' in params:
+            query_params.append(('source_locale_id', params['source_locale_id']))
+        if 'target_locale_ids' in params:
+            query_params.append(('target_locale_ids', params['target_locale_ids']))
+        if 'translation_type' in params:
+            query_params.append(('translation_type', params['translation_type']))
+        if 'tag' in params:
+            query_params.append(('tag', params['tag']))
+        if 'message' in params:
+            query_params.append(('message', params['message']))
+        if 'styleguide_id' in params:
+            query_params.append(('styleguide_id', params['styleguide_id']))
+        if 'unverify_translations_upon_delivery' in params:
+            query_params.append(('unverify_translations_upon_delivery', params['unverify_translations_upon_delivery']))
+        if 'include_untranslated_keys' in params:
+            query_params.append(('include_untranslated_keys', params['include_untranslated_keys']))
+        if 'include_unverified_translations' in params:
+            query_params.append(('include_unverified_translations', params['include_unverified_translations']))
+        if 'category' in params:
+            query_params.append(('category', params['category']))
+        if 'quality' in params:
+            query_params.append(('quality', params['quality']))
+        if 'priority' in params:
+            query_params.append(('priority', params['priority']))
 
         header_params = {}
 
@@ -7621,45 +8247,71 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_styleguides_id_patch(self, project_id, id, **kwargs):
+    def projects_project_id_styleguides_id_patch(self, title, project_id, id, **kwargs):
         """
         Update an existing style guide.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_styleguides_id_patch(project_id, id, async=True)
+        >>> thread = api.projects_project_id_styleguides_id_patch(title, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str title: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str audience:
+        :param str target_audience:
+        :param str grammatical_person:
+        :param str vocabulary_type:
+        :param str business:
+        :param str company_branding:
+        :param str formatting:
+        :param str glossary_terms:
+        :param str grammar_consistency:
+        :param str literal_translation:
+        :param str overall_tone:
+        :param str samples:
         :return: StyleguideDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_styleguides_id_patch_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_styleguides_id_patch_with_http_info(title, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_styleguides_id_patch_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_styleguides_id_patch_with_http_info(title, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_styleguides_id_patch_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_styleguides_id_patch_with_http_info(self, title, project_id, id, **kwargs):
         """
         Update an existing style guide.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_styleguides_id_patch_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_styleguides_id_patch_with_http_info(title, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str title: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str audience:
+        :param str target_audience:
+        :param str grammatical_person:
+        :param str vocabulary_type:
+        :param str business:
+        :param str company_branding:
+        :param str formatting:
+        :param str glossary_terms:
+        :param str grammar_consistency:
+        :param str literal_translation:
+        :param str overall_tone:
+        :param str samples:
         :return: StyleguideDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['title', 'project_id', 'id', 'audience', 'target_audience', 'grammatical_person', 'vocabulary_type', 'business', 'company_branding', 'formatting', 'glossary_terms', 'grammar_consistency', 'literal_translation', 'overall_tone', 'samples']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7674,6 +8326,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'title' is set
+        if ('title' not in params) or (params['title'] is None):
+            raise ValueError("Missing the required parameter `title` when calling `projects_project_id_styleguides_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_styleguides_id_patch`")
@@ -7691,6 +8346,32 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'title' in params:
+            query_params.append(('title', params['title']))
+        if 'audience' in params:
+            query_params.append(('audience', params['audience']))
+        if 'target_audience' in params:
+            query_params.append(('target_audience', params['target_audience']))
+        if 'grammatical_person' in params:
+            query_params.append(('grammatical_person', params['grammatical_person']))
+        if 'vocabulary_type' in params:
+            query_params.append(('vocabulary_type', params['vocabulary_type']))
+        if 'business' in params:
+            query_params.append(('business', params['business']))
+        if 'company_branding' in params:
+            query_params.append(('company_branding', params['company_branding']))
+        if 'formatting' in params:
+            query_params.append(('formatting', params['formatting']))
+        if 'glossary_terms' in params:
+            query_params.append(('glossary_terms', params['glossary_terms']))
+        if 'grammar_consistency' in params:
+            query_params.append(('grammar_consistency', params['grammar_consistency']))
+        if 'literal_translation' in params:
+            query_params.append(('literal_translation', params['literal_translation']))
+        if 'overall_tone' in params:
+            query_params.append(('overall_tone', params['overall_tone']))
+        if 'samples' in params:
+            query_params.append(('samples', params['samples']))
 
         header_params = {}
 
@@ -7724,43 +8405,69 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_styleguides_post(self, project_id, **kwargs):
+    def projects_project_id_styleguides_post(self, title, project_id, **kwargs):
         """
         Create a new style guide.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_styleguides_post(project_id, async=True)
+        >>> thread = api.projects_project_id_styleguides_post(title, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str title: (required)
         :param str project_id: ProjectId (required)
+        :param str audience:
+        :param str target_audience:
+        :param str grammatical_person:
+        :param str vocabulary_type:
+        :param str business:
+        :param str company_branding:
+        :param str formatting:
+        :param str glossary_terms:
+        :param str grammar_consistency:
+        :param str literal_translation:
+        :param str overall_tone:
+        :param str samples:
         :return: StyleguideDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_styleguides_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_styleguides_post_with_http_info(title, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_styleguides_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_styleguides_post_with_http_info(title, project_id, **kwargs)
             return data
 
-    def projects_project_id_styleguides_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_styleguides_post_with_http_info(self, title, project_id, **kwargs):
         """
         Create a new style guide.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_styleguides_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_styleguides_post_with_http_info(title, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str title: (required)
         :param str project_id: ProjectId (required)
+        :param str audience:
+        :param str target_audience:
+        :param str grammatical_person:
+        :param str vocabulary_type:
+        :param str business:
+        :param str company_branding:
+        :param str formatting:
+        :param str glossary_terms:
+        :param str grammar_consistency:
+        :param str literal_translation:
+        :param str overall_tone:
+        :param str samples:
         :return: StyleguideDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['title', 'project_id', 'audience', 'target_audience', 'grammatical_person', 'vocabulary_type', 'business', 'company_branding', 'formatting', 'glossary_terms', 'grammar_consistency', 'literal_translation', 'overall_tone', 'samples']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -7775,6 +8482,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'title' is set
+        if ('title' not in params) or (params['title'] is None):
+            raise ValueError("Missing the required parameter `title` when calling `projects_project_id_styleguides_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_styleguides_post`")
@@ -7787,6 +8497,32 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'title' in params:
+            query_params.append(('title', params['title']))
+        if 'audience' in params:
+            query_params.append(('audience', params['audience']))
+        if 'target_audience' in params:
+            query_params.append(('target_audience', params['target_audience']))
+        if 'grammatical_person' in params:
+            query_params.append(('grammatical_person', params['grammatical_person']))
+        if 'vocabulary_type' in params:
+            query_params.append(('vocabulary_type', params['vocabulary_type']))
+        if 'business' in params:
+            query_params.append(('business', params['business']))
+        if 'company_branding' in params:
+            query_params.append(('company_branding', params['company_branding']))
+        if 'formatting' in params:
+            query_params.append(('formatting', params['formatting']))
+        if 'glossary_terms' in params:
+            query_params.append(('glossary_terms', params['glossary_terms']))
+        if 'grammar_consistency' in params:
+            query_params.append(('grammar_consistency', params['grammar_consistency']))
+        if 'literal_translation' in params:
+            query_params.append(('literal_translation', params['literal_translation']))
+        if 'overall_tone' in params:
+            query_params.append(('overall_tone', params['overall_tone']))
+        if 'samples' in params:
+            query_params.append(('samples', params['samples']))
 
         header_params = {}
 
@@ -8130,15 +8866,16 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_tags_post(self, project_id, **kwargs):
+    def projects_project_id_tags_post(self, name, project_id, **kwargs):
         """
         Create a new tag.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_tags_post(project_id, async=True)
+        >>> thread = api.projects_project_id_tags_post(name, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :return: TagWithStats
                  If the method is called asynchronously,
@@ -8146,27 +8883,28 @@ class DefaultApi(object):
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_tags_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_tags_post_with_http_info(name, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_tags_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_tags_post_with_http_info(name, project_id, **kwargs)
             return data
 
-    def projects_project_id_tags_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_tags_post_with_http_info(self, name, project_id, **kwargs):
         """
         Create a new tag.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_tags_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_tags_post_with_http_info(name, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str name: (required)
         :param str project_id: ProjectId (required)
         :return: TagWithStats
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['name', 'project_id']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8181,6 +8919,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'name' is set
+        if ('name' not in params) or (params['name'] is None):
+            raise ValueError("Missing the required parameter `name` when calling `projects_project_id_tags_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_tags_post`")
@@ -8193,6 +8934,8 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'name' in params:
+            query_params.append(('name', params['name']))
 
         header_params = {}
 
@@ -8236,6 +8979,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
@@ -8257,12 +9003,15 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['project_id', 'q', 'sort', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8289,6 +9038,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -8332,6 +9087,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[Translation]
@@ -8355,6 +9113,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[Translation]
@@ -8362,7 +9123,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'per_page', 'page']
+        all_params = ['project_id', 'sort', 'order', 'q', 'per_page', 'page']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8389,6 +9150,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+        if 'q' in params:
+            query_params.append(('q', params['q']))
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))
         if 'page' in params:
@@ -8529,45 +9296,53 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_translations_id_patch(self, project_id, id, **kwargs):
+    def projects_project_id_translations_id_patch(self, content, project_id, id, **kwargs):
         """
         Update an existing translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_translations_id_patch(project_id, id, async=True)
+        >>> thread = api.projects_project_id_translations_id_patch(content, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str content: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str plural_suffix:
+        :param bool unverified:
+        :param bool excluded:
         :return: TranslationDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_translations_id_patch_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_translations_id_patch_with_http_info(content, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_translations_id_patch_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_translations_id_patch_with_http_info(content, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_translations_id_patch_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_translations_id_patch_with_http_info(self, content, project_id, id, **kwargs):
         """
         Update an existing translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_translations_id_patch_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_translations_id_patch_with_http_info(content, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str content: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str plural_suffix:
+        :param bool unverified:
+        :param bool excluded:
         :return: TranslationDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['content', 'project_id', 'id', 'plural_suffix', 'unverified', 'excluded']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8582,6 +9357,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'content' is set
+        if ('content' not in params) or (params['content'] is None):
+            raise ValueError("Missing the required parameter `content` when calling `projects_project_id_translations_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_translations_id_patch`")
@@ -8599,6 +9377,14 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'content' in params:
+            query_params.append(('content', params['content']))
+        if 'plural_suffix' in params:
+            query_params.append(('plural_suffix', params['plural_suffix']))
+        if 'unverified' in params:
+            query_params.append(('unverified', params['unverified']))
+        if 'excluded' in params:
+            query_params.append(('excluded', params['excluded']))
 
         header_params = {}
 
@@ -8642,6 +9428,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
@@ -8663,12 +9452,15 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['project_id', 'q', 'sort', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8695,6 +9487,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -8728,43 +9526,55 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_translations_post(self, project_id, **kwargs):
+    def projects_project_id_translations_post(self, locale_id, key_id, content, project_id, **kwargs):
         """
         Create a translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_translations_post(project_id, async=True)
+        >>> thread = api.projects_project_id_translations_post(locale_id, key_id, content, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str locale_id: (required)
+        :param str key_id: (required)
+        :param str content: (required)
         :param str project_id: ProjectId (required)
+        :param str plural_suffix:
+        :param bool unverified:
+        :param bool excluded:
         :return: TranslationDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_translations_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_translations_post_with_http_info(locale_id, key_id, content, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_translations_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_translations_post_with_http_info(locale_id, key_id, content, project_id, **kwargs)
             return data
 
-    def projects_project_id_translations_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_translations_post_with_http_info(self, locale_id, key_id, content, project_id, **kwargs):
         """
         Create a translation.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_translations_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_translations_post_with_http_info(locale_id, key_id, content, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str locale_id: (required)
+        :param str key_id: (required)
+        :param str content: (required)
         :param str project_id: ProjectId (required)
+        :param str plural_suffix:
+        :param bool unverified:
+        :param bool excluded:
         :return: TranslationDetails
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['locale_id', 'key_id', 'content', 'project_id', 'plural_suffix', 'unverified', 'excluded']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8779,6 +9589,15 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'locale_id' is set
+        if ('locale_id' not in params) or (params['locale_id'] is None):
+            raise ValueError("Missing the required parameter `locale_id` when calling `projects_project_id_translations_post`")
+        # verify the required parameter 'key_id' is set
+        if ('key_id' not in params) or (params['key_id'] is None):
+            raise ValueError("Missing the required parameter `key_id` when calling `projects_project_id_translations_post`")
+        # verify the required parameter 'content' is set
+        if ('content' not in params) or (params['content'] is None):
+            raise ValueError("Missing the required parameter `content` when calling `projects_project_id_translations_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_translations_post`")
@@ -8791,6 +9610,18 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
+        if 'key_id' in params:
+            query_params.append(('key_id', params['key_id']))
+        if 'content' in params:
+            query_params.append(('content', params['content']))
+        if 'plural_suffix' in params:
+            query_params.append(('plural_suffix', params['plural_suffix']))
+        if 'unverified' in params:
+            query_params.append(('unverified', params['unverified']))
+        if 'excluded' in params:
+            query_params.append(('excluded', params['excluded']))
 
         header_params = {}
 
@@ -8834,6 +9665,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[Translation]
@@ -8857,6 +9691,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str sort:
+        :param str order:
+        :param str q:
         :param int per_page: Per Page
         :param int page: Page
         :return: list[Translation]
@@ -8864,7 +9701,7 @@ class DefaultApi(object):
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'per_page', 'page']
+        all_params = ['project_id', 'sort', 'order', 'q', 'per_page', 'page']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -8891,6 +9728,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
+        if 'q' in params:
+            query_params.append(('q', params['q']))
         if 'per_page' in params:
             query_params.append(('per_page', params['per_page']))
         if 'page' in params:
@@ -9159,6 +10002,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
@@ -9180,12 +10026,15 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['project_id', 'q', 'sort', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9212,6 +10061,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -9255,6 +10110,9 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
@@ -9276,12 +10134,15 @@ class DefaultApi(object):
 
         :param async bool
         :param str project_id: ProjectId (required)
+        :param str q:
+        :param str sort:
+        :param str order:
         :return: AffectedCount
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['project_id', 'q', 'sort', 'order']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9308,6 +10169,12 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'q' in params:
+            query_params.append(('q', params['q']))
+        if 'sort' in params:
+            query_params.append(('sort', params['sort']))
+        if 'order' in params:
+            query_params.append(('order', params['order']))
 
         header_params = {}
 
@@ -9548,43 +10415,65 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_uploads_post(self, project_id, **kwargs):
+    def projects_project_id_uploads_post(self, file, project_id, **kwargs):
         """
         Upload a new language file. Creates necessary resources in your project.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_uploads_post(project_id, async=True)
+        >>> thread = api.projects_project_id_uploads_post(file, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str file: (required)
         :param str project_id: ProjectId (required)
+        :param str file_format:
+        :param str locale_id:
+        :param str tags:
+        :param bool update_translations:
+        :param bool update_descriptions:
+        :param bool convert_emoji:
+        :param bool skip_upload_tags:
+        :param bool skip_unverification:
+        :param str file_encoding:
+        :param str format_options:
         :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_uploads_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_uploads_post_with_http_info(file, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_uploads_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_uploads_post_with_http_info(file, project_id, **kwargs)
             return data
 
-    def projects_project_id_uploads_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_uploads_post_with_http_info(self, file, project_id, **kwargs):
         """
         Upload a new language file. Creates necessary resources in your project.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_uploads_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_uploads_post_with_http_info(file, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str file: (required)
         :param str project_id: ProjectId (required)
+        :param str file_format:
+        :param str locale_id:
+        :param str tags:
+        :param bool update_translations:
+        :param bool update_descriptions:
+        :param bool convert_emoji:
+        :param bool skip_upload_tags:
+        :param bool skip_unverification:
+        :param str file_encoding:
+        :param str format_options:
         :return: Upload
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['file', 'project_id', 'file_format', 'locale_id', 'tags', 'update_translations', 'update_descriptions', 'convert_emoji', 'skip_upload_tags', 'skip_unverification', 'file_encoding', 'format_options']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -9599,6 +10488,9 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'file' is set
+        if ('file' not in params) or (params['file'] is None):
+            raise ValueError("Missing the required parameter `file` when calling `projects_project_id_uploads_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_uploads_post`")
@@ -9611,6 +10503,28 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'file' in params:
+            query_params.append(('file', params['file']))
+        if 'file_format' in params:
+            query_params.append(('file_format', params['file_format']))
+        if 'locale_id' in params:
+            query_params.append(('locale_id', params['locale_id']))
+        if 'tags' in params:
+            query_params.append(('tags', params['tags']))
+        if 'update_translations' in params:
+            query_params.append(('update_translations', params['update_translations']))
+        if 'update_descriptions' in params:
+            query_params.append(('update_descriptions', params['update_descriptions']))
+        if 'convert_emoji' in params:
+            query_params.append(('convert_emoji', params['convert_emoji']))
+        if 'skip_upload_tags' in params:
+            query_params.append(('skip_upload_tags', params['skip_upload_tags']))
+        if 'skip_unverification' in params:
+            query_params.append(('skip_unverification', params['skip_unverification']))
+        if 'file_encoding' in params:
+            query_params.append(('file_encoding', params['file_encoding']))
+        if 'format_options' in params:
+            query_params.append(('format_options', params['format_options']))
 
         header_params = {}
 
@@ -9954,45 +10868,53 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_webhooks_id_patch(self, project_id, id, **kwargs):
+    def projects_project_id_webhooks_id_patch(self, callback_url, events, project_id, id, **kwargs):
         """
         Update an existing webhook.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_webhooks_id_patch(project_id, id, async=True)
+        >>> thread = api.projects_project_id_webhooks_id_patch(callback_url, events, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str callback_url: (required)
+        :param str events: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str description:
+        :param bool active:
         :return: Webhook
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_webhooks_id_patch_with_http_info(project_id, id, **kwargs)
+            return self.projects_project_id_webhooks_id_patch_with_http_info(callback_url, events, project_id, id, **kwargs)
         else:
-            (data) = self.projects_project_id_webhooks_id_patch_with_http_info(project_id, id, **kwargs)
+            (data) = self.projects_project_id_webhooks_id_patch_with_http_info(callback_url, events, project_id, id, **kwargs)
             return data
 
-    def projects_project_id_webhooks_id_patch_with_http_info(self, project_id, id, **kwargs):
+    def projects_project_id_webhooks_id_patch_with_http_info(self, callback_url, events, project_id, id, **kwargs):
         """
         Update an existing webhook.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_webhooks_id_patch_with_http_info(project_id, id, async=True)
+        >>> thread = api.projects_project_id_webhooks_id_patch_with_http_info(callback_url, events, project_id, id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str callback_url: (required)
+        :param str events: (required)
         :param str project_id: ProjectId (required)
         :param str id: Id (required)
+        :param str description:
+        :param bool active:
         :return: Webhook
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id', 'id']
+        all_params = ['callback_url', 'events', 'project_id', 'id', 'description', 'active']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10007,6 +10929,12 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'callback_url' is set
+        if ('callback_url' not in params) or (params['callback_url'] is None):
+            raise ValueError("Missing the required parameter `callback_url` when calling `projects_project_id_webhooks_id_patch`")
+        # verify the required parameter 'events' is set
+        if ('events' not in params) or (params['events'] is None):
+            raise ValueError("Missing the required parameter `events` when calling `projects_project_id_webhooks_id_patch`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_webhooks_id_patch`")
@@ -10024,6 +10952,14 @@ class DefaultApi(object):
             path_params['Id'] = params['id']
 
         query_params = []
+        if 'callback_url' in params:
+            query_params.append(('callback_url', params['callback_url']))
+        if 'description' in params:
+            query_params.append(('description', params['description']))
+        if 'events' in params:
+            query_params.append(('events', params['events']))
+        if 'active' in params:
+            query_params.append(('active', params['active']))
 
         header_params = {}
 
@@ -10160,43 +11096,51 @@ class DefaultApi(object):
                                         _request_timeout=params.get('_request_timeout'),
                                         collection_formats=collection_formats)
 
-    def projects_project_id_webhooks_post(self, project_id, **kwargs):
+    def projects_project_id_webhooks_post(self, callback_url, events, project_id, **kwargs):
         """
         Create a new webhook.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_webhooks_post(project_id, async=True)
+        >>> thread = api.projects_project_id_webhooks_post(callback_url, events, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str callback_url: (required)
+        :param str events: (required)
         :param str project_id: ProjectId (required)
+        :param str description:
+        :param bool active:
         :return: Webhook
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.projects_project_id_webhooks_post_with_http_info(project_id, **kwargs)
+            return self.projects_project_id_webhooks_post_with_http_info(callback_url, events, project_id, **kwargs)
         else:
-            (data) = self.projects_project_id_webhooks_post_with_http_info(project_id, **kwargs)
+            (data) = self.projects_project_id_webhooks_post_with_http_info(callback_url, events, project_id, **kwargs)
             return data
 
-    def projects_project_id_webhooks_post_with_http_info(self, project_id, **kwargs):
+    def projects_project_id_webhooks_post_with_http_info(self, callback_url, events, project_id, **kwargs):
         """
         Create a new webhook.
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.projects_project_id_webhooks_post_with_http_info(project_id, async=True)
+        >>> thread = api.projects_project_id_webhooks_post_with_http_info(callback_url, events, project_id, async=True)
         >>> result = thread.get()
 
         :param async bool
+        :param str callback_url: (required)
+        :param str events: (required)
         :param str project_id: ProjectId (required)
+        :param str description:
+        :param bool active:
         :return: Webhook
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['project_id']
+        all_params = ['callback_url', 'events', 'project_id', 'description', 'active']
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -10211,6 +11155,12 @@ class DefaultApi(object):
                 )
             params[key] = val
         del params['kwargs']
+        # verify the required parameter 'callback_url' is set
+        if ('callback_url' not in params) or (params['callback_url'] is None):
+            raise ValueError("Missing the required parameter `callback_url` when calling `projects_project_id_webhooks_post`")
+        # verify the required parameter 'events' is set
+        if ('events' not in params) or (params['events'] is None):
+            raise ValueError("Missing the required parameter `events` when calling `projects_project_id_webhooks_post`")
         # verify the required parameter 'project_id' is set
         if ('project_id' not in params) or (params['project_id'] is None):
             raise ValueError("Missing the required parameter `project_id` when calling `projects_project_id_webhooks_post`")
@@ -10223,6 +11173,14 @@ class DefaultApi(object):
             path_params['ProjectId'] = params['project_id']
 
         query_params = []
+        if 'callback_url' in params:
+            query_params.append(('callback_url', params['callback_url']))
+        if 'description' in params:
+            query_params.append(('description', params['description']))
+        if 'events' in params:
+            query_params.append(('events', params['events']))
+        if 'active' in params:
+            query_params.append(('active', params['active']))
 
         header_params = {}
 

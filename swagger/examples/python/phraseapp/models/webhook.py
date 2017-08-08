@@ -34,7 +34,6 @@ class Webhook(object):
         'id': 'str',
         'callback_url': 'str',
         'description': 'str',
-        'events': 'list[str]',
         'active': 'bool',
         'created_at': 'datetime',
         'updated_at': 'datetime'
@@ -44,13 +43,12 @@ class Webhook(object):
         'id': 'id',
         'callback_url': 'callback_url',
         'description': 'description',
-        'events': 'events',
         'active': 'active',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, callback_url=None, description=None, events=None, active=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, callback_url=None, description=None, active=None, created_at=None, updated_at=None):
         """
         Webhook - a model defined in Swagger
         """
@@ -58,7 +56,6 @@ class Webhook(object):
         self._id = None
         self._callback_url = None
         self._description = None
-        self._events = None
         self._active = None
         self._created_at = None
         self._updated_at = None
@@ -70,8 +67,6 @@ class Webhook(object):
           self.callback_url = callback_url
         if description is not None:
           self.description = description
-        if events is not None:
-          self.events = events
         if active is not None:
           self.active = active
         if created_at is not None:
@@ -141,27 +136,6 @@ class Webhook(object):
         """
 
         self._description = description
-
-    @property
-    def events(self):
-        """
-        Gets the events of this Webhook.
-
-        :return: The events of this Webhook.
-        :rtype: list[str]
-        """
-        return self._events
-
-    @events.setter
-    def events(self, events):
-        """
-        Sets the events of this Webhook.
-
-        :param events: The events of this Webhook.
-        :type: list[str]
-        """
-
-        self._events = events
 
     @property
     def active(self):

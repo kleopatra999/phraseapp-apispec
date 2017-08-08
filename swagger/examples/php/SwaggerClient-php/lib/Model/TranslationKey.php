@@ -59,7 +59,6 @@ class TranslationKey implements ArrayAccess
         'description' => 'string',
         'name_hash' => 'string',
         'plural' => 'bool',
-        'tags' => 'string[]',
         'data_type' => 'string',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -75,7 +74,6 @@ class TranslationKey implements ArrayAccess
         'description' => null,
         'name_hash' => null,
         'plural' => null,
-        'tags' => null,
         'data_type' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -101,7 +99,6 @@ class TranslationKey implements ArrayAccess
         'description' => 'description',
         'name_hash' => 'name_hash',
         'plural' => 'plural',
-        'tags' => 'tags',
         'data_type' => 'data_type',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -118,7 +115,6 @@ class TranslationKey implements ArrayAccess
         'description' => 'setDescription',
         'name_hash' => 'setNameHash',
         'plural' => 'setPlural',
-        'tags' => 'setTags',
         'data_type' => 'setDataType',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -135,7 +131,6 @@ class TranslationKey implements ArrayAccess
         'description' => 'getDescription',
         'name_hash' => 'getNameHash',
         'plural' => 'getPlural',
-        'tags' => 'getTags',
         'data_type' => 'getDataType',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -177,7 +172,6 @@ class TranslationKey implements ArrayAccess
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
         $this->container['name_hash'] = isset($data['name_hash']) ? $data['name_hash'] : null;
         $this->container['plural'] = isset($data['plural']) ? $data['plural'] : null;
-        $this->container['tags'] = isset($data['tags']) ? $data['tags'] : null;
         $this->container['data_type'] = isset($data['data_type']) ? $data['data_type'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -309,27 +303,6 @@ class TranslationKey implements ArrayAccess
     public function setPlural($plural)
     {
         $this->container['plural'] = $plural;
-
-        return $this;
-    }
-
-    /**
-     * Gets tags
-     * @return string[]
-     */
-    public function getTags()
-    {
-        return $this->container['tags'];
-    }
-
-    /**
-     * Sets tags
-     * @param string[] $tags
-     * @return $this
-     */
-    public function setTags($tags)
-    {
-        $this->container['tags'] = $tags;
 
         return $this;
     }

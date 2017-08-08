@@ -61,7 +61,6 @@ class Translation implements ArrayAccess
         'plural_suffix' => 'string',
         'key' => '\Swagger\Client\Model\KeyPreview',
         'locale' => '\Swagger\Client\Model\LocalePreview',
-        'placeholders' => 'string[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -78,7 +77,6 @@ class Translation implements ArrayAccess
         'plural_suffix' => null,
         'key' => null,
         'locale' => null,
-        'placeholders' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -105,7 +103,6 @@ class Translation implements ArrayAccess
         'plural_suffix' => 'plural_suffix',
         'key' => 'key',
         'locale' => 'locale',
-        'placeholders' => 'placeholders',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -123,7 +120,6 @@ class Translation implements ArrayAccess
         'plural_suffix' => 'setPluralSuffix',
         'key' => 'setKey',
         'locale' => 'setLocale',
-        'placeholders' => 'setPlaceholders',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -141,7 +137,6 @@ class Translation implements ArrayAccess
         'plural_suffix' => 'getPluralSuffix',
         'key' => 'getKey',
         'locale' => 'getLocale',
-        'placeholders' => 'getPlaceholders',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -184,7 +179,6 @@ class Translation implements ArrayAccess
         $this->container['plural_suffix'] = isset($data['plural_suffix']) ? $data['plural_suffix'] : null;
         $this->container['key'] = isset($data['key']) ? $data['key'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
-        $this->container['placeholders'] = isset($data['placeholders']) ? $data['placeholders'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -357,27 +351,6 @@ class Translation implements ArrayAccess
     public function setLocale($locale)
     {
         $this->container['locale'] = $locale;
-
-        return $this;
-    }
-
-    /**
-     * Gets placeholders
-     * @return string[]
-     */
-    public function getPlaceholders()
-    {
-        return $this->container['placeholders'];
-    }
-
-    /**
-     * Sets placeholders
-     * @param string[] $placeholders
-     * @return $this
-     */
-    public function setPlaceholders($placeholders)
-    {
-        $this->container['placeholders'] = $placeholders;
 
         return $this;
     }

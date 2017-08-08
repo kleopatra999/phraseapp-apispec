@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **email** | **str** |  | [optional] 
 **role** | **str** |  | [optional] 
 **state** | **str** |  | [optional] 
-**projects** | [**list[ProjectShort]**](ProjectShort.md) |  | [optional] 
-**locales** | [**list[LocalePreview]**](LocalePreview.md) |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 **accepted_at** | **datetime** |  | [optional] 

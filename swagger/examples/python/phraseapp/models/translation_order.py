@@ -40,7 +40,6 @@ class TranslationOrder(object):
         'translation_type': 'str',
         'progress_percent': 'int',
         'source_locale': 'LocalePreview',
-        'target_locales': 'list[LocalePreview]',
         'tag': 'str',
         'styleguide': 'StyleguidePreview',
         'unverify_translations_upon_delivery': 'bool',
@@ -60,7 +59,6 @@ class TranslationOrder(object):
         'translation_type': 'translation_type',
         'progress_percent': 'progress_percent',
         'source_locale': 'source_locale',
-        'target_locales': 'target_locales',
         'tag': 'tag',
         'styleguide': 'styleguide',
         'unverify_translations_upon_delivery': 'unverify_translations_upon_delivery',
@@ -70,7 +68,7 @@ class TranslationOrder(object):
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, lsp=None, amount_in_cents=None, currency=None, message=None, state=None, translation_type=None, progress_percent=None, source_locale=None, target_locales=None, tag=None, styleguide=None, unverify_translations_upon_delivery=None, quality=None, priority=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, lsp=None, amount_in_cents=None, currency=None, message=None, state=None, translation_type=None, progress_percent=None, source_locale=None, tag=None, styleguide=None, unverify_translations_upon_delivery=None, quality=None, priority=None, created_at=None, updated_at=None):
         """
         TranslationOrder - a model defined in Swagger
         """
@@ -84,7 +82,6 @@ class TranslationOrder(object):
         self._translation_type = None
         self._progress_percent = None
         self._source_locale = None
-        self._target_locales = None
         self._tag = None
         self._styleguide = None
         self._unverify_translations_upon_delivery = None
@@ -112,8 +109,6 @@ class TranslationOrder(object):
           self.progress_percent = progress_percent
         if source_locale is not None:
           self.source_locale = source_locale
-        if target_locales is not None:
-          self.target_locales = target_locales
         if tag is not None:
           self.tag = tag
         if styleguide is not None:
@@ -317,27 +312,6 @@ class TranslationOrder(object):
         """
 
         self._source_locale = source_locale
-
-    @property
-    def target_locales(self):
-        """
-        Gets the target_locales of this TranslationOrder.
-
-        :return: The target_locales of this TranslationOrder.
-        :rtype: list[LocalePreview]
-        """
-        return self._target_locales
-
-    @target_locales.setter
-    def target_locales(self, target_locales):
-        """
-        Sets the target_locales of this TranslationOrder.
-
-        :param target_locales: The target_locales of this TranslationOrder.
-        :type: list[LocalePreview]
-        """
-
-        self._target_locales = target_locales
 
     @property
     def tag(self):

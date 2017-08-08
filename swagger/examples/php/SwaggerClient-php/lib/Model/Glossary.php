@@ -56,7 +56,6 @@ class Glossary implements ArrayAccess
     protected static $swaggerTypes = [
         'id' => 'string',
         'name' => 'string',
-        'projects' => '\Swagger\Client\Model\ProjectShort[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
     ];
@@ -68,7 +67,6 @@ class Glossary implements ArrayAccess
     protected static $swaggerFormats = [
         'id' => null,
         'name' => null,
-        'projects' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
     ];
@@ -90,7 +88,6 @@ class Glossary implements ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'name' => 'name',
-        'projects' => 'projects',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
     ];
@@ -103,7 +100,6 @@ class Glossary implements ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'name' => 'setName',
-        'projects' => 'setProjects',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -116,7 +112,6 @@ class Glossary implements ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'name' => 'getName',
-        'projects' => 'getProjects',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -154,7 +149,6 @@ class Glossary implements ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
     }
@@ -222,27 +216,6 @@ class Glossary implements ArrayAccess
     public function setName($name)
     {
         $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets projects
-     * @return \Swagger\Client\Model\ProjectShort[]
-     */
-    public function getProjects()
-    {
-        return $this->container['projects'];
-    }
-
-    /**
-     * Sets projects
-     * @param \Swagger\Client\Model\ProjectShort[] $projects
-     * @return $this
-     */
-    public function setProjects($projects)
-    {
-        $this->container['projects'] = $projects;
 
         return $this;
     }

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional] 
 **name_hash** | **string** |  | [optional] 
 **plural** | **bool** |  | [optional] 
-**tags** | **string[]** |  | [optional] 
 **data_type** | **string** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

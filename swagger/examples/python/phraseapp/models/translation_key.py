@@ -36,7 +36,6 @@ class TranslationKey(object):
         'description': 'str',
         'name_hash': 'str',
         'plural': 'bool',
-        'tags': 'list[str]',
         'data_type': 'str',
         'created_at': 'datetime',
         'updated_at': 'datetime'
@@ -48,13 +47,12 @@ class TranslationKey(object):
         'description': 'description',
         'name_hash': 'name_hash',
         'plural': 'plural',
-        'tags': 'tags',
         'data_type': 'data_type',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, name=None, description=None, name_hash=None, plural=None, tags=None, data_type=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, name=None, description=None, name_hash=None, plural=None, data_type=None, created_at=None, updated_at=None):
         """
         TranslationKey - a model defined in Swagger
         """
@@ -64,7 +62,6 @@ class TranslationKey(object):
         self._description = None
         self._name_hash = None
         self._plural = None
-        self._tags = None
         self._data_type = None
         self._created_at = None
         self._updated_at = None
@@ -80,8 +77,6 @@ class TranslationKey(object):
           self.name_hash = name_hash
         if plural is not None:
           self.plural = plural
-        if tags is not None:
-          self.tags = tags
         if data_type is not None:
           self.data_type = data_type
         if created_at is not None:
@@ -193,27 +188,6 @@ class TranslationKey(object):
         """
 
         self._plural = plural
-
-    @property
-    def tags(self):
-        """
-        Gets the tags of this TranslationKey.
-
-        :return: The tags of this TranslationKey.
-        :rtype: list[str]
-        """
-        return self._tags
-
-    @tags.setter
-    def tags(self, tags):
-        """
-        Sets the tags of this TranslationKey.
-
-        :param tags: The tags of this TranslationKey.
-        :type: list[str]
-        """
-
-        self._tags = tags
 
     @property
     def data_type(self):

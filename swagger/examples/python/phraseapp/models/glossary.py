@@ -33,7 +33,6 @@ class Glossary(object):
     swagger_types = {
         'id': 'str',
         'name': 'str',
-        'projects': 'list[ProjectShort]',
         'created_at': 'datetime',
         'updated_at': 'datetime'
     }
@@ -41,19 +40,17 @@ class Glossary(object):
     attribute_map = {
         'id': 'id',
         'name': 'name',
-        'projects': 'projects',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, name=None, projects=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, name=None, created_at=None, updated_at=None):
         """
         Glossary - a model defined in Swagger
         """
 
         self._id = None
         self._name = None
-        self._projects = None
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
@@ -62,8 +59,6 @@ class Glossary(object):
           self.id = id
         if name is not None:
           self.name = name
-        if projects is not None:
-          self.projects = projects
         if created_at is not None:
           self.created_at = created_at
         if updated_at is not None:
@@ -110,27 +105,6 @@ class Glossary(object):
         """
 
         self._name = name
-
-    @property
-    def projects(self):
-        """
-        Gets the projects of this Glossary.
-
-        :return: The projects of this Glossary.
-        :rtype: list[ProjectShort]
-        """
-        return self._projects
-
-    @projects.setter
-    def projects(self, projects):
-        """
-        Sets the projects of this Glossary.
-
-        :param projects: The projects of this Glossary.
-        :type: list[ProjectShort]
-        """
-
-        self._projects = projects
 
     @property
     def created_at(self):

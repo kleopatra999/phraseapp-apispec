@@ -60,7 +60,6 @@ class Locale implements ArrayAccess
         'default' => 'bool',
         'main' => 'bool',
         'rtl' => 'bool',
-        'plural_forms' => 'string[]',
         'source_locale' => '\Swagger\Client\Model\LocalePreview',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -77,7 +76,6 @@ class Locale implements ArrayAccess
         'default' => null,
         'main' => null,
         'rtl' => null,
-        'plural_forms' => null,
         'source_locale' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -104,7 +102,6 @@ class Locale implements ArrayAccess
         'default' => 'default',
         'main' => 'main',
         'rtl' => 'rtl',
-        'plural_forms' => 'plural_forms',
         'source_locale' => 'source_locale',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -122,7 +119,6 @@ class Locale implements ArrayAccess
         'default' => 'setDefault',
         'main' => 'setMain',
         'rtl' => 'setRtl',
-        'plural_forms' => 'setPluralForms',
         'source_locale' => 'setSourceLocale',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -140,7 +136,6 @@ class Locale implements ArrayAccess
         'default' => 'getDefault',
         'main' => 'getMain',
         'rtl' => 'getRtl',
-        'plural_forms' => 'getPluralForms',
         'source_locale' => 'getSourceLocale',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -183,7 +178,6 @@ class Locale implements ArrayAccess
         $this->container['default'] = isset($data['default']) ? $data['default'] : null;
         $this->container['main'] = isset($data['main']) ? $data['main'] : null;
         $this->container['rtl'] = isset($data['rtl']) ? $data['rtl'] : null;
-        $this->container['plural_forms'] = isset($data['plural_forms']) ? $data['plural_forms'] : null;
         $this->container['source_locale'] = isset($data['source_locale']) ? $data['source_locale'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -336,27 +330,6 @@ class Locale implements ArrayAccess
     public function setRtl($rtl)
     {
         $this->container['rtl'] = $rtl;
-
-        return $this;
-    }
-
-    /**
-     * Gets plural_forms
-     * @return string[]
-     */
-    public function getPluralForms()
-    {
-        return $this->container['plural_forms'];
-    }
-
-    /**
-     * Sets plural_forms
-     * @param string[] $plural_forms
-     * @return $this
-     */
-    public function setPluralForms($plural_forms)
-    {
-        $this->container['plural_forms'] = $plural_forms;
 
         return $this;
     }

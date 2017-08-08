@@ -35,8 +35,6 @@ class Invitation(object):
         'email': 'str',
         'role': 'str',
         'state': 'str',
-        'projects': 'list[ProjectShort]',
-        'locales': 'list[LocalePreview]',
         'created_at': 'datetime',
         'updated_at': 'datetime',
         'accepted_at': 'datetime'
@@ -47,14 +45,12 @@ class Invitation(object):
         'email': 'email',
         'role': 'role',
         'state': 'state',
-        'projects': 'projects',
-        'locales': 'locales',
         'created_at': 'created_at',
         'updated_at': 'updated_at',
         'accepted_at': 'accepted_at'
     }
 
-    def __init__(self, id=None, email=None, role=None, state=None, projects=None, locales=None, created_at=None, updated_at=None, accepted_at=None):
+    def __init__(self, id=None, email=None, role=None, state=None, created_at=None, updated_at=None, accepted_at=None):
         """
         Invitation - a model defined in Swagger
         """
@@ -63,8 +59,6 @@ class Invitation(object):
         self._email = None
         self._role = None
         self._state = None
-        self._projects = None
-        self._locales = None
         self._created_at = None
         self._updated_at = None
         self._accepted_at = None
@@ -78,10 +72,6 @@ class Invitation(object):
           self.role = role
         if state is not None:
           self.state = state
-        if projects is not None:
-          self.projects = projects
-        if locales is not None:
-          self.locales = locales
         if created_at is not None:
           self.created_at = created_at
         if updated_at is not None:
@@ -172,48 +162,6 @@ class Invitation(object):
         """
 
         self._state = state
-
-    @property
-    def projects(self):
-        """
-        Gets the projects of this Invitation.
-
-        :return: The projects of this Invitation.
-        :rtype: list[ProjectShort]
-        """
-        return self._projects
-
-    @projects.setter
-    def projects(self, projects):
-        """
-        Sets the projects of this Invitation.
-
-        :param projects: The projects of this Invitation.
-        :type: list[ProjectShort]
-        """
-
-        self._projects = projects
-
-    @property
-    def locales(self):
-        """
-        Gets the locales of this Invitation.
-
-        :return: The locales of this Invitation.
-        :rtype: list[LocalePreview]
-        """
-        return self._locales
-
-    @locales.setter
-    def locales(self, locales):
-        """
-        Sets the locales of this Invitation.
-
-        :param locales: The locales of this Invitation.
-        :type: list[LocalePreview]
-        """
-
-        self._locales = locales
 
     @property
     def created_at(self):

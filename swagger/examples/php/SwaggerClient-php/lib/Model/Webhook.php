@@ -57,7 +57,6 @@ class Webhook implements ArrayAccess
         'id' => 'string',
         'callback_url' => 'string',
         'description' => 'string',
-        'events' => 'string[]',
         'active' => 'bool',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -71,7 +70,6 @@ class Webhook implements ArrayAccess
         'id' => null,
         'callback_url' => null,
         'description' => null,
-        'events' => null,
         'active' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -95,7 +93,6 @@ class Webhook implements ArrayAccess
         'id' => 'id',
         'callback_url' => 'callback_url',
         'description' => 'description',
-        'events' => 'events',
         'active' => 'active',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -110,7 +107,6 @@ class Webhook implements ArrayAccess
         'id' => 'setId',
         'callback_url' => 'setCallbackUrl',
         'description' => 'setDescription',
-        'events' => 'setEvents',
         'active' => 'setActive',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -125,7 +121,6 @@ class Webhook implements ArrayAccess
         'id' => 'getId',
         'callback_url' => 'getCallbackUrl',
         'description' => 'getDescription',
-        'events' => 'getEvents',
         'active' => 'getActive',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -165,7 +160,6 @@ class Webhook implements ArrayAccess
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['callback_url'] = isset($data['callback_url']) ? $data['callback_url'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['events'] = isset($data['events']) ? $data['events'] : null;
         $this->container['active'] = isset($data['active']) ? $data['active'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -255,27 +249,6 @@ class Webhook implements ArrayAccess
     public function setDescription($description)
     {
         $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     * @return string[]
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     * @param string[] $events
-     * @return $this
-     */
-    public function setEvents($events)
-    {
-        $this->container['events'] = $events;
 
         return $this;
     }

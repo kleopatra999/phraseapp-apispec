@@ -31,44 +31,20 @@ class ProjectLocales(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'locales': 'list[LocalePreview]'
+        
     }
 
     attribute_map = {
-        'locales': 'locales'
+        
     }
 
-    def __init__(self, locales=None):
+    def __init__(self):
         """
         ProjectLocales - a model defined in Swagger
         """
 
-        self._locales = None
         self.discriminator = None
 
-        if locales is not None:
-          self.locales = locales
-
-    @property
-    def locales(self):
-        """
-        Gets the locales of this ProjectLocales.
-
-        :return: The locales of this ProjectLocales.
-        :rtype: list[LocalePreview]
-        """
-        return self._locales
-
-    @locales.setter
-    def locales(self, locales):
-        """
-        Sets the locales of this ProjectLocales.
-
-        :param locales: The locales of this ProjectLocales.
-        :type: list[LocalePreview]
-        """
-
-        self._locales = locales
 
     def to_dict(self):
         """

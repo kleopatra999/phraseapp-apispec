@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **plural_suffix** | **str** |  | [optional] 
 **key** | [**KeyPreview**](KeyPreview.md) |  | [optional] 
 **locale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
-**placeholders** | **list[str]** |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 
 

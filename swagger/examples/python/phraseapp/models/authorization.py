@@ -35,7 +35,6 @@ class Authorization(object):
         'note': 'str',
         'token_last_eight': 'str',
         'hashed_token': 'str',
-        'scopes': 'list[str]',
         'expires_at': 'datetime',
         'created_at': 'datetime',
         'updated_at': 'datetime'
@@ -46,13 +45,12 @@ class Authorization(object):
         'note': 'note',
         'token_last_eight': 'token_last_eight',
         'hashed_token': 'hashed_token',
-        'scopes': 'scopes',
         'expires_at': 'expires_at',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, note=None, token_last_eight=None, hashed_token=None, scopes=None, expires_at=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, note=None, token_last_eight=None, hashed_token=None, expires_at=None, created_at=None, updated_at=None):
         """
         Authorization - a model defined in Swagger
         """
@@ -61,7 +59,6 @@ class Authorization(object):
         self._note = None
         self._token_last_eight = None
         self._hashed_token = None
-        self._scopes = None
         self._expires_at = None
         self._created_at = None
         self._updated_at = None
@@ -75,8 +72,6 @@ class Authorization(object):
           self.token_last_eight = token_last_eight
         if hashed_token is not None:
           self.hashed_token = hashed_token
-        if scopes is not None:
-          self.scopes = scopes
         if expires_at is not None:
           self.expires_at = expires_at
         if created_at is not None:
@@ -167,27 +162,6 @@ class Authorization(object):
         """
 
         self._hashed_token = hashed_token
-
-    @property
-    def scopes(self):
-        """
-        Gets the scopes of this Authorization.
-
-        :return: The scopes of this Authorization.
-        :rtype: list[str]
-        """
-        return self._scopes
-
-    @scopes.setter
-    def scopes(self, scopes):
-        """
-        Sets the scopes of this Authorization.
-
-        :param scopes: The scopes of this Authorization.
-        :type: list[str]
-        """
-
-        self._scopes = scopes
 
     @property
     def expires_at(self):

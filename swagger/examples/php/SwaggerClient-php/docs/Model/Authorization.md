@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **note** | **string** |  | [optional] 
 **token_last_eight** | **string** |  | [optional] 
 **hashed_token** | **string** |  | [optional] 
-**scopes** | **string[]** |  | [optional] 
 **expires_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 

@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **plural_suffix** | **string** |  | [optional] 
 **key** | [**\Swagger\Client\Model\KeyPreview**](KeyPreview.md) |  | [optional] 
 **locale** | [**\Swagger\Client\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
-**placeholders** | **string[]** |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

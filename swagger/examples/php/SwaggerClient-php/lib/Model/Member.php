@@ -57,8 +57,7 @@ class Member implements ArrayAccess
         'id' => 'string',
         'email' => 'string',
         'username' => 'string',
-        'role' => 'string',
-        'projects' => '\Swagger\Client\Model\ProjectLocale[]'
+        'role' => 'string'
     ];
 
     /**
@@ -69,8 +68,7 @@ class Member implements ArrayAccess
         'id' => null,
         'email' => null,
         'username' => null,
-        'role' => null,
-        'projects' => null
+        'role' => null
     ];
 
     public static function swaggerTypes()
@@ -91,8 +89,7 @@ class Member implements ArrayAccess
         'id' => 'id',
         'email' => 'email',
         'username' => 'username',
-        'role' => 'role',
-        'projects' => 'projects'
+        'role' => 'role'
     ];
 
 
@@ -104,8 +101,7 @@ class Member implements ArrayAccess
         'id' => 'setId',
         'email' => 'setEmail',
         'username' => 'setUsername',
-        'role' => 'setRole',
-        'projects' => 'setProjects'
+        'role' => 'setRole'
     ];
 
 
@@ -117,8 +113,7 @@ class Member implements ArrayAccess
         'id' => 'getId',
         'email' => 'getEmail',
         'username' => 'getUsername',
-        'role' => 'getRole',
-        'projects' => 'getProjects'
+        'role' => 'getRole'
     ];
 
     public static function attributeMap()
@@ -156,7 +151,6 @@ class Member implements ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['username'] = isset($data['username']) ? $data['username'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
-        $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
     }
 
     /**
@@ -264,27 +258,6 @@ class Member implements ArrayAccess
     public function setRole($role)
     {
         $this->container['role'] = $role;
-
-        return $this;
-    }
-
-    /**
-     * Gets projects
-     * @return \Swagger\Client\Model\ProjectLocale[]
-     */
-    public function getProjects()
-    {
-        return $this->container['projects'];
-    }
-
-    /**
-     * Sets projects
-     * @param \Swagger\Client\Model\ProjectLocale[] $projects
-     * @return $this
-     */
-    public function setProjects($projects)
-    {
-        $this->container['projects'] = $projects;
 
         return $this;
     }

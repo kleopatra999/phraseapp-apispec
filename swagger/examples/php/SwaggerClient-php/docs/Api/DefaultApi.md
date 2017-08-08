@@ -325,7 +325,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdGlossariesGlossaryIdTermsIdPatch**
-> \Swagger\Client\Model\GlossaryTerm accountsAccountIdGlossariesGlossaryIdTermsIdPatch($account_id, $glossary_id, $id)
+> \Swagger\Client\Model\GlossaryTerm accountsAccountIdGlossariesGlossaryIdTermsIdPatch($term, $account_id, $glossary_id, $id, $description, $translatable, $case_sensitive)
 
 
 
@@ -342,12 +342,16 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$term = "term_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $glossary_id = "glossary_id_example"; // string | GlossaryId
 $id = "id_example"; // string | Id
+$description = "description_example"; // string | 
+$translatable = true; // bool | 
+$case_sensitive = true; // bool | 
 
 try {
-    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsIdPatch($account_id, $glossary_id, $id);
+    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsIdPatch($term, $account_id, $glossary_id, $id, $description, $translatable, $case_sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdGlossariesGlossaryIdTermsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -359,9 +363,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **term** | **string**|  |
  **account_id** | **string**| AccountId |
  **glossary_id** | **string**| GlossaryId |
  **id** | **string**| Id |
+ **description** | **string**|  | [optional]
+ **translatable** | **bool**|  | [optional]
+ **case_sensitive** | **bool**|  | [optional]
 
 ### Return type
 
@@ -379,7 +387,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdGlossariesGlossaryIdTermsPost**
-> \Swagger\Client\Model\GlossaryTerm accountsAccountIdGlossariesGlossaryIdTermsPost($account_id, $glossary_id)
+> \Swagger\Client\Model\GlossaryTerm accountsAccountIdGlossariesGlossaryIdTermsPost($term, $account_id, $glossary_id, $description, $translatable, $case_sensitive)
 
 
 
@@ -396,11 +404,15 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$term = "term_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $glossary_id = "glossary_id_example"; // string | GlossaryId
+$description = "description_example"; // string | 
+$translatable = true; // bool | 
+$case_sensitive = true; // bool | 
 
 try {
-    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsPost($account_id, $glossary_id);
+    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsPost($term, $account_id, $glossary_id, $description, $translatable, $case_sensitive);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdGlossariesGlossaryIdTermsPost: ', $e->getMessage(), PHP_EOL;
@@ -412,8 +424,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **term** | **string**|  |
  **account_id** | **string**| AccountId |
  **glossary_id** | **string**| GlossaryId |
+ **description** | **string**|  | [optional]
+ **translatable** | **bool**|  | [optional]
+ **case_sensitive** | **bool**|  | [optional]
 
 ### Return type
 
@@ -486,7 +502,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch**
-> \Swagger\Client\Model\GlossaryTermTranslation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch($account_id, $glossary_id, $term_id, $id)
+> \Swagger\Client\Model\GlossaryTermTranslation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch($locale_code, $account_id, $glossary_id, $term_id, $id, $content)
 
 
 
@@ -503,13 +519,15 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$locale_code = "locale_code_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $glossary_id = "glossary_id_example"; // string | GlossaryId
 $term_id = "term_id_example"; // string | TermId
 $id = "id_example"; // string | Id
+$content = "content_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch($account_id, $glossary_id, $term_id, $id);
+    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch($locale_code, $account_id, $glossary_id, $term_id, $id, $content);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -521,10 +539,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **locale_code** | **string**|  |
  **account_id** | **string**| AccountId |
  **glossary_id** | **string**| GlossaryId |
  **term_id** | **string**| TermId |
  **id** | **string**| Id |
+ **content** | **string**|  | [optional]
 
 ### Return type
 
@@ -542,7 +562,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost**
-> \Swagger\Client\Model\GlossaryTermTranslation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost($account_id, $glossary_id, $term_id)
+> \Swagger\Client\Model\GlossaryTermTranslation accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost($locale_code, $account_id, $glossary_id, $term_id, $content)
 
 
 
@@ -559,12 +579,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$locale_code = "locale_code_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $glossary_id = "glossary_id_example"; // string | GlossaryId
 $term_id = "term_id_example"; // string | TermId
+$content = "content_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost($account_id, $glossary_id, $term_id);
+    $result = $api_instance->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost($locale_code, $account_id, $glossary_id, $term_id, $content);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdGlossariesGlossaryIdTermsTermIdTranslationsPost: ', $e->getMessage(), PHP_EOL;
@@ -576,9 +598,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **locale_code** | **string**|  |
  **account_id** | **string**| AccountId |
  **glossary_id** | **string**| GlossaryId |
  **term_id** | **string**| TermId |
+ **content** | **string**|  | [optional]
 
 ### Return type
 
@@ -699,7 +723,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdGlossariesIdPatch**
-> \Swagger\Client\Model\Glossary accountsAccountIdGlossariesIdPatch($account_id, $id)
+> \Swagger\Client\Model\Glossary accountsAccountIdGlossariesIdPatch($name, $account_id, $id, $project_ids)
 
 
 
@@ -716,11 +740,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $id = "id_example"; // string | Id
+$project_ids = "project_ids_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdGlossariesIdPatch($account_id, $id);
+    $result = $api_instance->accountsAccountIdGlossariesIdPatch($name, $account_id, $id, $project_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdGlossariesIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -732,8 +758,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **account_id** | **string**| AccountId |
  **id** | **string**| Id |
+ **project_ids** | **string**|  | [optional]
 
 ### Return type
 
@@ -751,7 +779,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdGlossariesPost**
-> \Swagger\Client\Model\Glossary accountsAccountIdGlossariesPost($account_id)
+> \Swagger\Client\Model\Glossary accountsAccountIdGlossariesPost($name, $account_id, $project_ids)
 
 
 
@@ -768,10 +796,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
+$project_ids = "project_ids_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdGlossariesPost($account_id);
+    $result = $api_instance->accountsAccountIdGlossariesPost($name, $account_id, $project_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdGlossariesPost: ', $e->getMessage(), PHP_EOL;
@@ -783,7 +813,9 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **account_id** | **string**| AccountId |
+ **project_ids** | **string**|  | [optional]
 
 ### Return type
 
@@ -958,7 +990,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdInvitationsIdPatch**
-> \Swagger\Client\Model\Invitation accountsAccountIdInvitationsIdPatch($account_id, $id)
+> \Swagger\Client\Model\Invitation accountsAccountIdInvitationsIdPatch($role, $account_id, $id, $project_ids, $locale_ids)
 
 
 
@@ -975,11 +1007,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$role = "role_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $id = "id_example"; // string | Id
+$project_ids = "project_ids_example"; // string | 
+$locale_ids = "locale_ids_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdInvitationsIdPatch($account_id, $id);
+    $result = $api_instance->accountsAccountIdInvitationsIdPatch($role, $account_id, $id, $project_ids, $locale_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdInvitationsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -991,8 +1026,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **role** | **string**|  |
  **account_id** | **string**| AccountId |
  **id** | **string**| Id |
+ **project_ids** | **string**|  | [optional]
+ **locale_ids** | **string**|  | [optional]
 
 ### Return type
 
@@ -1062,7 +1100,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdInvitationsPost**
-> \Swagger\Client\Model\Invitation accountsAccountIdInvitationsPost($account_id)
+> \Swagger\Client\Model\Invitation accountsAccountIdInvitationsPost($email, $role, $account_id, $project_ids, $locale_ids)
 
 
 
@@ -1079,10 +1117,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$email = "email_example"; // string | 
+$role = "role_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
+$project_ids = "project_ids_example"; // string | 
+$locale_ids = "locale_ids_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdInvitationsPost($account_id);
+    $result = $api_instance->accountsAccountIdInvitationsPost($email, $role, $account_id, $project_ids, $locale_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdInvitationsPost: ', $e->getMessage(), PHP_EOL;
@@ -1094,7 +1136,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **email** | **string**|  |
+ **role** | **string**|  |
  **account_id** | **string**| AccountId |
+ **project_ids** | **string**|  | [optional]
+ **locale_ids** | **string**|  | [optional]
 
 ### Return type
 
@@ -1269,7 +1315,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **accountsAccountIdMembersIdPatch**
-> \Swagger\Client\Model\Member accountsAccountIdMembersIdPatch($account_id, $id)
+> \Swagger\Client\Model\Member accountsAccountIdMembersIdPatch($role, $account_id, $id, $project_ids, $locale_ids)
 
 
 
@@ -1286,11 +1332,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$role = "role_example"; // string | 
 $account_id = "account_id_example"; // string | AccountId
 $id = "id_example"; // string | Id
+$project_ids = "project_ids_example"; // string | 
+$locale_ids = "locale_ids_example"; // string | 
 
 try {
-    $result = $api_instance->accountsAccountIdMembersIdPatch($account_id, $id);
+    $result = $api_instance->accountsAccountIdMembersIdPatch($role, $account_id, $id, $project_ids, $locale_ids);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->accountsAccountIdMembersIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -1302,8 +1351,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **role** | **string**|  |
  **account_id** | **string**| AccountId |
  **id** | **string**| Id |
+ **project_ids** | **string**|  | [optional]
+ **locale_ids** | **string**|  | [optional]
 
 ### Return type
 
@@ -1571,7 +1623,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **authorizationsIdPatch**
-> \Swagger\Client\Model\Authorization authorizationsIdPatch($id)
+> \Swagger\Client\Model\Authorization authorizationsIdPatch($note, $id, $scopes, $expires_at)
 
 
 
@@ -1587,10 +1639,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERN
 Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$note = "note_example"; // string | 
 $id = "id_example"; // string | Id
+$scopes = "scopes_example"; // string | 
+$expires_at = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | 
 
 try {
-    $result = $api_instance->authorizationsIdPatch($id);
+    $result = $api_instance->authorizationsIdPatch($note, $id, $scopes, $expires_at);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->authorizationsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -1602,7 +1657,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **note** | **string**|  |
  **id** | **string**| Id |
+ **scopes** | **string**|  | [optional]
+ **expires_at** | **\DateTime**|  | [optional]
 
 ### Return type
 
@@ -1620,7 +1678,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **authorizationsPost**
-> \Swagger\Client\Model\AuthorizationWithToken authorizationsPost()
+> \Swagger\Client\Model\AuthorizationWithToken authorizationsPost($note, $scopes, $expires_at)
 
 
 
@@ -1636,9 +1694,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setUsername('YOUR_USERN
 Swagger\Client\Configuration::getDefaultConfiguration()->setPassword('YOUR_PASSWORD');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$note = "note_example"; // string | 
+$scopes = "scopes_example"; // string | 
+$expires_at = new \DateTime("2013-10-20T19:20:30+01:00"); // \DateTime | 
 
 try {
-    $result = $api_instance->authorizationsPost();
+    $result = $api_instance->authorizationsPost($note, $scopes, $expires_at);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->authorizationsPost: ', $e->getMessage(), PHP_EOL;
@@ -1647,7 +1708,12 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **note** | **string**|  |
+ **scopes** | **string**|  | [optional]
+ **expires_at** | **\DateTime**|  | [optional]
 
 ### Return type
 
@@ -1862,7 +1928,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsIdPatch**
-> \Swagger\Client\Model\ProjectDetails projectsIdPatch($id)
+> \Swagger\Client\Model\ProjectDetails projectsIdPatch($name, $id, $main_format, $shares_translation_memory, $account_id)
 
 
 
@@ -1879,10 +1945,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $id = "id_example"; // string | Id
+$main_format = "main_format_example"; // string | 
+$shares_translation_memory = true; // bool | 
+$account_id = "account_id_example"; // string | 
 
 try {
-    $result = $api_instance->projectsIdPatch($id);
+    $result = $api_instance->projectsIdPatch($name, $id, $main_format, $shares_translation_memory, $account_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -1894,7 +1964,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **id** | **string**| Id |
+ **main_format** | **string**|  | [optional]
+ **shares_translation_memory** | **bool**|  | [optional]
+ **account_id** | **string**|  | [optional]
 
 ### Return type
 
@@ -1912,7 +1986,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsPost**
-> \Swagger\Client\Model\ProjectDetails projectsPost()
+> \Swagger\Client\Model\ProjectDetails projectsPost($name, $main_format, $shares_translation_memory, $account_id)
 
 
 
@@ -1929,9 +2003,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
+$main_format = "main_format_example"; // string | 
+$shares_translation_memory = true; // bool | 
+$account_id = "account_id_example"; // string | 
 
 try {
-    $result = $api_instance->projectsPost();
+    $result = $api_instance->projectsPost($name, $main_format, $shares_translation_memory, $account_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsPost: ', $e->getMessage(), PHP_EOL;
@@ -1940,7 +2018,13 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
+ **main_format** | **string**|  | [optional]
+ **shares_translation_memory** | **bool**|  | [optional]
+ **account_id** | **string**|  | [optional]
 
 ### Return type
 
@@ -2115,7 +2199,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdBlacklistedKeysIdPatch**
-> \Swagger\Client\Model\BlacklistedKey projectsProjectIdBlacklistedKeysIdPatch($project_id, $id)
+> \Swagger\Client\Model\BlacklistedKey projectsProjectIdBlacklistedKeysIdPatch($name, $project_id, $id)
 
 
 
@@ -2132,11 +2216,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
 
 try {
-    $result = $api_instance->projectsProjectIdBlacklistedKeysIdPatch($project_id, $id);
+    $result = $api_instance->projectsProjectIdBlacklistedKeysIdPatch($name, $project_id, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdBlacklistedKeysIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -2148,6 +2233,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
 
@@ -2167,7 +2253,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdBlacklistedKeysPost**
-> \Swagger\Client\Model\BlacklistedKey projectsProjectIdBlacklistedKeysPost($project_id)
+> \Swagger\Client\Model\BlacklistedKey projectsProjectIdBlacklistedKeysPost($name, $project_id)
 
 
 
@@ -2184,10 +2270,11 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 
 try {
-    $result = $api_instance->projectsProjectIdBlacklistedKeysPost($project_id);
+    $result = $api_instance->projectsProjectIdBlacklistedKeysPost($name, $project_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdBlacklistedKeysPost: ', $e->getMessage(), PHP_EOL;
@@ -2199,6 +2286,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **project_id** | **string**| ProjectId |
 
 ### Return type
@@ -2217,7 +2305,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysDelete**
-> \Swagger\Client\Model\AffectedResources projectsProjectIdKeysDelete($project_id)
+> \Swagger\Client\Model\AffectedResources projectsProjectIdKeysDelete($project_id, $q, $locale_id)
 
 
 
@@ -2235,9 +2323,11 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$locale_id = "locale_id_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdKeysDelete($project_id);
+    $result = $api_instance->projectsProjectIdKeysDelete($project_id, $q, $locale_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysDelete: ', $e->getMessage(), PHP_EOL;
@@ -2250,6 +2340,8 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **locale_id** | **string**|  | [optional]
 
 ### Return type
 
@@ -2267,7 +2359,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysGet**
-> \Swagger\Client\Model\TranslationKey[] projectsProjectIdKeysGet($project_id, $per_page, $page)
+> \Swagger\Client\Model\TranslationKey[] projectsProjectIdKeysGet($project_id, $sort, $order, $q, $locale_id, $per_page, $page)
 
 
 
@@ -2285,11 +2377,15 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
+$q = "q_example"; // string | 
+$locale_id = "locale_id_example"; // string | 
 $per_page = 25; // int | Per Page
 $page = 1; // int | Page
 
 try {
-    $result = $api_instance->projectsProjectIdKeysGet($project_id, $per_page, $page);
+    $result = $api_instance->projectsProjectIdKeysGet($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysGet: ', $e->getMessage(), PHP_EOL;
@@ -2302,6 +2398,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
+ **q** | **string**|  | [optional]
+ **locale_id** | **string**|  | [optional]
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -2424,7 +2524,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysIdPatch**
-> \Swagger\Client\Model\TranslationKeyDetails projectsProjectIdKeysIdPatch($project_id, $id)
+> \Swagger\Client\Model\TranslationKeyDetails projectsProjectIdKeysIdPatch($name, $project_id, $id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key)
 
 
 
@@ -2441,11 +2541,25 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
+$description = "description_example"; // string | 
+$plural = true; // bool | 
+$name_plural = "name_plural_example"; // string | 
+$data_type = "data_type_example"; // string | 
+$tags = "tags_example"; // string | 
+$max_characters_allowed = 56; // int | 
+$screenshot = "screenshot_example"; // string | 
+$remove_screenshot = true; // bool | 
+$unformatted = true; // bool | 
+$xml_space_preserve = true; // bool | 
+$original_file = "original_file_example"; // string | 
+$localized_format_string = "localized_format_string_example"; // string | 
+$localized_format_key = "localized_format_key_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdKeysIdPatch($project_id, $id);
+    $result = $api_instance->projectsProjectIdKeysIdPatch($name, $project_id, $id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -2457,8 +2571,22 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
+ **description** | **string**|  | [optional]
+ **plural** | **bool**|  | [optional]
+ **name_plural** | **string**|  | [optional]
+ **data_type** | **string**|  | [optional]
+ **tags** | **string**|  | [optional]
+ **max_characters_allowed** | **int**|  | [optional]
+ **screenshot** | **string**|  | [optional]
+ **remove_screenshot** | **bool**|  | [optional]
+ **unformatted** | **bool**|  | [optional]
+ **xml_space_preserve** | **bool**|  | [optional]
+ **original_file** | **string**|  | [optional]
+ **localized_format_string** | **string**|  | [optional]
+ **localized_format_key** | **string**|  | [optional]
 
 ### Return type
 
@@ -2639,7 +2767,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysKeyIdCommentsIdPatch**
-> \Swagger\Client\Model\Comment projectsProjectIdKeysKeyIdCommentsIdPatch($project_id, $key_id, $id)
+> \Swagger\Client\Model\Comment projectsProjectIdKeysKeyIdCommentsIdPatch($message, $project_id, $key_id, $id)
 
 
 
@@ -2656,12 +2784,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$message = "message_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $key_id = "key_id_example"; // string | KeyId
 $id = "id_example"; // string | Id
 
 try {
-    $result = $api_instance->projectsProjectIdKeysKeyIdCommentsIdPatch($project_id, $key_id, $id);
+    $result = $api_instance->projectsProjectIdKeysKeyIdCommentsIdPatch($message, $project_id, $key_id, $id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysKeyIdCommentsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -2673,6 +2802,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **message** | **string**|  |
  **project_id** | **string**| ProjectId |
  **key_id** | **string**| KeyId |
  **id** | **string**| Id |
@@ -2852,7 +2982,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysKeyIdCommentsPost**
-> \Swagger\Client\Model\Comment projectsProjectIdKeysKeyIdCommentsPost($project_id, $key_id)
+> \Swagger\Client\Model\Comment projectsProjectIdKeysKeyIdCommentsPost($message, $project_id, $key_id)
 
 
 
@@ -2869,11 +2999,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$message = "message_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $key_id = "key_id_example"; // string | KeyId
 
 try {
-    $result = $api_instance->projectsProjectIdKeysKeyIdCommentsPost($project_id, $key_id);
+    $result = $api_instance->projectsProjectIdKeysKeyIdCommentsPost($message, $project_id, $key_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysKeyIdCommentsPost: ', $e->getMessage(), PHP_EOL;
@@ -2885,6 +3016,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **message** | **string**|  |
  **project_id** | **string**| ProjectId |
  **key_id** | **string**| KeyId |
 
@@ -2904,7 +3036,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysKeyIdTranslationsGet**
-> \Swagger\Client\Model\Translation projectsProjectIdKeysKeyIdTranslationsGet($project_id, $key_id, $per_page, $page)
+> \Swagger\Client\Model\Translation projectsProjectIdKeysKeyIdTranslationsGet($project_id, $key_id, $sort, $order, $q, $per_page, $page)
 
 
 
@@ -2923,11 +3055,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
 $key_id = "key_id_example"; // string | KeyId
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
+$q = "q_example"; // string | 
 $per_page = 25; // int | Per Page
 $page = 1; // int | Page
 
 try {
-    $result = $api_instance->projectsProjectIdKeysKeyIdTranslationsGet($project_id, $key_id, $per_page, $page);
+    $result = $api_instance->projectsProjectIdKeysKeyIdTranslationsGet($project_id, $key_id, $sort, $order, $q, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysKeyIdTranslationsGet: ', $e->getMessage(), PHP_EOL;
@@ -2941,6 +3076,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
  **key_id** | **string**| KeyId |
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
+ **q** | **string**|  | [optional]
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -2960,7 +3098,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysPost**
-> \Swagger\Client\Model\TranslationKeyDetails projectsProjectIdKeysPost($project_id)
+> \Swagger\Client\Model\TranslationKeyDetails projectsProjectIdKeysPost($name, $project_id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key)
 
 
 
@@ -2977,10 +3115,24 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$description = "description_example"; // string | 
+$plural = true; // bool | 
+$name_plural = "name_plural_example"; // string | 
+$data_type = "data_type_example"; // string | 
+$tags = "tags_example"; // string | 
+$max_characters_allowed = 56; // int | 
+$screenshot = "screenshot_example"; // string | 
+$remove_screenshot = true; // bool | 
+$unformatted = true; // bool | 
+$xml_space_preserve = true; // bool | 
+$original_file = "original_file_example"; // string | 
+$localized_format_string = "localized_format_string_example"; // string | 
+$localized_format_key = "localized_format_key_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdKeysPost($project_id);
+    $result = $api_instance->projectsProjectIdKeysPost($name, $project_id, $description, $plural, $name_plural, $data_type, $tags, $max_characters_allowed, $screenshot, $remove_screenshot, $unformatted, $xml_space_preserve, $original_file, $localized_format_string, $localized_format_key);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysPost: ', $e->getMessage(), PHP_EOL;
@@ -2992,7 +3144,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **description** | **string**|  | [optional]
+ **plural** | **bool**|  | [optional]
+ **name_plural** | **string**|  | [optional]
+ **data_type** | **string**|  | [optional]
+ **tags** | **string**|  | [optional]
+ **max_characters_allowed** | **int**|  | [optional]
+ **screenshot** | **string**|  | [optional]
+ **remove_screenshot** | **bool**|  | [optional]
+ **unformatted** | **bool**|  | [optional]
+ **xml_space_preserve** | **bool**|  | [optional]
+ **original_file** | **string**|  | [optional]
+ **localized_format_string** | **string**|  | [optional]
+ **localized_format_key** | **string**|  | [optional]
 
 ### Return type
 
@@ -3010,7 +3176,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysSearchPost**
-> \Swagger\Client\Model\TranslationKey[] projectsProjectIdKeysSearchPost($project_id, $per_page, $page)
+> \Swagger\Client\Model\TranslationKey[] projectsProjectIdKeysSearchPost($project_id, $sort, $order, $q, $locale_id, $per_page, $page)
 
 
 
@@ -3028,11 +3194,15 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
+$q = "q_example"; // string | 
+$locale_id = "locale_id_example"; // string | 
 $per_page = 25; // int | Per Page
 $page = 1; // int | Page
 
 try {
-    $result = $api_instance->projectsProjectIdKeysSearchPost($project_id, $per_page, $page);
+    $result = $api_instance->projectsProjectIdKeysSearchPost($project_id, $sort, $order, $q, $locale_id, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -3045,6 +3215,10 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
+ **q** | **string**|  | [optional]
+ **locale_id** | **string**|  | [optional]
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -3064,7 +3238,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysTagPatch**
-> \Swagger\Client\Model\AffectedResources projectsProjectIdKeysTagPatch($project_id)
+> \Swagger\Client\Model\AffectedResources projectsProjectIdKeysTagPatch($tags, $project_id, $q, $locale_id)
 
 
 
@@ -3081,10 +3255,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$tags = "tags_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$locale_id = "locale_id_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdKeysTagPatch($project_id);
+    $result = $api_instance->projectsProjectIdKeysTagPatch($tags, $project_id, $q, $locale_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysTagPatch: ', $e->getMessage(), PHP_EOL;
@@ -3096,7 +3273,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tags** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **locale_id** | **string**|  | [optional]
 
 ### Return type
 
@@ -3114,7 +3294,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdKeysUntagPatch**
-> \Swagger\Client\Model\AffectedResources projectsProjectIdKeysUntagPatch($project_id)
+> \Swagger\Client\Model\AffectedResources projectsProjectIdKeysUntagPatch($tags, $project_id, $q, $locale_id)
 
 
 
@@ -3131,10 +3311,13 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$tags = "tags_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$locale_id = "locale_id_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdKeysUntagPatch($project_id);
+    $result = $api_instance->projectsProjectIdKeysUntagPatch($tags, $project_id, $q, $locale_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdKeysUntagPatch: ', $e->getMessage(), PHP_EOL;
@@ -3146,7 +3329,10 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **tags** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **locale_id** | **string**|  | [optional]
 
 ### Return type
 
@@ -3269,7 +3455,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdLocalesIdDownloadGet**
-> projectsProjectIdLocalesIdDownloadGet($project_id, $id)
+> projectsProjectIdLocalesIdDownloadGet($file_format, $project_id, $id, $tag, $include_empty_translations, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $fallback_locale_id)
 
 
 
@@ -3286,11 +3472,20 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$file_format = "file_format_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
+$tag = "tag_example"; // string | 
+$include_empty_translations = true; // bool | 
+$keep_notranslate_tags = true; // bool | 
+$convert_emoji = true; // bool | 
+$format_options = "format_options_example"; // string | 
+$encoding = "encoding_example"; // string | 
+$skip_unverified_translations = true; // bool | 
+$fallback_locale_id = "fallback_locale_id_example"; // string | 
 
 try {
-    $api_instance->projectsProjectIdLocalesIdDownloadGet($project_id, $id);
+    $api_instance->projectsProjectIdLocalesIdDownloadGet($file_format, $project_id, $id, $tag, $include_empty_translations, $keep_notranslate_tags, $convert_emoji, $format_options, $encoding, $skip_unverified_translations, $fallback_locale_id);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdLocalesIdDownloadGet: ', $e->getMessage(), PHP_EOL;
 }
@@ -3301,8 +3496,17 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **file_format** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
+ **tag** | **string**|  | [optional]
+ **include_empty_translations** | **bool**|  | [optional]
+ **keep_notranslate_tags** | **bool**|  | [optional]
+ **convert_emoji** | **bool**|  | [optional]
+ **format_options** | **string**|  | [optional]
+ **encoding** | **string**|  | [optional]
+ **skip_unverified_translations** | **bool**|  | [optional]
+ **fallback_locale_id** | **string**|  | [optional]
 
 ### Return type
 
@@ -3372,7 +3576,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdLocalesIdPatch**
-> \Swagger\Client\Model\LocaleDetails projectsProjectIdLocalesIdPatch($project_id, $id)
+> \Swagger\Client\Model\LocaleDetails projectsProjectIdLocalesIdPatch($name, $code, $project_id, $id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations)
 
 
 
@@ -3389,11 +3593,19 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
+$code = "code_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
+$default = true; // bool | 
+$main = true; // bool | 
+$rtl = true; // bool | 
+$source_locale_id = "source_locale_id_example"; // string | 
+$unverify_new_translations = true; // bool | 
+$unverify_updated_translations = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdLocalesIdPatch($project_id, $id);
+    $result = $api_instance->projectsProjectIdLocalesIdPatch($name, $code, $project_id, $id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdLocalesIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -3405,8 +3617,16 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
+ **code** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
+ **default** | **bool**|  | [optional]
+ **main** | **bool**|  | [optional]
+ **rtl** | **bool**|  | [optional]
+ **source_locale_id** | **string**|  | [optional]
+ **unverify_new_translations** | **bool**|  | [optional]
+ **unverify_updated_translations** | **bool**|  | [optional]
 
 ### Return type
 
@@ -3424,7 +3644,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdLocalesLocaleIdTranslationsGet**
-> \Swagger\Client\Model\Translation projectsProjectIdLocalesLocaleIdTranslationsGet($project_id, $locale_id, $per_page, $page)
+> \Swagger\Client\Model\Translation projectsProjectIdLocalesLocaleIdTranslationsGet($project_id, $locale_id, $sort, $order, $q, $per_page, $page)
 
 
 
@@ -3443,11 +3663,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
 $locale_id = "locale_id_example"; // string | LocaleId
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
+$q = "q_example"; // string | 
 $per_page = 25; // int | Per Page
 $page = 1; // int | Page
 
 try {
-    $result = $api_instance->projectsProjectIdLocalesLocaleIdTranslationsGet($project_id, $locale_id, $per_page, $page);
+    $result = $api_instance->projectsProjectIdLocalesLocaleIdTranslationsGet($project_id, $locale_id, $sort, $order, $q, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdLocalesLocaleIdTranslationsGet: ', $e->getMessage(), PHP_EOL;
@@ -3461,6 +3684,9 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
  **locale_id** | **string**| LocaleId |
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
+ **q** | **string**|  | [optional]
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -3480,7 +3706,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdLocalesPost**
-> \Swagger\Client\Model\LocaleDetails projectsProjectIdLocalesPost($project_id)
+> \Swagger\Client\Model\LocaleDetails projectsProjectIdLocalesPost($name, $code, $project_id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations)
 
 
 
@@ -3497,10 +3723,18 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
+$code = "code_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$default = true; // bool | 
+$main = true; // bool | 
+$rtl = true; // bool | 
+$source_locale_id = "source_locale_id_example"; // string | 
+$unverify_new_translations = true; // bool | 
+$unverify_updated_translations = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdLocalesPost($project_id);
+    $result = $api_instance->projectsProjectIdLocalesPost($name, $code, $project_id, $default, $main, $rtl, $source_locale_id, $unverify_new_translations, $unverify_updated_translations);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdLocalesPost: ', $e->getMessage(), PHP_EOL;
@@ -3512,7 +3746,15 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
+ **code** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **default** | **bool**|  | [optional]
+ **main** | **bool**|  | [optional]
+ **rtl** | **bool**|  | [optional]
+ **source_locale_id** | **string**|  | [optional]
+ **unverify_new_translations** | **bool**|  | [optional]
+ **unverify_updated_translations** | **bool**|  | [optional]
 
 ### Return type
 
@@ -3739,7 +3981,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdOrdersPost**
-> \Swagger\Client\Model\TranslationOrder projectsProjectIdOrdersPost($project_id)
+> \Swagger\Client\Model\TranslationOrder projectsProjectIdOrdersPost($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag, $message, $styleguide_id, $unverify_translations_upon_delivery, $include_untranslated_keys, $include_unverified_translations, $quality, $priority)
 
 
 
@@ -3756,10 +3998,23 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$lsp = "lsp_example"; // string | 
+$source_locale_id = "source_locale_id_example"; // string | 
+$target_locale_ids = "target_locale_ids_example"; // string | 
+$translation_type = "translation_type_example"; // string | 
+$category = "category_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$tag = "tag_example"; // string | 
+$message = "message_example"; // string | 
+$styleguide_id = "styleguide_id_example"; // string | 
+$unverify_translations_upon_delivery = true; // bool | 
+$include_untranslated_keys = true; // bool | 
+$include_unverified_translations = true; // bool | 
+$quality = true; // bool | 
+$priority = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdOrdersPost($project_id);
+    $result = $api_instance->projectsProjectIdOrdersPost($lsp, $source_locale_id, $target_locale_ids, $translation_type, $category, $project_id, $tag, $message, $styleguide_id, $unverify_translations_upon_delivery, $include_untranslated_keys, $include_unverified_translations, $quality, $priority);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdOrdersPost: ', $e->getMessage(), PHP_EOL;
@@ -3771,7 +4026,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **lsp** | **string**|  |
+ **source_locale_id** | **string**|  |
+ **target_locale_ids** | **string**|  |
+ **translation_type** | **string**|  |
+ **category** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **tag** | **string**|  | [optional]
+ **message** | **string**|  | [optional]
+ **styleguide_id** | **string**|  | [optional]
+ **unverify_translations_upon_delivery** | **bool**|  | [optional]
+ **include_untranslated_keys** | **bool**|  | [optional]
+ **include_unverified_translations** | **bool**|  | [optional]
+ **quality** | **bool**|  | [optional]
+ **priority** | **bool**|  | [optional]
 
 ### Return type
 
@@ -3946,7 +4214,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdStyleguidesIdPatch**
-> \Swagger\Client\Model\StyleguideDetails projectsProjectIdStyleguidesIdPatch($project_id, $id)
+> \Swagger\Client\Model\StyleguideDetails projectsProjectIdStyleguidesIdPatch($title, $project_id, $id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples)
 
 
 
@@ -3963,11 +4231,24 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$title = "title_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
+$audience = "audience_example"; // string | 
+$target_audience = "target_audience_example"; // string | 
+$grammatical_person = "grammatical_person_example"; // string | 
+$vocabulary_type = "vocabulary_type_example"; // string | 
+$business = "business_example"; // string | 
+$company_branding = "company_branding_example"; // string | 
+$formatting = "formatting_example"; // string | 
+$glossary_terms = "glossary_terms_example"; // string | 
+$grammar_consistency = "grammar_consistency_example"; // string | 
+$literal_translation = "literal_translation_example"; // string | 
+$overall_tone = "overall_tone_example"; // string | 
+$samples = "samples_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdStyleguidesIdPatch($project_id, $id);
+    $result = $api_instance->projectsProjectIdStyleguidesIdPatch($title, $project_id, $id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdStyleguidesIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -3979,8 +4260,21 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **title** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
+ **audience** | **string**|  | [optional]
+ **target_audience** | **string**|  | [optional]
+ **grammatical_person** | **string**|  | [optional]
+ **vocabulary_type** | **string**|  | [optional]
+ **business** | **string**|  | [optional]
+ **company_branding** | **string**|  | [optional]
+ **formatting** | **string**|  | [optional]
+ **glossary_terms** | **string**|  | [optional]
+ **grammar_consistency** | **string**|  | [optional]
+ **literal_translation** | **string**|  | [optional]
+ **overall_tone** | **string**|  | [optional]
+ **samples** | **string**|  | [optional]
 
 ### Return type
 
@@ -3998,7 +4292,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdStyleguidesPost**
-> \Swagger\Client\Model\StyleguideDetails projectsProjectIdStyleguidesPost($project_id)
+> \Swagger\Client\Model\StyleguideDetails projectsProjectIdStyleguidesPost($title, $project_id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples)
 
 
 
@@ -4015,10 +4309,23 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$title = "title_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$audience = "audience_example"; // string | 
+$target_audience = "target_audience_example"; // string | 
+$grammatical_person = "grammatical_person_example"; // string | 
+$vocabulary_type = "vocabulary_type_example"; // string | 
+$business = "business_example"; // string | 
+$company_branding = "company_branding_example"; // string | 
+$formatting = "formatting_example"; // string | 
+$glossary_terms = "glossary_terms_example"; // string | 
+$grammar_consistency = "grammar_consistency_example"; // string | 
+$literal_translation = "literal_translation_example"; // string | 
+$overall_tone = "overall_tone_example"; // string | 
+$samples = "samples_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdStyleguidesPost($project_id);
+    $result = $api_instance->projectsProjectIdStyleguidesPost($title, $project_id, $audience, $target_audience, $grammatical_person, $vocabulary_type, $business, $company_branding, $formatting, $glossary_terms, $grammar_consistency, $literal_translation, $overall_tone, $samples);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdStyleguidesPost: ', $e->getMessage(), PHP_EOL;
@@ -4030,7 +4337,20 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **title** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **audience** | **string**|  | [optional]
+ **target_audience** | **string**|  | [optional]
+ **grammatical_person** | **string**|  | [optional]
+ **vocabulary_type** | **string**|  | [optional]
+ **business** | **string**|  | [optional]
+ **company_branding** | **string**|  | [optional]
+ **formatting** | **string**|  | [optional]
+ **glossary_terms** | **string**|  | [optional]
+ **grammar_consistency** | **string**|  | [optional]
+ **literal_translation** | **string**|  | [optional]
+ **overall_tone** | **string**|  | [optional]
+ **samples** | **string**|  | [optional]
 
 ### Return type
 
@@ -4205,7 +4525,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTagsPost**
-> \Swagger\Client\Model\TagWithStats projectsProjectIdTagsPost($project_id)
+> \Swagger\Client\Model\TagWithStats projectsProjectIdTagsPost($name, $project_id)
 
 
 
@@ -4222,10 +4542,11 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$name = "name_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 
 try {
-    $result = $api_instance->projectsProjectIdTagsPost($project_id);
+    $result = $api_instance->projectsProjectIdTagsPost($name, $project_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTagsPost: ', $e->getMessage(), PHP_EOL;
@@ -4237,6 +4558,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **name** | **string**|  |
  **project_id** | **string**| ProjectId |
 
 ### Return type
@@ -4255,7 +4577,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsExcludePatch**
-> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsExcludePatch($project_id)
+> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsExcludePatch($project_id, $q, $sort, $order)
 
 
 
@@ -4273,9 +4595,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsExcludePatch($project_id);
+    $result = $api_instance->projectsProjectIdTranslationsExcludePatch($project_id, $q, $sort, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsExcludePatch: ', $e->getMessage(), PHP_EOL;
@@ -4288,6 +4613,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
 
 ### Return type
 
@@ -4305,7 +4633,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsGet**
-> \Swagger\Client\Model\Translation[] projectsProjectIdTranslationsGet($project_id, $per_page, $page)
+> \Swagger\Client\Model\Translation[] projectsProjectIdTranslationsGet($project_id, $sort, $order, $q, $per_page, $page)
 
 
 
@@ -4323,11 +4651,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
+$q = "q_example"; // string | 
 $per_page = 25; // int | Per Page
 $page = 1; // int | Page
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsGet($project_id, $per_page, $page);
+    $result = $api_instance->projectsProjectIdTranslationsGet($project_id, $sort, $order, $q, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsGet: ', $e->getMessage(), PHP_EOL;
@@ -4340,6 +4671,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
+ **q** | **string**|  | [optional]
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -4411,7 +4745,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsIdPatch**
-> \Swagger\Client\Model\TranslationDetails projectsProjectIdTranslationsIdPatch($project_id, $id)
+> \Swagger\Client\Model\TranslationDetails projectsProjectIdTranslationsIdPatch($content, $project_id, $id, $plural_suffix, $unverified, $excluded)
 
 
 
@@ -4428,11 +4762,15 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$content = "content_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
+$plural_suffix = "plural_suffix_example"; // string | 
+$unverified = true; // bool | 
+$excluded = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsIdPatch($project_id, $id);
+    $result = $api_instance->projectsProjectIdTranslationsIdPatch($content, $project_id, $id, $plural_suffix, $unverified, $excluded);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -4444,8 +4782,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **content** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
+ **plural_suffix** | **string**|  | [optional]
+ **unverified** | **bool**|  | [optional]
+ **excluded** | **bool**|  | [optional]
 
 ### Return type
 
@@ -4463,7 +4805,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsIncludePatch**
-> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsIncludePatch($project_id)
+> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsIncludePatch($project_id, $q, $sort, $order)
 
 
 
@@ -4481,9 +4823,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsIncludePatch($project_id);
+    $result = $api_instance->projectsProjectIdTranslationsIncludePatch($project_id, $q, $sort, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsIncludePatch: ', $e->getMessage(), PHP_EOL;
@@ -4496,6 +4841,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
 
 ### Return type
 
@@ -4513,7 +4861,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsPost**
-> \Swagger\Client\Model\TranslationDetails projectsProjectIdTranslationsPost($project_id)
+> \Swagger\Client\Model\TranslationDetails projectsProjectIdTranslationsPost($locale_id, $key_id, $content, $project_id, $plural_suffix, $unverified, $excluded)
 
 
 
@@ -4530,10 +4878,16 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$locale_id = "locale_id_example"; // string | 
+$key_id = "key_id_example"; // string | 
+$content = "content_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$plural_suffix = "plural_suffix_example"; // string | 
+$unverified = true; // bool | 
+$excluded = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsPost($project_id);
+    $result = $api_instance->projectsProjectIdTranslationsPost($locale_id, $key_id, $content, $project_id, $plural_suffix, $unverified, $excluded);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsPost: ', $e->getMessage(), PHP_EOL;
@@ -4545,7 +4899,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **locale_id** | **string**|  |
+ **key_id** | **string**|  |
+ **content** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **plural_suffix** | **string**|  | [optional]
+ **unverified** | **bool**|  | [optional]
+ **excluded** | **bool**|  | [optional]
 
 ### Return type
 
@@ -4563,7 +4923,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsSearchPost**
-> \Swagger\Client\Model\Translation[] projectsProjectIdTranslationsSearchPost($project_id, $per_page, $page)
+> \Swagger\Client\Model\Translation[] projectsProjectIdTranslationsSearchPost($project_id, $sort, $order, $q, $per_page, $page)
 
 
 
@@ -4581,11 +4941,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
+$q = "q_example"; // string | 
 $per_page = 25; // int | Per Page
 $page = 1; // int | Page
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsSearchPost($project_id, $per_page, $page);
+    $result = $api_instance->projectsProjectIdTranslationsSearchPost($project_id, $sort, $order, $q, $per_page, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsSearchPost: ', $e->getMessage(), PHP_EOL;
@@ -4598,6 +4961,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
+ **q** | **string**|  | [optional]
  **per_page** | **int**| Per Page | [optional] [default to 25]
  **page** | **int**| Page | [optional] [default to 1]
 
@@ -4727,7 +5093,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsUnverifyPatch**
-> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsUnverifyPatch($project_id)
+> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsUnverifyPatch($project_id, $q, $sort, $order)
 
 
 
@@ -4745,9 +5111,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsUnverifyPatch($project_id);
+    $result = $api_instance->projectsProjectIdTranslationsUnverifyPatch($project_id, $q, $sort, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsUnverifyPatch: ', $e->getMessage(), PHP_EOL;
@@ -4760,6 +5129,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
 
 ### Return type
 
@@ -4777,7 +5149,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdTranslationsVerifyPatch**
-> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsVerifyPatch($project_id)
+> \Swagger\Client\Model\AffectedCount projectsProjectIdTranslationsVerifyPatch($project_id, $q, $sort, $order)
 
 
 
@@ -4795,9 +5167,12 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
 $project_id = "project_id_example"; // string | ProjectId
+$q = "q_example"; // string | 
+$sort = "sort_example"; // string | 
+$order = "order_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdTranslationsVerifyPatch($project_id);
+    $result = $api_instance->projectsProjectIdTranslationsVerifyPatch($project_id, $q, $sort, $order);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdTranslationsVerifyPatch: ', $e->getMessage(), PHP_EOL;
@@ -4810,6 +5185,9 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **project_id** | **string**| ProjectId |
+ **q** | **string**|  | [optional]
+ **sort** | **string**|  | [optional]
+ **order** | **string**|  | [optional]
 
 ### Return type
 
@@ -4933,7 +5311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdUploadsPost**
-> \Swagger\Client\Model\Upload projectsProjectIdUploadsPost($project_id)
+> \Swagger\Client\Model\Upload projectsProjectIdUploadsPost($file, $project_id, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $format_options)
 
 
 
@@ -4950,10 +5328,21 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$file = "file_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$file_format = "file_format_example"; // string | 
+$locale_id = "locale_id_example"; // string | 
+$tags = "tags_example"; // string | 
+$update_translations = true; // bool | 
+$update_descriptions = true; // bool | 
+$convert_emoji = true; // bool | 
+$skip_upload_tags = true; // bool | 
+$skip_unverification = true; // bool | 
+$file_encoding = "file_encoding_example"; // string | 
+$format_options = "format_options_example"; // string | 
 
 try {
-    $result = $api_instance->projectsProjectIdUploadsPost($project_id);
+    $result = $api_instance->projectsProjectIdUploadsPost($file, $project_id, $file_format, $locale_id, $tags, $update_translations, $update_descriptions, $convert_emoji, $skip_upload_tags, $skip_unverification, $file_encoding, $format_options);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdUploadsPost: ', $e->getMessage(), PHP_EOL;
@@ -4965,7 +5354,18 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **file** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **file_format** | **string**|  | [optional]
+ **locale_id** | **string**|  | [optional]
+ **tags** | **string**|  | [optional]
+ **update_translations** | **bool**|  | [optional]
+ **update_descriptions** | **bool**|  | [optional]
+ **convert_emoji** | **bool**|  | [optional]
+ **skip_upload_tags** | **bool**|  | [optional]
+ **skip_unverification** | **bool**|  | [optional]
+ **file_encoding** | **string**|  | [optional]
+ **format_options** | **string**|  | [optional]
 
 ### Return type
 
@@ -5140,7 +5540,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdWebhooksIdPatch**
-> \Swagger\Client\Model\Webhook projectsProjectIdWebhooksIdPatch($project_id, $id)
+> \Swagger\Client\Model\Webhook projectsProjectIdWebhooksIdPatch($callback_url, $events, $project_id, $id, $description, $active)
 
 
 
@@ -5157,11 +5557,15 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$callback_url = "callback_url_example"; // string | 
+$events = "events_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
 $id = "id_example"; // string | Id
+$description = "description_example"; // string | 
+$active = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdWebhooksIdPatch($project_id, $id);
+    $result = $api_instance->projectsProjectIdWebhooksIdPatch($callback_url, $events, $project_id, $id, $description, $active);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdWebhooksIdPatch: ', $e->getMessage(), PHP_EOL;
@@ -5173,8 +5577,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **callback_url** | **string**|  |
+ **events** | **string**|  |
  **project_id** | **string**| ProjectId |
  **id** | **string**| Id |
+ **description** | **string**|  | [optional]
+ **active** | **bool**|  | [optional]
 
 ### Return type
 
@@ -5243,7 +5651,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **projectsProjectIdWebhooksPost**
-> \Swagger\Client\Model\Webhook projectsProjectIdWebhooksPost($project_id)
+> \Swagger\Client\Model\Webhook projectsProjectIdWebhooksPost($callback_url, $events, $project_id, $description, $active)
 
 
 
@@ -5260,10 +5668,14 @@ Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('Authorizatio
 // Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('Authorization', 'Bearer');
 
 $api_instance = new Swagger\Client\Api\DefaultApi(new \Http\Adapter\Guzzle6\Client());
+$callback_url = "callback_url_example"; // string | 
+$events = "events_example"; // string | 
 $project_id = "project_id_example"; // string | ProjectId
+$description = "description_example"; // string | 
+$active = true; // bool | 
 
 try {
-    $result = $api_instance->projectsProjectIdWebhooksPost($project_id);
+    $result = $api_instance->projectsProjectIdWebhooksPost($callback_url, $events, $project_id, $description, $active);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DefaultApi->projectsProjectIdWebhooksPost: ', $e->getMessage(), PHP_EOL;
@@ -5275,7 +5687,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **callback_url** | **string**|  |
+ **events** | **string**|  |
  **project_id** | **string**| ProjectId |
+ **description** | **string**|  | [optional]
+ **active** | **bool**|  | [optional]
 
 ### Return type
 

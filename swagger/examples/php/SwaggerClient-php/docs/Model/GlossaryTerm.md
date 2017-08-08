@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **description** | **string** |  | [optional] 
 **translatable** | **bool** |  | [optional] 
 **case_sensitive** | **bool** |  | [optional] 
-**translations** | [**\Swagger\Client\Model\GlossaryTermTranslation[]**](GlossaryTermTranslation.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 

@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **default** | **bool** |  | [optional] 
 **main** | **bool** |  | [optional] 
 **rtl** | **bool** |  | [optional] 
-**plural_forms** | **list[str]** |  | [optional] 
 **source_locale** | [**LocalePreview**](LocalePreview.md) |  | [optional] 
 **created_at** | **datetime** |  | [optional] 
 **updated_at** | **datetime** |  | [optional] 

@@ -58,7 +58,6 @@ class Authorization implements ArrayAccess
         'note' => 'string',
         'token_last_eight' => 'string',
         'hashed_token' => 'string',
-        'scopes' => 'string[]',
         'expires_at' => '\DateTime',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime'
@@ -73,7 +72,6 @@ class Authorization implements ArrayAccess
         'note' => null,
         'token_last_eight' => null,
         'hashed_token' => null,
-        'scopes' => null,
         'expires_at' => 'date-time',
         'created_at' => 'date-time',
         'updated_at' => 'date-time'
@@ -98,7 +96,6 @@ class Authorization implements ArrayAccess
         'note' => 'note',
         'token_last_eight' => 'token_last_eight',
         'hashed_token' => 'hashed_token',
-        'scopes' => 'scopes',
         'expires_at' => 'expires_at',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at'
@@ -114,7 +111,6 @@ class Authorization implements ArrayAccess
         'note' => 'setNote',
         'token_last_eight' => 'setTokenLastEight',
         'hashed_token' => 'setHashedToken',
-        'scopes' => 'setScopes',
         'expires_at' => 'setExpiresAt',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt'
@@ -130,7 +126,6 @@ class Authorization implements ArrayAccess
         'note' => 'getNote',
         'token_last_eight' => 'getTokenLastEight',
         'hashed_token' => 'getHashedToken',
-        'scopes' => 'getScopes',
         'expires_at' => 'getExpiresAt',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt'
@@ -171,7 +166,6 @@ class Authorization implements ArrayAccess
         $this->container['note'] = isset($data['note']) ? $data['note'] : null;
         $this->container['token_last_eight'] = isset($data['token_last_eight']) ? $data['token_last_eight'] : null;
         $this->container['hashed_token'] = isset($data['hashed_token']) ? $data['hashed_token'] : null;
-        $this->container['scopes'] = isset($data['scopes']) ? $data['scopes'] : null;
         $this->container['expires_at'] = isset($data['expires_at']) ? $data['expires_at'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
@@ -282,27 +276,6 @@ class Authorization implements ArrayAccess
     public function setHashedToken($hashed_token)
     {
         $this->container['hashed_token'] = $hashed_token;
-
-        return $this;
-    }
-
-    /**
-     * Gets scopes
-     * @return string[]
-     */
-    public function getScopes()
-    {
-        return $this->container['scopes'];
-    }
-
-    /**
-     * Sets scopes
-     * @param string[] $scopes
-     * @return $this
-     */
-    public function setScopes($scopes)
-    {
-        $this->container['scopes'] = $scopes;
 
         return $this;
     }

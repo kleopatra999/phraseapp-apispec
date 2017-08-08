@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **translation_type** | **string** |  | [optional] 
 **progress_percent** | **int** |  | [optional] 
 **source_locale** | [**\Swagger\Client\Model\LocalePreview**](LocalePreview.md) |  | [optional] 
-**target_locales** | [**\Swagger\Client\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **tag** | **string** |  | [optional] 
 **styleguide** | [**\Swagger\Client\Model\StyleguidePreview**](StyleguidePreview.md) |  | [optional] 
 **unverify_translations_upon_delivery** | **bool** |  | [optional] 

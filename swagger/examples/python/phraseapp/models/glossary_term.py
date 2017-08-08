@@ -36,7 +36,6 @@ class GlossaryTerm(object):
         'description': 'str',
         'translatable': 'bool',
         'case_sensitive': 'bool',
-        'translations': 'list[GlossaryTermTranslation]',
         'created_at': 'datetime',
         'updated_at': 'datetime'
     }
@@ -47,12 +46,11 @@ class GlossaryTerm(object):
         'description': 'description',
         'translatable': 'translatable',
         'case_sensitive': 'case_sensitive',
-        'translations': 'translations',
         'created_at': 'created_at',
         'updated_at': 'updated_at'
     }
 
-    def __init__(self, id=None, term=None, description=None, translatable=None, case_sensitive=None, translations=None, created_at=None, updated_at=None):
+    def __init__(self, id=None, term=None, description=None, translatable=None, case_sensitive=None, created_at=None, updated_at=None):
         """
         GlossaryTerm - a model defined in Swagger
         """
@@ -62,7 +60,6 @@ class GlossaryTerm(object):
         self._description = None
         self._translatable = None
         self._case_sensitive = None
-        self._translations = None
         self._created_at = None
         self._updated_at = None
         self.discriminator = None
@@ -77,8 +74,6 @@ class GlossaryTerm(object):
           self.translatable = translatable
         if case_sensitive is not None:
           self.case_sensitive = case_sensitive
-        if translations is not None:
-          self.translations = translations
         if created_at is not None:
           self.created_at = created_at
         if updated_at is not None:
@@ -188,27 +183,6 @@ class GlossaryTerm(object):
         """
 
         self._case_sensitive = case_sensitive
-
-    @property
-    def translations(self):
-        """
-        Gets the translations of this GlossaryTerm.
-
-        :return: The translations of this GlossaryTerm.
-        :rtype: list[GlossaryTermTranslation]
-        """
-        return self._translations
-
-    @translations.setter
-    def translations(self, translations):
-        """
-        Sets the translations of this GlossaryTerm.
-
-        :param translations: The translations of this GlossaryTerm.
-        :type: list[GlossaryTermTranslation]
-        """
-
-        self._translations = translations
 
     @property
     def created_at(self):

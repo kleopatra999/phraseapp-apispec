@@ -58,8 +58,6 @@ class Invitation implements ArrayAccess
         'email' => 'string',
         'role' => 'string',
         'state' => 'string',
-        'projects' => '\Swagger\Client\Model\ProjectShort[]',
-        'locales' => '\Swagger\Client\Model\LocalePreview[]',
         'created_at' => '\DateTime',
         'updated_at' => '\DateTime',
         'accepted_at' => '\DateTime'
@@ -74,8 +72,6 @@ class Invitation implements ArrayAccess
         'email' => null,
         'role' => null,
         'state' => null,
-        'projects' => null,
-        'locales' => null,
         'created_at' => 'date-time',
         'updated_at' => 'date-time',
         'accepted_at' => 'date-time'
@@ -100,8 +96,6 @@ class Invitation implements ArrayAccess
         'email' => 'email',
         'role' => 'role',
         'state' => 'state',
-        'projects' => 'projects',
-        'locales' => 'locales',
         'created_at' => 'created_at',
         'updated_at' => 'updated_at',
         'accepted_at' => 'accepted_at'
@@ -117,8 +111,6 @@ class Invitation implements ArrayAccess
         'email' => 'setEmail',
         'role' => 'setRole',
         'state' => 'setState',
-        'projects' => 'setProjects',
-        'locales' => 'setLocales',
         'created_at' => 'setCreatedAt',
         'updated_at' => 'setUpdatedAt',
         'accepted_at' => 'setAcceptedAt'
@@ -134,8 +126,6 @@ class Invitation implements ArrayAccess
         'email' => 'getEmail',
         'role' => 'getRole',
         'state' => 'getState',
-        'projects' => 'getProjects',
-        'locales' => 'getLocales',
         'created_at' => 'getCreatedAt',
         'updated_at' => 'getUpdatedAt',
         'accepted_at' => 'getAcceptedAt'
@@ -176,8 +166,6 @@ class Invitation implements ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
         $this->container['state'] = isset($data['state']) ? $data['state'] : null;
-        $this->container['projects'] = isset($data['projects']) ? $data['projects'] : null;
-        $this->container['locales'] = isset($data['locales']) ? $data['locales'] : null;
         $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
         $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
         $this->container['accepted_at'] = isset($data['accepted_at']) ? $data['accepted_at'] : null;
@@ -288,48 +276,6 @@ class Invitation implements ArrayAccess
     public function setState($state)
     {
         $this->container['state'] = $state;
-
-        return $this;
-    }
-
-    /**
-     * Gets projects
-     * @return \Swagger\Client\Model\ProjectShort[]
-     */
-    public function getProjects()
-    {
-        return $this->container['projects'];
-    }
-
-    /**
-     * Sets projects
-     * @param \Swagger\Client\Model\ProjectShort[] $projects
-     * @return $this
-     */
-    public function setProjects($projects)
-    {
-        $this->container['projects'] = $projects;
-
-        return $this;
-    }
-
-    /**
-     * Gets locales
-     * @return \Swagger\Client\Model\LocalePreview[]
-     */
-    public function getLocales()
-    {
-        return $this->container['locales'];
-    }
-
-    /**
-     * Sets locales
-     * @param \Swagger\Client\Model\LocalePreview[] $locales
-     * @return $this
-     */
-    public function setLocales($locales)
-    {
-        $this->container['locales'] = $locales;
 
         return $this;
     }

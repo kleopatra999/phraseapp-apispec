@@ -34,19 +34,17 @@ class Member(object):
         'id': 'str',
         'email': 'str',
         'username': 'str',
-        'role': 'str',
-        'projects': 'list[ProjectLocale]'
+        'role': 'str'
     }
 
     attribute_map = {
         'id': 'id',
         'email': 'email',
         'username': 'username',
-        'role': 'role',
-        'projects': 'projects'
+        'role': 'role'
     }
 
-    def __init__(self, id=None, email=None, username=None, role=None, projects=None):
+    def __init__(self, id=None, email=None, username=None, role=None):
         """
         Member - a model defined in Swagger
         """
@@ -55,7 +53,6 @@ class Member(object):
         self._email = None
         self._username = None
         self._role = None
-        self._projects = None
         self.discriminator = None
 
         if id is not None:
@@ -66,8 +63,6 @@ class Member(object):
           self.username = username
         if role is not None:
           self.role = role
-        if projects is not None:
-          self.projects = projects
 
     @property
     def id(self):
@@ -152,27 +147,6 @@ class Member(object):
         """
 
         self._role = role
-
-    @property
-    def projects(self):
-        """
-        Gets the projects of this Member.
-
-        :return: The projects of this Member.
-        :rtype: list[ProjectLocale]
-        """
-        return self._projects
-
-    @projects.setter
-    def projects(self, projects):
-        """
-        Sets the projects of this Member.
-
-        :param projects: The projects of this Member.
-        :type: list[ProjectLocale]
-        """
-
-        self._projects = projects
 
     def to_dict(self):
         """

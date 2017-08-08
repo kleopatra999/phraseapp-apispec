@@ -146,7 +146,30 @@
           }
         },
         "parameters": [
-
+          {
+            "name": "note",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scopes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "expires_at",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          }
         ],
         "security": [
           {
@@ -202,6 +225,30 @@
           }
         },
         "parameters": [
+          {
+            "name": "note",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "scopes",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "expires_at",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "format": "date-time"
+          },
           {
             "name": "Id",
             "in": "path",
@@ -304,6 +351,12 @@
         },
         "parameters": [
           {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -358,6 +411,12 @@
           }
         },
         "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -467,6 +526,12 @@
         },
         "parameters": [
           {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -535,6 +600,12 @@
           }
         },
         "parameters": [
+          {
+            "name": "message",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -777,6 +848,18 @@
         },
         "parameters": [
           {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "AccountId",
             "in": "path",
             "description": "AccountId",
@@ -831,6 +914,18 @@
           }
         },
         "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "AccountId",
             "in": "path",
@@ -891,6 +986,18 @@
         },
         "parameters": [
           {
+            "name": "locale_code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "AccountId",
             "in": "path",
             "description": "AccountId",
@@ -929,6 +1036,18 @@
           }
         },
         "parameters": [
+          {
+            "name": "locale_code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "AccountId",
             "in": "path",
@@ -1066,6 +1185,30 @@
         },
         "parameters": [
           {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "translatable",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "case_sensitive",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "AccountId",
             "in": "path",
             "description": "AccountId",
@@ -1134,6 +1277,30 @@
           }
         },
         "parameters": [
+          {
+            "name": "term",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "translatable",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "case_sensitive",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
           {
             "name": "AccountId",
             "in": "path",
@@ -1250,6 +1417,30 @@
         },
         "parameters": [
           {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "AccountId",
             "in": "path",
             "description": "AccountId",
@@ -1304,6 +1495,24 @@
           }
         },
         "parameters": [
+          {
+            "name": "role",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "AccountId",
             "in": "path",
@@ -1399,6 +1608,30 @@
         },
         "parameters": [
           {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -1438,6 +1671,90 @@
         },
         "parameters": [
           {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "plural",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "name_plural",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "max_characters_allowed",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "screenshot",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/File"
+          },
+          {
+            "name": "remove_screenshot",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unformatted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "xml_space_preserve",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "original_file",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localized_format_string",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localized_format_key",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -1460,6 +1777,18 @@
           }
         },
         "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -1488,6 +1817,30 @@
           }
         },
         "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -1560,6 +1913,90 @@
         },
         "parameters": [
           {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "plural",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "name_plural",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "data_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "max_characters_allowed",
+            "in": "query",
+            "required": false,
+            "type": "integer"
+          },
+          {
+            "name": "screenshot",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/File"
+          },
+          {
+            "name": "remove_screenshot",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unformatted",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "xml_space_preserve",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "original_file",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localized_format_string",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "localized_format_key",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -1619,6 +2056,24 @@
         },
         "parameters": [
           {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -1643,6 +2098,24 @@
           }
         },
         "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -1711,6 +2184,54 @@
         },
         "parameters": [
           {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "default",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "main",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "rtl",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "source_locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "unverify_new_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unverify_updated_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -1765,6 +2286,54 @@
           }
         },
         "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "default",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "main",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "rtl",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "source_locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "unverify_new_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "unverify_updated_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -1821,6 +2390,60 @@
           }
         },
         "parameters": [
+          {
+            "name": "file_format",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "include_empty_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "keep_notranslate_tags",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "convert_emoji",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "format_options",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Hash"
+          },
+          {
+            "name": "encoding",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "skip_unverified_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "fallback_locale_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -1928,6 +2551,24 @@
         },
         "parameters": [
           {
+            "name": "role",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "project_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_ids",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "AccountId",
             "in": "path",
             "description": "AccountId",
@@ -2028,6 +2669,89 @@
           }
         },
         "parameters": [
+          {
+            "name": "lsp",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "source_locale_id",
+            "in": "query",
+            "required": true,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "target_locale_ids",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "translation_type",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "message",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "styleguide_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "unverify_translations_upon_delivery",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "include_untranslated_keys",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "include_unverified_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "quality",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "priority",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -2179,7 +2903,30 @@
           }
         },
         "parameters": [
-
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "main_format",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shares_translation_memory",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
         ]
       }
     },
@@ -2221,6 +2968,30 @@
           }
         },
         "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "main_format",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "shares_translation_memory",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "account_id",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "Id",
             "in": "path",
@@ -2309,6 +3080,84 @@
         },
         "parameters": [
           {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "audience",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "target_audience",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "grammatical_person",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "vocabulary_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "business",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "company_branding",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "formatting",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "glossary_terms",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "grammar_consistency",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "literal_translation",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "overall_tone",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "samples",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2363,6 +3212,84 @@
           }
         },
         "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "audience",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "target_audience",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "grammatical_person",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "vocabulary_type",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "business",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "company_branding",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "formatting",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "glossary_terms",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "grammar_consistency",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "literal_translation",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "overall_tone",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "samples",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -2465,6 +3392,12 @@
         },
         "parameters": [
           {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2552,6 +3485,24 @@
         },
         "parameters": [
           {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2591,6 +3542,42 @@
         },
         "parameters": [
           {
+            "name": "locale_id",
+            "in": "query",
+            "required": true,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "key_id",
+            "in": "query",
+            "required": true,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "content",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "plural_suffix",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "unverified",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "excluded",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2615,6 +3602,24 @@
           }
         },
         "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -2663,6 +3668,24 @@
           }
         },
         "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -2714,6 +3737,24 @@
           }
         },
         "parameters": [
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -2786,6 +3827,30 @@
         },
         "parameters": [
           {
+            "name": "content",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "plural_suffix",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "unverified",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "excluded",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2818,6 +3883,24 @@
         },
         "parameters": [
           {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2842,6 +3925,24 @@
           }
         },
         "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -2868,6 +3969,24 @@
         },
         "parameters": [
           {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2893,6 +4012,24 @@
         },
         "parameters": [
           {
+            "name": "q",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -2917,6 +4054,72 @@
           }
         },
         "parameters": [
+          {
+            "name": "file",
+            "in": "query",
+            "required": true,
+            "type": "#/definitions/File"
+          },
+          {
+            "name": "file_format",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "locale_id",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Id"
+          },
+          {
+            "name": "tags",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "update_translations",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "update_descriptions",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "convert_emoji",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "skip_upload_tags",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "skip_unverification",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "file_encoding",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "format_options",
+            "in": "query",
+            "required": false,
+            "type": "#/definitions/Hash"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -3168,6 +4371,30 @@
         },
         "parameters": [
           {
+            "name": "callback_url",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "events",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
+          {
             "name": "ProjectId",
             "in": "path",
             "description": "ProjectId",
@@ -3222,6 +4449,30 @@
           }
         },
         "parameters": [
+          {
+            "name": "callback_url",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "events",
+            "in": "query",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "required": false,
+            "type": "boolean"
+          },
           {
             "name": "ProjectId",
             "in": "path",
@@ -3313,9 +4564,11 @@
           "type": "string"
         },
         "scopes": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "expires_at": {
@@ -3441,9 +4694,11 @@
           "type": "string"
         },
         "projects": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ProjectLocale"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/ProjectLocale"
+            }
           }
         }
       }
@@ -3464,15 +4719,19 @@
           "type": "string"
         },
         "projects": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ProjectShort"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/ProjectShort"
+            }
           }
         },
         "locales": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LocalePreview"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/LocalePreview"
+            }
           }
         },
         "created_at": {
@@ -3499,9 +4758,11 @@
           "type": "string"
         },
         "projects": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ProjectShort"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/ProjectShort"
+            }
           }
         },
         "created_at": {
@@ -3533,9 +4794,11 @@
           "type": "boolean"
         },
         "translations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/GlossaryTermTranslation"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/GlossaryTermTranslation"
+            }
           }
         },
         "created_at": {
@@ -3596,9 +4859,11 @@
       "type": "object",
       "properties": {
         "locales": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LocalePreview"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/LocalePreview"
+            }
           }
         }
       }
@@ -3639,9 +4904,11 @@
           "type": "boolean"
         },
         "plural_forms": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "source_locale": {
@@ -3907,9 +5174,11 @@
           "$ref": "#/definitions/LocalePreview"
         },
         "placeholders": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "created_at": {
@@ -3952,9 +5221,11 @@
           "type": "boolean"
         },
         "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "data_type": {
@@ -4038,9 +5309,11 @@
           "$ref": "#/definitions/LocalePreview"
         },
         "target_locales": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/LocalePreview"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "#/definitions/LocalePreview"
+            }
           }
         },
         "tag": {
@@ -4163,9 +5436,11 @@
           "type": "string"
         },
         "events": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "schema": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "active": {

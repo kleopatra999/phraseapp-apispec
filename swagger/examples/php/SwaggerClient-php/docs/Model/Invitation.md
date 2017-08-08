@@ -7,8 +7,6 @@ Name | Type | Description | Notes
 **email** | **string** |  | [optional] 
 **role** | **string** |  | [optional] 
 **state** | **string** |  | [optional] 
-**projects** | [**\Swagger\Client\Model\ProjectShort[]**](ProjectShort.md) |  | [optional] 
-**locales** | [**\Swagger\Client\Model\LocalePreview[]**](LocalePreview.md) |  | [optional] 
 **created_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **updated_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
 **accepted_at** | [**\DateTime**](\DateTime.md) |  | [optional] 
