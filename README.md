@@ -1,5 +1,6 @@
 # PhraseApp API Spec
-<div style="font-weight:bold;color:red">DISCLAIMER: Highly experimental swagger mappings for the PhraseApp API. Use at your own risk. Feedback and patches always welcome!</div>
+
+___DISCLAIMER: Highly experimental swagger mappings for the PhraseApp API. Use at your own risk. Feedback and patches always welcome!___
 
 ## Swagger Examples
 
